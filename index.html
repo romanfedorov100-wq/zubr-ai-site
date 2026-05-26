@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V4 black neon + bison hero, based on full original file. -->
+<!-- ZUBR V6 hero bison fix, based on full original file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3029,6 +3029,192 @@ h1 {
   }
 }
 
+
+/* =========================================================
+   ZUBR V6 HERO FIX
+   Уходим от проблемы прозрачного PNG: зубр стоит в тёмной
+   неоновой зоне, поэтому белый/серый фон картинки больше
+   не ломает общий дизайн сайта.
+   ========================================================= */
+
+.hero-visual {
+  position: relative;
+  min-height: 530px !important;
+  overflow: visible;
+}
+
+.bison-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-bison-frame {
+  position: absolute;
+  left: 43%;
+  top: 18px;
+  width: 475px;
+  height: 500px;
+  transform: translateX(-50%);
+  border-radius: 36px;
+  overflow: hidden;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(0, 255, 136, 0.28), transparent 42%),
+    radial-gradient(circle at 52% 72%, rgba(0, 255, 136, 0.16), transparent 32%),
+    linear-gradient(180deg, rgba(1, 8, 5, 0.82), rgba(1, 5, 4, 0.94));
+  box-shadow:
+    0 0 70px rgba(0,255,136,0.14),
+    inset 0 0 60px rgba(0,255,136,0.07);
+  border: 1px solid rgba(140,255,193,0.08);
+}
+
+.hero-bison-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,255,136,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.035) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.hero-bison-frame::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 42%, rgba(1,5,4,0.46) 66%, rgba(1,5,4,0.98) 100%),
+    linear-gradient(90deg, rgba(1,5,4,0.92), transparent 18%, transparent 78%, rgba(1,5,4,0.92));
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-bison-image {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 520px !important;
+  max-width: none !important;
+  height: auto !important;
+  transform: translate(-50%, -49%) !important;
+  object-fit: contain;
+  z-index: 2 !important;
+  filter:
+    contrast(1.14)
+    saturate(1.14)
+    brightness(0.84)
+    drop-shadow(0 0 22px rgba(0,255,136,0.30))
+    drop-shadow(0 0 55px rgba(0,255,136,0.18)) !important;
+  mix-blend-mode: darken;
+}
+
+/* darken blend убирает белую подложку на тёмном фоне, но сохраняет тёмного зубра */
+.hero-bison-frame .hero-bison-image {
+  mix-blend-mode: darken;
+}
+
+.bison-ring {
+  position: absolute !important;
+  width: 520px !important;
+  height: 160px !important;
+  left: 43% !important;
+  bottom: 30px !important;
+  transform: translateX(-50%) perspective(520px) rotateX(64deg) !important;
+  border-radius: 50%;
+  border: 1px solid rgba(140, 255, 193, 0.28) !important;
+  box-shadow:
+    0 0 26px rgba(0,255,136,0.18),
+    inset 0 0 26px rgba(0,255,136,0.08) !important;
+  z-index: 1 !important;
+}
+
+.phone-card {
+  right: 18px !important;
+  top: 12px !important;
+  width: 335px !important;
+  max-width: 46% !important;
+  z-index: 5 !important;
+  transform: rotate(7deg) !important;
+}
+
+/* Фон hero ещё темнее, чтобы блок с зубром сливался с сайтом */
+.hero-grid {
+  background:
+    radial-gradient(circle at 62% 42%, rgba(0,255,136,0.13), transparent 32%),
+    radial-gradient(circle at 86% 20%, rgba(0,255,210,0.045), transparent 24%),
+    linear-gradient(90deg, rgba(0,0,0,0.86), rgba(2,8,6,0.76) 44%, rgba(0,0,0,0.88)),
+    #020504 !important;
+}
+
+/* Убираем старый CSS-зубр окончательно */
+.bison-glow,
+.bison-art,
+.bison-body,
+.bison-head,
+.horn,
+.eye,
+.leg {
+  display: none !important;
+}
+
+@media (max-width: 1180px) {
+  .hero-bison-frame {
+    left: 50%;
+    width: 420px;
+    height: 450px;
+  }
+
+  .hero-bison-image {
+    width: 470px !important;
+  }
+
+  .bison-ring {
+    left: 50% !important;
+    width: 420px !important;
+  }
+
+  .phone-card {
+    right: 50% !important;
+    transform: translateX(50%) rotate(5deg) !important;
+    width: 320px !important;
+    max-width: 320px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-visual {
+    min-height: 420px !important;
+  }
+
+  .hero-bison-frame {
+    left: 50%;
+    top: 28px;
+    width: 320px;
+    height: 360px;
+    border-radius: 28px;
+  }
+
+  .hero-bison-image {
+    width: 380px !important;
+  }
+
+  .bison-ring {
+    left: 50% !important;
+    width: 320px !important;
+    height: 110px !important;
+    bottom: 34px !important;
+  }
+
+  .phone-card {
+    width: 250px !important;
+    max-width: 250px !important;
+    top: 20px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -3110,11 +3296,13 @@ h1 {
 
           <div class="hero-visual">
             <div class="bison-stage" aria-hidden="true">
-              <img
-                src="images/zubr-bison-neon.png"
-                alt="ZUBR Bison"
-                class="hero-bison-image"
-              />
+              <div class="hero-bison-frame">
+                <img
+                  src="images/zubr-bison-neon.png"
+                  alt="ZUBR Bison"
+                  class="hero-bison-image"
+                />
+              </div>
               <div class="bison-ring"></div>
             </div>
 
