@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V3 black neon design, based on full original file. -->
+<!-- ZUBR V4 black neon + bison hero, based on full original file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -2284,37 +2284,37 @@
     }
   
 /* =========================================================
-   ZUBR V3 BLACK NEON DESIGN OVERRIDE
-   Сделано на базе полного рабочего файла.
-   Цель: ближе к референсу — больше чёрного, меньше зелёной заливки,
-   ничего из старого HTML/JS не удаляем.
+   ZUBR V4 — closer to the reference
+   Основа: полный рабочий файл. Ничего не удалено.
+   Улучшения: более чёрный premium фон, аккуратнее hero,
+   добавлен неоновый зубр, ближе к референсу.
    ========================================================= */
 
 :root {
-  --v3-black: #020504;
-  --v3-black-2: #060a08;
-  --v3-panel: rgba(5, 13, 10, 0.82);
-  --v3-panel-2: rgba(8, 20, 15, 0.72);
-  --v3-line: rgba(113, 255, 184, 0.16);
-  --v3-line-strong: rgba(113, 255, 184, 0.38);
-  --v3-green: #00ff88;
-  --v3-green-2: #8cffc1;
-  --v3-text: #f5fff9;
-  --v3-muted: rgba(245, 255, 249, 0.64);
-  --v3-muted-2: rgba(245, 255, 249, 0.42);
+  --v4-black: #020504;
+  --v4-black-2: #060a08;
+  --v4-panel: rgba(4, 10, 8, 0.82);
+  --v4-panel-2: rgba(7, 18, 13, 0.72);
+  --v4-line: rgba(118, 255, 186, 0.15);
+  --v4-line-strong: rgba(118, 255, 186, 0.40);
+  --v4-green: #00ff88;
+  --v4-green-2: #8cffc1;
+  --v4-text: #f4fff9;
+  --v4-muted: rgba(244, 255, 249, 0.66);
+  --v4-muted-2: rgba(244, 255, 249, 0.44);
 }
 
 html {
-  background: var(--v3-black) !important;
+  background: var(--v4-black) !important;
 }
 
 body {
   background:
-    radial-gradient(circle at 50% -12%, rgba(0, 255, 136, 0.11), transparent 30%),
-    radial-gradient(circle at 16% 12%, rgba(0, 255, 136, 0.08), transparent 26%),
-    radial-gradient(circle at 88% 18%, rgba(0, 255, 200, 0.055), transparent 28%),
+    radial-gradient(circle at 50% -10%, rgba(0,255,136,0.12), transparent 30%),
+    radial-gradient(circle at 16% 12%, rgba(0,255,136,0.06), transparent 22%),
+    radial-gradient(circle at 86% 18%, rgba(0,255,200,0.05), transparent 26%),
     linear-gradient(180deg, #020504 0%, #030806 48%, #020504 100%) !important;
-  color: var(--v3-text) !important;
+  color: var(--v4-text) !important;
 }
 
 body::before {
@@ -2324,19 +2324,16 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    linear-gradient(rgba(0, 255, 136, 0.026) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 136, 0.026) 1px, transparent 1px),
-    radial-gradient(circle at 66% 20%, rgba(0, 255, 136, 0.08), transparent 32%);
+    linear-gradient(rgba(0,255,136,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.022) 1px, transparent 1px),
+    radial-gradient(circle at 60% 20%, rgba(0,255,136,0.07), transparent 36%);
   background-size: 34px 34px, 34px 34px, 100% 100%;
-  opacity: 0.72;
+  opacity: 0.85;
 }
 
-.grid-bg {
-  opacity: 0.32 !important;
-}
-
+.grid-bg { opacity: 0.28 !important; }
 .glow-orb {
-  background: rgba(0, 255, 140, 0.075) !important;
+  background: rgba(0,255,140,0.065) !important;
   filter: blur(95px) !important;
 }
 
@@ -2344,16 +2341,15 @@ body::before {
   width: min(1500px, calc(100% - 18px)) !important;
 }
 
-/* Header like reference: black glass, not green */
 header {
   top: 8px !important;
   width: min(1500px, calc(100% - 18px));
   margin: 0 auto;
-  border: 1px solid rgba(140, 255, 193, 0.14) !important;
+  border: 1px solid rgba(140,255,193,0.14) !important;
   border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(7, 13, 10, 0.92), rgba(2, 5, 4, 0.88)) !important;
-  box-shadow: 0 0 38px rgba(0, 255, 136, 0.08) !important;
+    linear-gradient(180deg, rgba(7,13,10,0.92), rgba(2,5,4,0.88)) !important;
+  box-shadow: 0 0 34px rgba(0,255,136,0.08) !important;
 }
 
 .nav {
@@ -2365,37 +2361,27 @@ header {
   width: 46px !important;
   height: 46px !important;
   border-radius: 12px !important;
-  box-shadow: 0 0 22px rgba(0, 255, 136, 0.26) !important;
+  box-shadow: 0 0 22px rgba(0,255,136,0.24) !important;
 }
 
-.brand-text strong {
-  color: #ffffff !important;
-  font-size: 20px !important;
-}
-
+.brand-text strong { color: #ffffff !important; }
 .brand-text span {
-  color: var(--v3-green) !important;
+  color: var(--v4-green) !important;
   font-weight: 900;
 }
 
 .nav-links {
-  gap: 16px !important;
-  color: rgba(245, 255, 249, 0.66) !important;
-  font-size: 13px !important;
-}
-
-.nav-links a {
-  position: relative;
+  color: rgba(244,255,249,0.66) !important;
 }
 
 .nav-links a:first-child,
 .nav-links a:hover {
-  color: var(--v3-green) !important;
+  color: var(--v4-green) !important;
 }
 
 .btn {
   border-radius: 12px !important;
-  min-height: 40px !important;
+  min-height: 41px !important;
   padding: 0 18px !important;
   font-weight: 900 !important;
 }
@@ -2405,35 +2391,35 @@ header {
   background: linear-gradient(135deg, #8cffc1 0%, #00ff88 58%, #00c96a 100%) !important;
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.08) inset,
-    0 0 30px rgba(0,255,136,0.23) !important;
+    0 0 28px rgba(0,255,136,0.22) !important;
 }
 
 .btn-dark {
   color: #f2fff8 !important;
   background: rgba(255,255,255,0.035) !important;
-  border-color: rgba(140,255,193,0.16) !important;
+  border-color: rgba(140,255,193,0.14) !important;
 }
 
-/* Hero: black background, strong bison zone, not green page */
+/* HERO closer to reference */
 .hero {
-  padding: 22px 0 12px !important;
+  padding: 20px 0 12px !important;
 }
 
 .hero-grid {
-  min-height: 575px;
-  grid-template-columns: 0.78fr 1.22fr !important;
-  gap: 22px !important;
+  min-height: 610px;
+  grid-template-columns: 0.82fr 1.18fr !important;
+  gap: 18px !important;
   position: relative;
   overflow: hidden;
-  padding: 34px 38px;
-  border-radius: 26px;
+  padding: 34px 34px;
+  border-radius: 28px;
   border: 1px solid rgba(140,255,193,0.14);
   background:
-    radial-gradient(circle at 63% 43%, rgba(0, 255, 136, 0.16), transparent 33%),
-    radial-gradient(circle at 86% 22%, rgba(0, 255, 210, 0.055), transparent 26%),
-    linear-gradient(90deg, rgba(0,0,0,0.78), rgba(2, 9, 6, 0.72) 42%, rgba(0,0,0,0.82)),
+    radial-gradient(circle at 68% 42%, rgba(0,255,136,0.16), transparent 30%),
+    radial-gradient(circle at 87% 16%, rgba(0,255,210,0.045), transparent 24%),
+    linear-gradient(90deg, rgba(0,0,0,0.82), rgba(2,8,6,0.72) 44%, rgba(0,0,0,0.84)),
     #020504 !important;
-  box-shadow: 0 0 80px rgba(0,255,136,0.08);
+  box-shadow: 0 0 76px rgba(0,255,136,0.08);
 }
 
 .hero-grid::before {
@@ -2442,11 +2428,11 @@ header {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(0, 255, 136, 0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 136, 0.032) 1px, transparent 1px);
+    linear-gradient(rgba(0,255,136,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.028) 1px, transparent 1px);
   background-size: 34px 34px;
-  mask-image: radial-gradient(circle at 62% 45%, black 0%, transparent 64%);
-  opacity: 0.85;
+  mask-image: radial-gradient(circle at 66% 45%, black 0%, transparent 66%);
+  opacity: 0.88;
 }
 
 .hero-grid > * {
@@ -2456,40 +2442,41 @@ header {
 
 .badge {
   margin-bottom: 18px !important;
-  color: var(--v3-green) !important;
-  background: rgba(0,255,136,0.075) !important;
+  color: var(--v4-green) !important;
+  background: rgba(0,255,136,0.07) !important;
   border-color: rgba(0,255,136,0.20) !important;
   font-weight: 900 !important;
 }
 
 h1 {
-  font-size: clamp(46px, 6vw, 80px) !important;
-  line-height: 0.94 !important;
-  letter-spacing: -0.072em !important;
+  font-size: clamp(52px, 6.6vw, 88px) !important;
+  line-height: 0.93 !important;
+  letter-spacing: -0.078em !important;
+  max-width: 620px;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 45%, #00ff88 46%, #00ff88 100%) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 34%, #00ff88 35%, #00ff88 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
 }
 
 .hero-subtitle {
-  max-width: 560px !important;
+  max-width: 530px !important;
   margin-top: 20px !important;
   font-size: 17px !important;
   line-height: 1.55 !important;
-  color: rgba(245,255,249,0.70) !important;
+  color: rgba(244,255,249,0.70) !important;
 }
 
 .hero-actions {
-  margin-top: 28px !important;
+  margin-top: 26px !important;
   gap: 12px !important;
 }
 
 .hero-stats {
-  max-width: 640px !important;
-  margin-top: 30px !important;
+  max-width: 620px !important;
+  margin-top: 28px !important;
   gap: 12px !important;
 }
 
@@ -2498,21 +2485,163 @@ h1 {
   padding: 16px !important;
   background:
     radial-gradient(circle at 0% 0%, rgba(0,255,136,0.08), transparent 42%),
-    rgba(255,255,255,0.035) !important;
-  border-color: rgba(140,255,193,0.13) !important;
+    rgba(255,255,255,0.03) !important;
+  border-color: rgba(140,255,193,0.12) !important;
 }
 
 .stat strong {
-  color: var(--v3-green) !important;
+  color: var(--v4-green) !important;
   font-size: 22px !important;
 }
 
-/* Phone/cards in hero: smaller, black, like reference */
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+}
+
+/* BISON */
+.bison-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.bison-glow {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 999px;
+  background: rgba(0,255,136,0.14);
+  filter: blur(75px);
+  left: 48%;
+  top: 16%;
+  transform: translateX(-50%);
+}
+
+.bison-ring {
+  position: absolute;
+  width: 520px;
+  height: 170px;
+  left: 48%;
+  bottom: 40px;
+  transform: translateX(-50%) perspective(520px) rotateX(64deg);
+  border-radius: 50%;
+  border: 1px solid rgba(140,255,193,0.34);
+  box-shadow:
+    0 0 26px rgba(0,255,136,0.22),
+    inset 0 0 26px rgba(0,255,136,0.10);
+}
+
+.bison-ring::before,
+.bison-ring::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(140,255,193,0.14);
+  inset: 18px;
+}
+
+.bison-ring::after {
+  inset: 42px;
+}
+
+.bison-art {
+  position: absolute;
+  width: 430px;
+  height: 390px;
+  left: 46%;
+  top: 12%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 26px rgba(0,255,136,0.22));
+}
+
+.bison-body {
+  position: absolute;
+  left: 12%;
+  right: 8%;
+  bottom: 18%;
+  height: 50%;
+  border-radius: 45% 52% 42% 44%;
+  background:
+    radial-gradient(circle at 40% 24%, rgba(140,255,193,0.28), transparent 22%),
+    linear-gradient(135deg, rgba(0,255,136,0.42), rgba(4,18,10,0.96) 44%, rgba(0,0,0,0.95));
+  border: 1px solid rgba(140,255,193,0.28);
+  box-shadow: inset 0 0 52px rgba(0,255,136,0.12);
+}
+
+.bison-head {
+  position: absolute;
+  left: 36%;
+  top: 7%;
+  width: 30%;
+  height: 38%;
+  border-radius: 42% 42% 52% 52%;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(140,255,193,0.20), transparent 18%),
+    linear-gradient(145deg, rgba(0,255,136,0.38), rgba(3,16,10,0.98) 52%, rgba(0,0,0,0.95));
+  border: 1px solid rgba(140,255,193,0.28);
+  box-shadow: inset 0 0 38px rgba(0,255,136,0.14);
+}
+
+.horn {
+  position: absolute;
+  top: 7%;
+  width: 26%;
+  height: 18%;
+  border: 9px solid rgba(140,255,193,0.72);
+  border-bottom: 0;
+  filter: drop-shadow(0 0 10px rgba(0,255,136,0.42));
+}
+
+.horn.left {
+  left: 18%;
+  border-right: 0;
+  border-radius: 100% 0 0 0;
+  transform: rotate(-18deg);
+}
+
+.horn.right {
+  right: 16%;
+  border-left: 0;
+  border-radius: 0 100% 0 0;
+  transform: rotate(18deg);
+}
+
+.eye {
+  position: absolute;
+  top: 26%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--v4-green);
+  box-shadow: 0 0 16px var(--v4-green);
+  z-index: 4;
+}
+
+.eye.left { left: 45%; }
+.eye.right { right: 40%; }
+
+.leg {
+  position: absolute;
+  bottom: 11%;
+  width: 10%;
+  height: 25%;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(0,255,136,0.32), rgba(0,0,0,0.95));
+  border: 1px solid rgba(140,255,193,0.18);
+}
+.leg.l1 { left: 24%; }
+.leg.l2 { left: 42%; }
+.leg.l3 { right: 24%; }
+
 .phone-card {
-  max-width: 355px !important;
-  margin-left: auto !important;
-  margin-right: 22px !important;
-  transform: rotate(7deg);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 325px !important;
+  max-width: 48%;
+  margin: 0 !important;
+  transform: rotate(8deg);
+  z-index: 4;
   border-radius: 34px !important;
   border-color: rgba(140,255,193,0.26) !important;
   background:
@@ -2524,26 +2653,9 @@ h1 {
     0 30px 80px rgba(0,0,0,0.42) !important;
 }
 
-/* Make all blocks black-glass, not green filled */
+/* Cards and sections */
 .section {
   padding: 10px 0 !important;
-}
-
-.section-head {
-  margin-bottom: 12px !important;
-}
-
-.section-title {
-  font-size: clamp(26px, 3vw, 42px) !important;
-}
-
-.section-text {
-  color: var(--v3-muted) !important;
-}
-
-.features {
-  grid-template-columns: repeat(6, 1fr) !important;
-  gap: 10px !important;
 }
 
 .feature-card,
@@ -2570,21 +2682,25 @@ h1 {
 .app-preview-card,
 .store-card {
   background:
-    radial-gradient(circle at 100% 0%, rgba(0,255,136,0.07), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(0,255,136,0.06), transparent 36%),
     linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
-    rgba(3, 8, 6, 0.72) !important;
-  border-color: rgba(140,255,193,0.14) !important;
-  box-shadow: 0 0 34px rgba(0,255,136,0.045) !important;
+    rgba(3,8,6,0.72) !important;
+  border-color: rgba(140,255,193,0.13) !important;
+  box-shadow: 0 0 32px rgba(0,255,136,0.04) !important;
+}
+
+.features {
+  gap: 10px !important;
 }
 
 .feature-card {
-  min-height: 130px !important;
-  padding: 16px !important;
   border-radius: 16px !important;
+  min-height: 132px !important;
+  padding: 16px !important;
 }
 
 .feature-card h3 {
-  color: var(--v3-green) !important;
+  color: var(--v4-green) !important;
   font-size: 12px !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase;
@@ -2599,7 +2715,7 @@ h1 {
   height: 40px !important;
   border-radius: 13px !important;
   margin-bottom: 12px !important;
-  color: var(--v3-green) !important;
+  color: var(--v4-green) !important;
 }
 
 .market-terminal,
@@ -2611,26 +2727,17 @@ h1 {
   border-radius: 22px !important;
 }
 
-/* Fix charts section size: no giant green block */
-.market-terminal .section-title,
 #charts .section-title,
+.market-terminal .section-title,
 #charts h2 {
-  font-size: clamp(26px, 3.2vw, 44px) !important;
-  line-height: 1.05 !important;
+  font-size: clamp(28px, 3.2vw, 46px) !important;
+  line-height: 1.04 !important;
 }
 
-.terminal-top {
-  margin-bottom: 12px !important;
-}
-
-.terminal-label {
-  color: var(--v3-green) !important;
-}
-
-.coin-tab {
-  background: rgba(255,255,255,0.045) !important;
-  border-color: rgba(140,255,193,0.16) !important;
-  color: rgba(245,255,249,0.76) !important;
+.tv-frame {
+  height: 410px !important;
+  background: #050807 !important;
+  border-radius: 18px !important;
 }
 
 .coin-tab.active,
@@ -2639,240 +2746,33 @@ h1 {
   background: linear-gradient(135deg, #8cffc1, #00ff88) !important;
 }
 
-.tv-frame {
-  height: 410px !important;
-  min-height: 360px !important;
-  border-radius: 18px !important;
-  background: #050807 !important;
-}
-
-.market-grid {
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 10px !important;
-}
-
-.market-card {
-  border-radius: 16px !important;
-  padding: 14px !important;
-}
-
-.coin-table-shell {
-  border-radius: 18px !important;
-}
-
-.coin-list {
-  max-height: 430px !important;
-}
-
-.coin-row {
-  min-height: 56px !important;
-}
-
-/* AI demo / radar */
-.signal-demo-panel {
-  grid-template-columns: 0.88fr 1.12fr !important;
-  gap: 12px !important;
-}
-
-.ai-signal-card,
-.ai-analysis-card {
-  padding: 18px !important;
-  border-radius: 20px !important;
-}
-
-.ai-card-kicker {
-  color: var(--v3-green) !important;
-}
-
-.ai-card-symbol {
-  font-size: 28px !important;
-}
-
-.signal-demo-item {
-  border-radius: 14px !important;
-  padding: 12px !important;
-}
-
-.quality-meter {
-  border-radius: 16px !important;
-}
-
-.ai-analysis-row {
-  border-radius: 16px !important;
-  padding: 12px !important;
-}
-
-/* Trade flow and roadmap compact like reference */
 .trade-flow-track {
-  grid-template-columns: repeat(4, 1fr) !important;
   gap: 12px !important;
 }
-
-.trade-flow-track::before {
-  top: 44px !important;
-  opacity: 0.72;
-}
-
 .flow-step {
   min-height: 170px !important;
-  padding: 16px !important;
   border-radius: 16px !important;
+  padding: 16px !important;
 }
-
-.flow-number,
-.roadmap-phase {
-  width: 42px !important;
-  height: 42px !important;
-  border-radius: 14px !important;
-}
-
-.flow-step h3 {
-  font-size: 15px !important;
-}
-
-.flow-step p,
-.flow-mini-row,
-.flow-warning-card p {
-  font-size: 11px !important;
-}
-
-.flow-mini-card {
-  border-radius: 13px !important;
-  padding: 10px !important;
-}
-
 .roadmap-grid {
-  grid-template-columns: repeat(6, 1fr) !important;
   gap: 10px !important;
 }
-
 .roadmap-card {
-  min-height: 172px !important;
+  min-height: 175px !important;
+  border-radius: 16px !important;
   padding: 14px !important;
-  border-radius: 16px !important;
-}
-
-.roadmap-card h3 {
-  font-size: 14px !important;
-}
-
-.roadmap-card p,
-.roadmap-list {
-  font-size: 11px !important;
-}
-
-/* App section */
-.app-launch-grid {
-  grid-template-columns: 0.92fr 1.08fr !important;
-  gap: 12px !important;
-}
-
-.app-preview-card,
-.store-card {
-  padding: 18px !important;
-  border-radius: 20px !important;
-}
-
-.store-stack {
-  grid-template-columns: repeat(2, 1fr) !important;
-}
-
-.store-badge {
-  min-height: 74px !important;
-  border-radius: 16px !important;
-  background: #050505 !important;
-}
-
-.store-copy strong {
-  font-size: 21px !important;
-}
-
-.app-feature-grid {
-  grid-template-columns: repeat(5, 1fr) !important;
-}
-
-.app-feature-chip {
-  border-radius: 13px !important;
-  padding: 10px !important;
-  text-align: center;
-}
-
-/* Pricing/waitlist/socials */
-.price-card {
-  min-height: 260px !important;
-  padding: 20px !important;
-  border-radius: 18px !important;
 }
 
 .price-card.featured {
   transform: none !important;
   border-color: rgba(0,255,136,0.62) !important;
-  box-shadow: 0 0 52px rgba(0,255,136,0.14) !important;
-}
-
-.price-card h3 {
-  color: var(--v3-green) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.price {
-  color: #ffffff !important;
-  font-size: 31px !important;
-}
-
-.waitlist {
-  padding: 22px !important;
-  border-radius: 20px !important;
-}
-
-.official-links {
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 10px !important;
+  box-shadow: 0 0 50px rgba(0,255,136,0.12) !important;
 }
 
 .official-link {
-  min-height: 86px !important;
-  padding: 13px !important;
   border-radius: 16px !important;
-  flex-direction: row !important;
-  align-items: center;
-  justify-content: flex-start !important;
 }
 
-.social-icon {
-  width: 42px !important;
-  height: 42px !important;
-  flex-basis: 42px !important;
-  border-radius: 13px !important;
-}
-
-.social-icon svg {
-  width: 23px !important;
-  height: 23px !important;
-}
-
-.official-link strong {
-  font-size: 14px !important;
-  margin-bottom: 4px !important;
-}
-
-.official-link small {
-  font-size: 11px !important;
-}
-
-footer {
-  padding: 18px 0 !important;
-}
-
-.footer-row {
-  padding: 16px;
-  border: 1px solid rgba(140,255,193,0.11);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.025);
-}
-
-/* premium hover */
 .feature-card,
 .market-card,
 .coin-row,
@@ -2896,11 +2796,10 @@ footer {
 .official-link:hover,
 .store-badge:hover {
   transform: translateY(-3px);
-  border-color: rgba(0,255,136,0.36) !important;
-  box-shadow: 0 0 34px rgba(0,255,136,0.10) !important;
+  border-color: rgba(0,255,136,0.34) !important;
+  box-shadow: 0 0 34px rgba(0,255,136,0.09) !important;
 }
 
-/* Responsive */
 @media (max-width: 1180px) {
   header {
     top: 0 !important;
@@ -2916,16 +2815,23 @@ footer {
     grid-template-columns: 1fr !important;
   }
 
+  .hero-visual {
+    min-height: 470px;
+  }
+
+  .phone-card {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%) rotate(5deg);
+    max-width: 320px;
+    width: 320px !important;
+  }
+
   .features,
   .roadmap-grid,
   .official-links,
   .app-feature-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .phone-card {
-    transform: none;
-    margin: 0 auto !important;
   }
 }
 
@@ -2941,6 +2847,30 @@ footer {
 
   h1 {
     font-size: clamp(40px, 13vw, 58px) !important;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+  }
+
+  .bison-art {
+    width: 340px;
+    height: 310px;
+    left: 50%;
+  }
+
+  .bison-ring {
+    width: 380px;
+    height: 135px;
+    left: 50%;
+  }
+
+  .phone-card {
+    width: 255px !important;
+    max-width: 255px;
+    top: 20px;
+    right: 50%;
+    transform: translateX(50%) rotate(4deg);
   }
 
   .features,
@@ -3010,18 +2940,17 @@ footer {
           <div>
             <div class="badge">
               <span class="badge-dot"></span>
-              MAX SNIPER MODE / NEWS RADAR 24/7
+              AI-ПЛАТФОРМА ДЛЯ КРИПТО-СИГНАЛОВ
             </div>
 
             <h1>
-              <span class="gradient-text">ZUBR AI</span><br />
-              Crypto Signals
+              ТОРГУЙ С УМОМ.<br />
+              ПОБЕЖДАЙ С <span class="gradient-text">ZUBR</span>
             </h1>
 
             <p class="hero-subtitle">
-              Футуристичный AI-сервис для крипто-сигналов: умный фильтр сделок,
-              чат с сигналами, контроль входа, TP/SL, новости и режим ZUBR Protect.
-              Цель — давать только самые качественные сетапы, а не шум рынка.
+              AI-сигналы, News Radar 24/7, Max Sniper Mode и ZUBR Protect —
+              полный цикл от анализа до защищённой сделки.
             </p>
 
             <div class="hero-actions">
@@ -3046,7 +2975,24 @@ footer {
             </div>
           </div>
 
-          <div class="phone-card" id="signals">
+          <div class="hero-visual">
+            <div class="bison-stage" aria-hidden="true">
+              <div class="bison-glow"></div>
+              <div class="bison-ring"></div>
+              <div class="bison-art">
+                <div class="horn left"></div>
+                <div class="horn right"></div>
+                <div class="bison-body"></div>
+                <div class="bison-head"></div>
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="leg l1"></div>
+                <div class="leg l2"></div>
+                <div class="leg l3"></div>
+              </div>
+            </div>
+
+            <div class="phone-card" id="signals">
             <div class="phone-top">
               <div class="phone-title">
                 <img class="mini-logo" src="images/zubr-logo.jpeg" alt="ZUBR logo" />
@@ -3096,6 +3042,7 @@ footer {
                 закрыть часть, перенести SL в точку входа или выйти из сделки.
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
