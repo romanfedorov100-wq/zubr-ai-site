@@ -995,7 +995,7 @@
 
         <div class="nav-actions">
           <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Telegram</a>
-          <a class="btn btn-primary" href="#waitlist">Join Waitlist</a>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gмTV7jtSibpf8Hg/viewform?usp=publish-editor" target="_blank" rel="noopener">Join Waitlist</a>
         </div>
       </div>
     </header>
@@ -1021,7 +1021,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#waitlist">Встать в лист ожидания</a>
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gмTV7jtSibpf8Hg/viewform?usp=publish-editor" target="_blank" rel="noopener">Встать в лист ожидания</a>
               <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Открыть Telegram канал</a>
               <a class="btn btn-dark" href="https://t.me/zubr_community" target="_blank">Community Chat</a>
             </div>
@@ -1178,7 +1178,7 @@
               </p>
 
               <div class="socials">
-                <a class="btn btn-primary" href="#waitlist">Хочу ранний доступ</a>
+                <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gмTV7jtSibpf8Hg/viewform?usp=publish-editor" target="_blank" rel="noopener">Хочу ранний доступ</a>
                 <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Смотреть канал</a>
               </div>
             </div>
@@ -1239,7 +1239,7 @@
                 <li>Активные сделки</li>
                 <li>News Radar</li>
               </ul>
-              <a class="btn btn-primary" href="#waitlist">Join Waitlist</a>
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gмTV7jtSibpf8Hg/viewform?usp=publish-editor" target="_blank" rel="noopener">Join Waitlist</a>
             </div>
 
             <div class="price-card">
@@ -1253,7 +1253,7 @@
                 <li>Приоритетные уведомления</li>
                 <li>Будущий AI-ассистент</li>
               </ul>
-              <a class="btn btn-dark" href="#waitlist">Request Access</a>
+              <a class="btn btn-dark" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gмTV7jtSibpf8Hg/viewform?usp=publish-editor" target="_blank" rel="noopener">Request Access</a>
             </div>
           </div>
         </div>
@@ -1265,22 +1265,17 @@
             <div>
               <h2>Join the ZUBR Waitlist</h2>
               <p>
-                Первая версия сайта собирает аудиторию, подписчиков и будущих тестеров.
-                Дальше подключим настоящую форму, базу пользователей, тарифы,
-                оплату и закрытый доступ к AI-сигналам.
+                Оставь заявку через официальную форму ZUBR AI. Данные автоматически попадут в таблицу Waitlist Responses, а позже мы используем этот список для раннего доступа, беты и уведомлений.
               </p>
             </div>
 
-            <form class="form-box" id="waitlistForm">
-              <input id="waitlistName" type="text" placeholder="Ваше имя" autocomplete="name" />
-              <input id="waitlistContact" type="text" placeholder="Email или Telegram username" autocomplete="email" />
-              <button class="btn btn-primary" type="submit">Присоединиться к ZUBR</button>
-              <div id="waitlistStatus" class="waitlist-status"></div>
-              <div id="waitlistCounter" class="waitlist-counter">Локально сохранено заявок: 0</div>
+            <div class="form-box">
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gмTV7jtSibpf8Hg/viewform?usp=publish-editor" target="_blank" rel="noopener">Открыть ZUBR Waitlist</a>
+              <a class="btn btn-dark" href="https://t.me/zubr_community" target="_blank" rel="noopener">Перейти в Community</a>
               <div class="small-note">
-                Сейчас заявка сохраняется локально в браузере на этом ПК. Позже подключим настоящую базу пользователей.
+                Заявки принимаются через официальную Google Form и автоматически сохраняются в ZUBR AI Waitlist Responses.
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </section>
@@ -1454,71 +1449,7 @@
     </footer>
   </div>
 
-  <script>
-    (function () {
-      const STORAGE_KEY = "zubr_waitlist_requests";
-      const form = document.getElementById("waitlistForm");
-      const nameInput = document.getElementById("waitlistName");
-      const contactInput = document.getElementById("waitlistContact");
-      const status = document.getElementById("waitlistStatus");
-      const counter = document.getElementById("waitlistCounter");
-
-      function getRequests() {
-        try {
-          return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-        } catch (error) {
-          return [];
-        }
-      }
-
-      function saveRequests(requests) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(requests));
-      }
-
-      function updateCounter() {
-        const requests = getRequests();
-        if (counter) {
-          counter.textContent = "Локально сохранено заявок: " + requests.length;
-        }
-      }
-
-      function showStatus(type, message) {
-        if (!status) return;
-        status.className = "waitlist-status show " + type;
-        status.textContent = message;
-      }
-
-      if (form) {
-        updateCounter();
-
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const name = nameInput.value.trim();
-          const contact = contactInput.value.trim();
-
-          if (!name || !contact) {
-            showStatus("error", "Заполни имя и email или Telegram username.");
-            return;
-          }
-
-          const requests = getRequests();
-          requests.push({
-            name: name,
-            contact: contact,
-            source: "ZUBR website waitlist",
-            createdAt: new Date().toISOString()
-          });
-
-          saveRequests(requests);
-          updateCounter();
-
-          form.reset();
-          showStatus("success", "Заявка принята. Добро пожаловать в ZUBR waitlist.");
-        });
-      }
-    })();
-  </script>
+  
 
 </body>
 </html>
