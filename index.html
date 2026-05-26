@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ZUBR V2 premium neon design, based on full original file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -2281,6 +2282,661 @@
         letter-spacing: -0.05em;
       }
     }
+  
+/* =========================================================
+   ZUBR V2 DESIGN OVERRIDE — premium neon landing
+   Основа: полный рабочий index.html. Ничего не удаляем,
+   только усиливаем дизайн поверх существующей структуры.
+   ========================================================= */
+
+:root {
+  --zubr-bg: #020504;
+  --zubr-card: rgba(6, 18, 13, 0.78);
+  --zubr-card-soft: rgba(10, 28, 20, 0.58);
+  --zubr-line: rgba(102, 255, 178, 0.18);
+  --zubr-line-strong: rgba(102, 255, 178, 0.42);
+  --zubr-green: #00ff88;
+  --zubr-green-soft: #8cffc1;
+  --zubr-cyan: #00ffd5;
+  --zubr-text: #f6fff9;
+  --zubr-muted: rgba(246, 255, 249, 0.66);
+  --zubr-muted-2: rgba(246, 255, 249, 0.46);
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% -20%, rgba(0, 255, 140, 0.18), transparent 34%),
+    radial-gradient(circle at 12% 12%, rgba(0, 255, 136, 0.13), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(0, 255, 210, 0.10), transparent 30%),
+    linear-gradient(180deg, #020504 0%, #06100c 46%, #020504 100%) !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(0, 255, 136, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.028) 1px, transparent 1px),
+    radial-gradient(circle at 50% 10%, rgba(0, 255, 136, 0.08), transparent 35%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+  z-index: 0;
+}
+
+.container {
+  width: min(1500px, calc(100% - 18px)) !important;
+}
+
+header {
+  top: 10px !important;
+  margin: 0 auto;
+  width: min(1500px, calc(100% - 18px));
+  border: 1px solid rgba(140, 255, 193, 0.16) !important;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(8, 20, 15, 0.88), rgba(3, 8, 6, 0.76)) !important;
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.08);
+}
+
+.nav {
+  height: 66px !important;
+  padding: 0 18px;
+}
+
+.brand-logo {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 13px !important;
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.34) !important;
+}
+
+.brand-text strong {
+  font-size: 20px !important;
+  color: #ffffff;
+}
+
+.brand-text span {
+  color: var(--zubr-green) !important;
+  font-weight: 900;
+}
+
+.nav-links {
+  gap: 17px !important;
+  font-size: 13px !important;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 14px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 6px;
+  height: 2px;
+  background: var(--zubr-green);
+  box-shadow: 0 0 16px var(--zubr-green);
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:first-child::after {
+  right: 0;
+}
+
+.btn {
+  border-radius: 13px !important;
+  min-height: 42px !important;
+  padding: 0 18px !important;
+  font-weight: 900 !important;
+}
+
+.btn-primary {
+  color: #02100a !important;
+  background: linear-gradient(135deg, #8cffc1 0%, #00ff88 52%, #00d66f 100%) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 0 32px rgba(0,255,136,0.28) !important;
+}
+
+.btn-dark {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(140,255,193,0.16) !important;
+}
+
+.hero {
+  padding: 22px 0 14px !important;
+}
+
+.hero-grid {
+  min-height: 560px;
+  grid-template-columns: 0.82fr 1.18fr !important;
+  gap: 24px !important;
+  border: 1px solid rgba(140, 255, 193, 0.15);
+  border-radius: 30px;
+  padding: 34px 38px;
+  background:
+    radial-gradient(circle at 64% 46%, rgba(0, 255, 136, 0.20), transparent 34%),
+    radial-gradient(circle at 84% 18%, rgba(0, 255, 210, 0.08), transparent 25%),
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
+    rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(0, 255, 136, 0.10);
+  position: relative;
+}
+
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(140,255,193,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140,255,193,0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 66% 48%, black, transparent 62%);
+  pointer-events: none;
+}
+
+.badge {
+  margin-bottom: 18px !important;
+  background: rgba(0, 255, 136, 0.09) !important;
+  border-color: rgba(0, 255, 136, 0.25) !important;
+  color: var(--zubr-green) !important;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: clamp(48px, 6.4vw, 86px) !important;
+  letter-spacing: -0.075em !important;
+  text-shadow: 0 0 30px rgba(255,255,255,0.06);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 42%, #00ff88 43%, #00ff88 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.hero-subtitle {
+  font-size: 18px !important;
+  max-width: 560px !important;
+  margin-top: 22px !important;
+}
+
+.hero-actions {
+  margin-top: 28px !important;
+}
+
+.hero-stats {
+  margin-top: 30px !important;
+  gap: 12px !important;
+}
+
+.stat {
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0,255,136,0.12), transparent 40%),
+    rgba(255,255,255,0.045) !important;
+  border-color: rgba(140,255,193,0.16) !important;
+}
+
+.stat strong {
+  color: var(--zubr-green) !important;
+}
+
+/* Hero visual: make the existing phone/app card feel like the reference */
+.phone-card {
+  max-width: 380px;
+  margin-left: auto;
+  transform: rotate(7deg);
+  border-radius: 36px !important;
+  border-color: rgba(140, 255, 193, 0.30) !important;
+  background:
+    radial-gradient(circle at 70% 0%, rgba(0,255,136,0.18), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025)),
+    rgba(2, 9, 7, 0.94) !important;
+  box-shadow:
+    0 0 70px rgba(0,255,136,0.22),
+    0 30px 80px rgba(0,0,0,0.38) !important;
+}
+
+.chart,
+.mini-chart,
+.preview-screen,
+.app-device {
+  box-shadow: inset 0 0 35px rgba(0,255,136,0.06);
+}
+
+/* Add hologram feeling around hero media without touching HTML */
+.hero-visual,
+.hero-art,
+.hero-image,
+.hero-media,
+.bison-wrap,
+.hero-graphic {
+  position: relative;
+}
+
+.hero-visual::after,
+.hero-art::after,
+.hero-image::after,
+.hero-media::after,
+.bison-wrap::after,
+.hero-graphic::after {
+  content: "";
+  position: absolute;
+  width: 560px;
+  height: 170px;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%) perspective(520px) rotateX(62deg);
+  border-radius: 50%;
+  border: 1px solid rgba(0,255,136,0.36);
+  box-shadow:
+    0 0 28px rgba(0,255,136,0.25),
+    inset 0 0 30px rgba(0,255,136,0.10);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section {
+  padding: 12px 0 !important;
+}
+
+.features {
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 12px !important;
+}
+
+.feature-card,
+.step-card,
+.price-card,
+.faq-card,
+.preview-card,
+.disclaimer-card,
+.market-terminal,
+.trade-flow-board,
+.roadmap-board,
+.app-launch-board,
+.ai-signal-card,
+.ai-analysis-card,
+.news-radar-main,
+.news-source-card,
+.coin-universe,
+.protect-card,
+.official-link,
+.waitlist {
+  border-radius: 20px !important;
+  border-color: rgba(140,255,193,0.16) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,255,136,0.10), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.062), rgba(255,255,255,0.020)),
+    rgba(0,0,0,0.18) !important;
+  box-shadow: 0 0 44px rgba(0,255,136,0.055);
+}
+
+.feature-card {
+  min-height: 142px !important;
+  padding: 18px !important;
+}
+
+.feature-card h3 {
+  color: var(--zubr-green) !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.feature-card p {
+  font-size: 12px !important;
+}
+
+.icon {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 14px !important;
+  margin-bottom: 14px !important;
+  color: var(--zubr-green) !important;
+}
+
+.market-terminal,
+.trade-flow-board,
+.roadmap-board,
+.app-launch-board,
+.coin-universe {
+  padding: 18px !important;
+}
+
+.terminal-top,
+.section-head {
+  margin-bottom: 14px !important;
+}
+
+.terminal-label,
+.ai-card-kicker {
+  color: var(--zubr-green) !important;
+}
+
+.tv-frame {
+  height: 420px !important;
+  border-radius: 18px !important;
+}
+
+.market-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 10px !important;
+}
+
+.market-card {
+  border-radius: 16px !important;
+  padding: 14px !important;
+}
+
+.coin-table-shell {
+  border-radius: 18px !important;
+}
+
+.coin-list {
+  max-height: 480px !important;
+}
+
+.coin-row {
+  min-height: 58px !important;
+}
+
+.signal-demo-panel {
+  grid-template-columns: 0.88fr 1.12fr !important;
+  gap: 12px !important;
+}
+
+.ai-signal-card,
+.ai-analysis-card {
+  padding: 18px !important;
+  border-radius: 20px !important;
+}
+
+.ai-card-symbol {
+  font-size: 28px !important;
+}
+
+.signal-demo-item {
+  border-radius: 14px !important;
+  padding: 12px !important;
+}
+
+.quality-meter {
+  border-radius: 16px !important;
+}
+
+.ai-analysis-row {
+  border-radius: 16px !important;
+  padding: 12px !important;
+}
+
+.trade-flow-track {
+  gap: 12px !important;
+}
+
+.trade-flow-track::before {
+  top: 45px !important;
+}
+
+.flow-step {
+  min-height: 190px !important;
+  padding: 16px !important;
+  border-radius: 18px !important;
+}
+
+.flow-number,
+.roadmap-phase {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 15px !important;
+}
+
+.flow-step h3 {
+  font-size: 16px !important;
+}
+
+.flow-step p,
+.flow-mini-row,
+.flow-warning-card p {
+  font-size: 12px !important;
+}
+
+.flow-mini-card {
+  border-radius: 14px !important;
+  padding: 12px !important;
+}
+
+.roadmap-grid {
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 12px !important;
+}
+
+.roadmap-card {
+  min-height: 190px !important;
+  padding: 16px !important;
+  border-radius: 18px !important;
+}
+
+.roadmap-card h3 {
+  font-size: 15px !important;
+}
+
+.roadmap-card p,
+.roadmap-list {
+  font-size: 12px !important;
+}
+
+.app-launch-grid {
+  grid-template-columns: 0.92fr 1.08fr !important;
+  gap: 14px !important;
+}
+
+.app-preview-card,
+.store-card {
+  padding: 18px !important;
+  border-radius: 20px !important;
+}
+
+.store-stack {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.store-badge {
+  min-height: 74px !important;
+  border-radius: 16px !important;
+}
+
+.store-copy strong {
+  font-size: 21px !important;
+}
+
+.app-feature-grid {
+  grid-template-columns: repeat(5, 1fr) !important;
+}
+
+.app-feature-chip {
+  border-radius: 13px !important;
+  padding: 11px 12px !important;
+  text-align: center;
+}
+
+.pricing {
+  gap: 14px !important;
+}
+
+.price-card {
+  min-height: 270px !important;
+  padding: 20px !important;
+  border-radius: 20px !important;
+}
+
+.price-card.featured {
+  transform: none !important;
+  border-color: rgba(0,255,136,0.72) !important;
+  box-shadow: 0 0 55px rgba(0,255,136,0.16);
+}
+
+.price-card h3 {
+  color: var(--zubr-green) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.price {
+  color: #ffffff !important;
+  font-size: 32px !important;
+}
+
+.waitlist {
+  padding: 22px !important;
+}
+
+.official-links {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 12px !important;
+}
+
+.official-link {
+  min-height: 92px !important;
+  padding: 14px !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-start !important;
+}
+
+.social-icon {
+  width: 44px !important;
+  height: 44px !important;
+  flex-basis: 44px !important;
+  border-radius: 14px !important;
+}
+
+.social-icon svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.official-link strong {
+  font-size: 15px !important;
+  margin-bottom: 4px !important;
+}
+
+.official-link small {
+  font-size: 12px !important;
+}
+
+footer {
+  padding: 18px 0 !important;
+}
+
+.footer-row {
+  padding: 16px;
+  border: 1px solid rgba(140,255,193,0.12);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+}
+
+/* Premium hover */
+.feature-card,
+.market-card,
+.coin-row,
+.ai-signal-card,
+.ai-analysis-card,
+.flow-step,
+.roadmap-card,
+.price-card,
+.official-link,
+.store-badge {
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.feature-card:hover,
+.market-card:hover,
+.ai-signal-card:hover,
+.ai-analysis-card:hover,
+.flow-step:hover,
+.roadmap-card:hover,
+.price-card:hover,
+.official-link:hover,
+.store-badge:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0,255,136,0.42) !important;
+  box-shadow: 0 0 42px rgba(0,255,136,0.12);
+}
+
+/* Mobile/tablet restore */
+@media (max-width: 1180px) {
+  header {
+    top: 0 !important;
+    width: 100%;
+    border-radius: 0;
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+
+  .hero-grid,
+  .signal-demo-panel,
+  .app-launch-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .features,
+  .roadmap-grid,
+  .official-links,
+  .app-feature-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .phone-card {
+    transform: none;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 20px, 1500px) !important;
+  }
+
+  .hero-grid {
+    padding: 22px !important;
+    min-height: auto;
+  }
+
+  h1 {
+    font-size: clamp(42px, 13vw, 58px) !important;
+  }
+
+  .features,
+  .market-grid,
+  .roadmap-grid,
+  .official-links,
+  .app-feature-grid,
+  .store-stack,
+  .flow-warning {
+    grid-template-columns: 1fr !important;
+  }
+
+  .trade-flow-track {
+    grid-template-columns: 1fr !important;
+  }
+
+  .trade-flow-track::before {
+    display: none;
+  }
+
+  .tv-frame {
+    height: 360px !important;
+  }
+}
+
   </style>
 </head>
 
