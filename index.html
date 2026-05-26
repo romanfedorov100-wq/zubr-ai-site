@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V2 premium neon design, based on full original file. -->
+<!-- ZUBR V3 black neon design, based on full original file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -2284,31 +2284,37 @@
     }
   
 /* =========================================================
-   ZUBR V2 DESIGN OVERRIDE — premium neon landing
-   Основа: полный рабочий index.html. Ничего не удаляем,
-   только усиливаем дизайн поверх существующей структуры.
+   ZUBR V3 BLACK NEON DESIGN OVERRIDE
+   Сделано на базе полного рабочего файла.
+   Цель: ближе к референсу — больше чёрного, меньше зелёной заливки,
+   ничего из старого HTML/JS не удаляем.
    ========================================================= */
 
 :root {
-  --zubr-bg: #020504;
-  --zubr-card: rgba(6, 18, 13, 0.78);
-  --zubr-card-soft: rgba(10, 28, 20, 0.58);
-  --zubr-line: rgba(102, 255, 178, 0.18);
-  --zubr-line-strong: rgba(102, 255, 178, 0.42);
-  --zubr-green: #00ff88;
-  --zubr-green-soft: #8cffc1;
-  --zubr-cyan: #00ffd5;
-  --zubr-text: #f6fff9;
-  --zubr-muted: rgba(246, 255, 249, 0.66);
-  --zubr-muted-2: rgba(246, 255, 249, 0.46);
+  --v3-black: #020504;
+  --v3-black-2: #060a08;
+  --v3-panel: rgba(5, 13, 10, 0.82);
+  --v3-panel-2: rgba(8, 20, 15, 0.72);
+  --v3-line: rgba(113, 255, 184, 0.16);
+  --v3-line-strong: rgba(113, 255, 184, 0.38);
+  --v3-green: #00ff88;
+  --v3-green-2: #8cffc1;
+  --v3-text: #f5fff9;
+  --v3-muted: rgba(245, 255, 249, 0.64);
+  --v3-muted-2: rgba(245, 255, 249, 0.42);
+}
+
+html {
+  background: var(--v3-black) !important;
 }
 
 body {
   background:
-    radial-gradient(circle at 50% -20%, rgba(0, 255, 140, 0.18), transparent 34%),
-    radial-gradient(circle at 12% 12%, rgba(0, 255, 136, 0.13), transparent 28%),
-    radial-gradient(circle at 90% 18%, rgba(0, 255, 210, 0.10), transparent 30%),
-    linear-gradient(180deg, #020504 0%, #06100c 46%, #020504 100%) !important;
+    radial-gradient(circle at 50% -12%, rgba(0, 255, 136, 0.11), transparent 30%),
+    radial-gradient(circle at 16% 12%, rgba(0, 255, 136, 0.08), transparent 26%),
+    radial-gradient(circle at 88% 18%, rgba(0, 255, 200, 0.055), transparent 28%),
+    linear-gradient(180deg, #020504 0%, #030806 48%, #020504 100%) !important;
+  color: var(--v3-text) !important;
 }
 
 body::before {
@@ -2316,240 +2322,228 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(rgba(0, 255, 136, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 136, 0.028) 1px, transparent 1px),
-    radial-gradient(circle at 50% 10%, rgba(0, 255, 136, 0.08), transparent 35%);
-  background-size: 32px 32px, 32px 32px, 100% 100%;
   z-index: 0;
+  background:
+    linear-gradient(rgba(0, 255, 136, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.026) 1px, transparent 1px),
+    radial-gradient(circle at 66% 20%, rgba(0, 255, 136, 0.08), transparent 32%);
+  background-size: 34px 34px, 34px 34px, 100% 100%;
+  opacity: 0.72;
+}
+
+.grid-bg {
+  opacity: 0.32 !important;
+}
+
+.glow-orb {
+  background: rgba(0, 255, 140, 0.075) !important;
+  filter: blur(95px) !important;
 }
 
 .container {
   width: min(1500px, calc(100% - 18px)) !important;
 }
 
+/* Header like reference: black glass, not green */
 header {
-  top: 10px !important;
-  margin: 0 auto;
+  top: 8px !important;
   width: min(1500px, calc(100% - 18px));
-  border: 1px solid rgba(140, 255, 193, 0.16) !important;
-  border-radius: 16px;
+  margin: 0 auto;
+  border: 1px solid rgba(140, 255, 193, 0.14) !important;
+  border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(8, 20, 15, 0.88), rgba(3, 8, 6, 0.76)) !important;
-  box-shadow: 0 0 40px rgba(0, 255, 136, 0.08);
+    linear-gradient(180deg, rgba(7, 13, 10, 0.92), rgba(2, 5, 4, 0.88)) !important;
+  box-shadow: 0 0 38px rgba(0, 255, 136, 0.08) !important;
 }
 
 .nav {
-  height: 66px !important;
-  padding: 0 18px;
+  height: 64px !important;
+  padding: 0 16px;
 }
 
 .brand-logo {
   width: 46px !important;
   height: 46px !important;
-  border-radius: 13px !important;
-  box-shadow: 0 0 24px rgba(0, 255, 136, 0.34) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 22px rgba(0, 255, 136, 0.26) !important;
 }
 
 .brand-text strong {
+  color: #ffffff !important;
   font-size: 20px !important;
-  color: #ffffff;
 }
 
 .brand-text span {
-  color: var(--zubr-green) !important;
+  color: var(--v3-green) !important;
   font-weight: 900;
 }
 
 .nav-links {
-  gap: 17px !important;
+  gap: 16px !important;
+  color: rgba(245, 255, 249, 0.66) !important;
   font-size: 13px !important;
 }
 
 .nav-links a {
   position: relative;
-  padding: 14px 0;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: 6px;
-  height: 2px;
-  background: var(--zubr-green);
-  box-shadow: 0 0 16px var(--zubr-green);
-  transition: 0.2s ease;
-}
-
-.nav-links a:hover::after,
-.nav-links a:first-child::after {
-  right: 0;
+.nav-links a:first-child,
+.nav-links a:hover {
+  color: var(--v3-green) !important;
 }
 
 .btn {
-  border-radius: 13px !important;
-  min-height: 42px !important;
+  border-radius: 12px !important;
+  min-height: 40px !important;
   padding: 0 18px !important;
   font-weight: 900 !important;
 }
 
 .btn-primary {
   color: #02100a !important;
-  background: linear-gradient(135deg, #8cffc1 0%, #00ff88 52%, #00d66f 100%) !important;
+  background: linear-gradient(135deg, #8cffc1 0%, #00ff88 58%, #00c96a 100%) !important;
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.08) inset,
-    0 0 32px rgba(0,255,136,0.28) !important;
+    0 0 30px rgba(0,255,136,0.23) !important;
 }
 
 .btn-dark {
-  background: rgba(255,255,255,0.04) !important;
+  color: #f2fff8 !important;
+  background: rgba(255,255,255,0.035) !important;
   border-color: rgba(140,255,193,0.16) !important;
 }
 
+/* Hero: black background, strong bison zone, not green page */
 .hero {
-  padding: 22px 0 14px !important;
+  padding: 22px 0 12px !important;
 }
 
 .hero-grid {
-  min-height: 560px;
-  grid-template-columns: 0.82fr 1.18fr !important;
-  gap: 24px !important;
-  border: 1px solid rgba(140, 255, 193, 0.15);
-  border-radius: 30px;
-  padding: 34px 38px;
-  background:
-    radial-gradient(circle at 64% 46%, rgba(0, 255, 136, 0.20), transparent 34%),
-    radial-gradient(circle at 84% 18%, rgba(0, 255, 210, 0.08), transparent 25%),
-    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
-    rgba(0, 0, 0, 0.18);
-  overflow: hidden;
-  box-shadow: 0 0 80px rgba(0, 255, 136, 0.10);
+  min-height: 575px;
+  grid-template-columns: 0.78fr 1.22fr !important;
+  gap: 22px !important;
   position: relative;
+  overflow: hidden;
+  padding: 34px 38px;
+  border-radius: 26px;
+  border: 1px solid rgba(140,255,193,0.14);
+  background:
+    radial-gradient(circle at 63% 43%, rgba(0, 255, 136, 0.16), transparent 33%),
+    radial-gradient(circle at 86% 22%, rgba(0, 255, 210, 0.055), transparent 26%),
+    linear-gradient(90deg, rgba(0,0,0,0.78), rgba(2, 9, 6, 0.72) 42%, rgba(0,0,0,0.82)),
+    #020504 !important;
+  box-shadow: 0 0 80px rgba(0,255,136,0.08);
 }
 
 .hero-grid::before {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(rgba(140,255,193,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(140,255,193,0.035) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at 66% 48%, black, transparent 62%);
   pointer-events: none;
+  background:
+    linear-gradient(rgba(0, 255, 136, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.032) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 62% 45%, black 0%, transparent 64%);
+  opacity: 0.85;
+}
+
+.hero-grid > * {
+  position: relative;
+  z-index: 2;
 }
 
 .badge {
   margin-bottom: 18px !important;
-  background: rgba(0, 255, 136, 0.09) !important;
-  border-color: rgba(0, 255, 136, 0.25) !important;
-  color: var(--zubr-green) !important;
-  font-weight: 900;
+  color: var(--v3-green) !important;
+  background: rgba(0,255,136,0.075) !important;
+  border-color: rgba(0,255,136,0.20) !important;
+  font-weight: 900 !important;
 }
 
 h1 {
-  font-size: clamp(48px, 6.4vw, 86px) !important;
-  letter-spacing: -0.075em !important;
-  text-shadow: 0 0 30px rgba(255,255,255,0.06);
+  font-size: clamp(46px, 6vw, 80px) !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.072em !important;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 42%, #00ff88 43%, #00ff88 100%) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 45%, #00ff88 46%, #00ff88 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
 }
 
 .hero-subtitle {
-  font-size: 18px !important;
   max-width: 560px !important;
-  margin-top: 22px !important;
+  margin-top: 20px !important;
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+  color: rgba(245,255,249,0.70) !important;
 }
 
 .hero-actions {
   margin-top: 28px !important;
+  gap: 12px !important;
 }
 
 .hero-stats {
+  max-width: 640px !important;
   margin-top: 30px !important;
   gap: 12px !important;
 }
 
 .stat {
   border-radius: 18px !important;
+  padding: 16px !important;
   background:
-    radial-gradient(circle at 0% 0%, rgba(0,255,136,0.12), transparent 40%),
-    rgba(255,255,255,0.045) !important;
-  border-color: rgba(140,255,193,0.16) !important;
+    radial-gradient(circle at 0% 0%, rgba(0,255,136,0.08), transparent 42%),
+    rgba(255,255,255,0.035) !important;
+  border-color: rgba(140,255,193,0.13) !important;
 }
 
 .stat strong {
-  color: var(--zubr-green) !important;
+  color: var(--v3-green) !important;
+  font-size: 22px !important;
 }
 
-/* Hero visual: make the existing phone/app card feel like the reference */
+/* Phone/cards in hero: smaller, black, like reference */
 .phone-card {
-  max-width: 380px;
-  margin-left: auto;
+  max-width: 355px !important;
+  margin-left: auto !important;
+  margin-right: 22px !important;
   transform: rotate(7deg);
-  border-radius: 36px !important;
-  border-color: rgba(140, 255, 193, 0.30) !important;
+  border-radius: 34px !important;
+  border-color: rgba(140,255,193,0.26) !important;
   background:
-    radial-gradient(circle at 70% 0%, rgba(0,255,136,0.18), transparent 34%),
-    linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025)),
-    rgba(2, 9, 7, 0.94) !important;
+    radial-gradient(circle at 70% 0%, rgba(0,255,136,0.13), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.02)),
+    #050a08 !important;
   box-shadow:
-    0 0 70px rgba(0,255,136,0.22),
-    0 30px 80px rgba(0,0,0,0.38) !important;
+    0 0 55px rgba(0,255,136,0.17),
+    0 30px 80px rgba(0,0,0,0.42) !important;
 }
 
-.chart,
-.mini-chart,
-.preview-screen,
-.app-device {
-  box-shadow: inset 0 0 35px rgba(0,255,136,0.06);
-}
-
-/* Add hologram feeling around hero media without touching HTML */
-.hero-visual,
-.hero-art,
-.hero-image,
-.hero-media,
-.bison-wrap,
-.hero-graphic {
-  position: relative;
-}
-
-.hero-visual::after,
-.hero-art::after,
-.hero-image::after,
-.hero-media::after,
-.bison-wrap::after,
-.hero-graphic::after {
-  content: "";
-  position: absolute;
-  width: 560px;
-  height: 170px;
-  left: 50%;
-  bottom: 8%;
-  transform: translateX(-50%) perspective(520px) rotateX(62deg);
-  border-radius: 50%;
-  border: 1px solid rgba(0,255,136,0.36);
-  box-shadow:
-    0 0 28px rgba(0,255,136,0.25),
-    inset 0 0 30px rgba(0,255,136,0.10);
-  pointer-events: none;
-  z-index: 0;
-}
-
+/* Make all blocks black-glass, not green filled */
 .section {
-  padding: 12px 0 !important;
+  padding: 10px 0 !important;
+}
+
+.section-head {
+  margin-bottom: 12px !important;
+}
+
+.section-title {
+  font-size: clamp(26px, 3vw, 42px) !important;
+}
+
+.section-text {
+  color: var(--v3-muted) !important;
 }
 
 .features {
   grid-template-columns: repeat(6, 1fr) !important;
-  gap: 12px !important;
+  gap: 10px !important;
 }
 
 .feature-card,
@@ -2569,38 +2563,43 @@ h1 {
 .coin-universe,
 .protect-card,
 .official-link,
-.waitlist {
-  border-radius: 20px !important;
-  border-color: rgba(140,255,193,0.16) !important;
+.waitlist,
+.market-card,
+.flow-step,
+.roadmap-card,
+.app-preview-card,
+.store-card {
   background:
-    radial-gradient(circle at 100% 0%, rgba(0,255,136,0.10), transparent 34%),
-    linear-gradient(180deg, rgba(255,255,255,0.062), rgba(255,255,255,0.020)),
-    rgba(0,0,0,0.18) !important;
-  box-shadow: 0 0 44px rgba(0,255,136,0.055);
+    radial-gradient(circle at 100% 0%, rgba(0,255,136,0.07), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+    rgba(3, 8, 6, 0.72) !important;
+  border-color: rgba(140,255,193,0.14) !important;
+  box-shadow: 0 0 34px rgba(0,255,136,0.045) !important;
 }
 
 .feature-card {
-  min-height: 142px !important;
-  padding: 18px !important;
+  min-height: 130px !important;
+  padding: 16px !important;
+  border-radius: 16px !important;
 }
 
 .feature-card h3 {
-  color: var(--zubr-green) !important;
-  font-size: 13px !important;
+  color: var(--v3-green) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
 }
 
 .feature-card p {
-  font-size: 12px !important;
+  font-size: 11px !important;
 }
 
 .icon {
-  width: 42px !important;
-  height: 42px !important;
-  border-radius: 14px !important;
-  margin-bottom: 14px !important;
-  color: var(--zubr-green) !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 13px !important;
+  margin-bottom: 12px !important;
+  color: var(--v3-green) !important;
 }
 
 .market-terminal,
@@ -2609,21 +2608,42 @@ h1 {
 .app-launch-board,
 .coin-universe {
   padding: 18px !important;
+  border-radius: 22px !important;
 }
 
-.terminal-top,
-.section-head {
-  margin-bottom: 14px !important;
+/* Fix charts section size: no giant green block */
+.market-terminal .section-title,
+#charts .section-title,
+#charts h2 {
+  font-size: clamp(26px, 3.2vw, 44px) !important;
+  line-height: 1.05 !important;
 }
 
-.terminal-label,
-.ai-card-kicker {
-  color: var(--zubr-green) !important;
+.terminal-top {
+  margin-bottom: 12px !important;
+}
+
+.terminal-label {
+  color: var(--v3-green) !important;
+}
+
+.coin-tab {
+  background: rgba(255,255,255,0.045) !important;
+  border-color: rgba(140,255,193,0.16) !important;
+  color: rgba(245,255,249,0.76) !important;
+}
+
+.coin-tab.active,
+.coin-tab:hover {
+  color: #02100a !important;
+  background: linear-gradient(135deg, #8cffc1, #00ff88) !important;
 }
 
 .tv-frame {
-  height: 420px !important;
+  height: 410px !important;
+  min-height: 360px !important;
   border-radius: 18px !important;
+  background: #050807 !important;
 }
 
 .market-grid {
@@ -2641,13 +2661,14 @@ h1 {
 }
 
 .coin-list {
-  max-height: 480px !important;
+  max-height: 430px !important;
 }
 
 .coin-row {
-  min-height: 58px !important;
+  min-height: 56px !important;
 }
 
+/* AI demo / radar */
 .signal-demo-panel {
   grid-template-columns: 0.88fr 1.12fr !important;
   gap: 12px !important;
@@ -2657,6 +2678,10 @@ h1 {
 .ai-analysis-card {
   padding: 18px !important;
   border-radius: 20px !important;
+}
+
+.ai-card-kicker {
+  color: var(--v3-green) !important;
 }
 
 .ai-card-symbol {
@@ -2677,65 +2702,69 @@ h1 {
   padding: 12px !important;
 }
 
+/* Trade flow and roadmap compact like reference */
 .trade-flow-track {
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 12px !important;
 }
 
 .trade-flow-track::before {
-  top: 45px !important;
+  top: 44px !important;
+  opacity: 0.72;
 }
 
 .flow-step {
-  min-height: 190px !important;
+  min-height: 170px !important;
   padding: 16px !important;
-  border-radius: 18px !important;
+  border-radius: 16px !important;
 }
 
 .flow-number,
 .roadmap-phase {
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 15px !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 14px !important;
 }
 
 .flow-step h3 {
-  font-size: 16px !important;
+  font-size: 15px !important;
 }
 
 .flow-step p,
 .flow-mini-row,
 .flow-warning-card p {
-  font-size: 12px !important;
+  font-size: 11px !important;
 }
 
 .flow-mini-card {
-  border-radius: 14px !important;
-  padding: 12px !important;
+  border-radius: 13px !important;
+  padding: 10px !important;
 }
 
 .roadmap-grid {
   grid-template-columns: repeat(6, 1fr) !important;
-  gap: 12px !important;
+  gap: 10px !important;
 }
 
 .roadmap-card {
-  min-height: 190px !important;
-  padding: 16px !important;
-  border-radius: 18px !important;
+  min-height: 172px !important;
+  padding: 14px !important;
+  border-radius: 16px !important;
 }
 
 .roadmap-card h3 {
-  font-size: 15px !important;
+  font-size: 14px !important;
 }
 
 .roadmap-card p,
 .roadmap-list {
-  font-size: 12px !important;
+  font-size: 11px !important;
 }
 
+/* App section */
 .app-launch-grid {
   grid-template-columns: 0.92fr 1.08fr !important;
-  gap: 14px !important;
+  gap: 12px !important;
 }
 
 .app-preview-card,
@@ -2751,6 +2780,7 @@ h1 {
 .store-badge {
   min-height: 74px !important;
   border-radius: 16px !important;
+  background: #050505 !important;
 }
 
 .store-copy strong {
@@ -2763,73 +2793,72 @@ h1 {
 
 .app-feature-chip {
   border-radius: 13px !important;
-  padding: 11px 12px !important;
+  padding: 10px !important;
   text-align: center;
 }
 
-.pricing {
-  gap: 14px !important;
-}
-
+/* Pricing/waitlist/socials */
 .price-card {
-  min-height: 270px !important;
+  min-height: 260px !important;
   padding: 20px !important;
-  border-radius: 20px !important;
+  border-radius: 18px !important;
 }
 
 .price-card.featured {
   transform: none !important;
-  border-color: rgba(0,255,136,0.72) !important;
-  box-shadow: 0 0 55px rgba(0,255,136,0.16);
+  border-color: rgba(0,255,136,0.62) !important;
+  box-shadow: 0 0 52px rgba(0,255,136,0.14) !important;
 }
 
 .price-card h3 {
-  color: var(--zubr-green) !important;
+  color: var(--v3-green) !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .price {
   color: #ffffff !important;
-  font-size: 32px !important;
+  font-size: 31px !important;
 }
 
 .waitlist {
   padding: 22px !important;
+  border-radius: 20px !important;
 }
 
 .official-links {
   grid-template-columns: repeat(4, 1fr) !important;
-  gap: 12px !important;
+  gap: 10px !important;
 }
 
 .official-link {
-  min-height: 92px !important;
-  padding: 14px !important;
+  min-height: 86px !important;
+  padding: 13px !important;
+  border-radius: 16px !important;
   flex-direction: row !important;
   align-items: center;
   justify-content: flex-start !important;
 }
 
 .social-icon {
-  width: 44px !important;
-  height: 44px !important;
-  flex-basis: 44px !important;
-  border-radius: 14px !important;
+  width: 42px !important;
+  height: 42px !important;
+  flex-basis: 42px !important;
+  border-radius: 13px !important;
 }
 
 .social-icon svg {
-  width: 24px !important;
-  height: 24px !important;
+  width: 23px !important;
+  height: 23px !important;
 }
 
 .official-link strong {
-  font-size: 15px !important;
+  font-size: 14px !important;
   margin-bottom: 4px !important;
 }
 
 .official-link small {
-  font-size: 12px !important;
+  font-size: 11px !important;
 }
 
 footer {
@@ -2838,12 +2867,12 @@ footer {
 
 .footer-row {
   padding: 16px;
-  border: 1px solid rgba(140,255,193,0.12);
+  border: 1px solid rgba(140,255,193,0.11);
   border-radius: 18px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.025);
 }
 
-/* Premium hover */
+/* premium hover */
 .feature-card,
 .market-card,
 .coin-row,
@@ -2867,11 +2896,11 @@ footer {
 .official-link:hover,
 .store-badge:hover {
   transform: translateY(-3px);
-  border-color: rgba(0,255,136,0.42) !important;
-  box-shadow: 0 0 42px rgba(0,255,136,0.12);
+  border-color: rgba(0,255,136,0.36) !important;
+  box-shadow: 0 0 34px rgba(0,255,136,0.10) !important;
 }
 
-/* Mobile/tablet restore */
+/* Responsive */
 @media (max-width: 1180px) {
   header {
     top: 0 !important;
@@ -2896,7 +2925,7 @@ footer {
 
   .phone-card {
     transform: none;
-    margin: 0 auto;
+    margin: 0 auto !important;
   }
 }
 
@@ -2911,7 +2940,7 @@ footer {
   }
 
   h1 {
-    font-size: clamp(42px, 13vw, 58px) !important;
+    font-size: clamp(40px, 13vw, 58px) !important;
   }
 
   .features,
@@ -2933,7 +2962,7 @@ footer {
   }
 
   .tv-frame {
-    height: 360px !important;
+    height: 350px !important;
   }
 }
 
