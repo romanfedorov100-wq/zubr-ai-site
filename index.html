@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V17 features suite, based on uploaded full file. -->
+<!-- ZUBR V19 premium icon cards, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3733,16 +3733,26 @@ h1 {
 .suite-icon {
   position: relative;
   z-index: 2;
-  width: 44px;
-  height: 44px;
-  border-radius: 15px;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  padding: 3px;
   display: grid;
   place-items: center;
-  color: #00ff88;
-  background: rgba(140,255,193,0.10);
+  background: linear-gradient(180deg, rgba(140,255,193,0.12), rgba(140,255,193,0.04));
   border: 1px solid rgba(140,255,193,0.18);
-  font-size: 22px;
-  box-shadow: inset 0 0 18px rgba(0,255,136,0.06);
+  box-shadow:
+    inset 0 0 18px rgba(0,255,136,0.06),
+    0 0 24px rgba(0,255,136,0.08);
+  overflow: hidden;
+}
+
+.suite-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 13px;
 }
 
 .suite-card-top {
@@ -3831,6 +3841,171 @@ h1 {
 
   .zubr-suite-card {
     min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   ZUBR V19 PREMIUM ICON CARDS
+   Улучшение блока “Что внутри ZUBR”:
+   - иконки крупнее и дороже
+   - карточки глубже, с мягким hover-свечением
+   - без удаления данных и секций сайта
+   ========================================================= */
+
+.zubr-suite-grid {
+  gap: 14px !important;
+}
+
+.zubr-suite-card {
+  min-height: 268px !important;
+  padding: 20px !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(0,255,136,0.14), transparent 34%),
+    radial-gradient(circle at 10% 95%, rgba(0,255,136,0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018)),
+    rgba(3,8,6,0.78) !important;
+  border-color: rgba(140,255,193,0.18) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.055),
+    0 0 34px rgba(0,255,136,0.045),
+    0 22px 70px rgba(0,0,0,0.24) !important;
+}
+
+.zubr-suite-card::before {
+  width: 180px !important;
+  height: 180px !important;
+  right: -92px !important;
+  top: -92px !important;
+  background: rgba(0,255,136,0.13) !important;
+  filter: blur(30px) !important;
+}
+
+.zubr-suite-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.055) 18%, transparent 36%),
+    linear-gradient(rgba(0,255,136,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.018) 1px, transparent 1px);
+  background-size: auto, 28px 28px, 28px 28px;
+  opacity: 0.58;
+  mix-blend-mode: screen;
+}
+
+.zubr-suite-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(0,255,136,0.42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 0 52px rgba(0,255,136,0.13),
+    0 28px 90px rgba(0,0,0,0.34) !important;
+}
+
+.zubr-suite-card.featured {
+  border-color: rgba(0,255,136,0.44) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 0 58px rgba(0,255,136,0.13),
+    0 28px 90px rgba(0,0,0,0.34) !important;
+}
+
+.suite-icon {
+  width: 62px !important;
+  height: 62px !important;
+  border-radius: 20px !important;
+  padding: 4px !important;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0,255,136,0.18), transparent 64%),
+    linear-gradient(180deg, rgba(140,255,193,0.15), rgba(140,255,193,0.035)) !important;
+  border-color: rgba(140,255,193,0.28) !important;
+  box-shadow:
+    inset 0 0 22px rgba(0,255,136,0.08),
+    0 0 24px rgba(0,255,136,0.14),
+    0 12px 32px rgba(0,0,0,0.24) !important;
+}
+
+.suite-icon img {
+  border-radius: 16px !important;
+  filter:
+    saturate(1.08)
+    contrast(1.03)
+    drop-shadow(0 0 10px rgba(0,255,136,0.22)) !important;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.zubr-suite-card:hover .suite-icon img {
+  transform: scale(1.045);
+  filter:
+    saturate(1.16)
+    contrast(1.06)
+    drop-shadow(0 0 16px rgba(0,255,136,0.34)) !important;
+}
+
+.suite-card-top {
+  margin-top: 2px !important;
+}
+
+.suite-card-top span {
+  font-size: 12px !important;
+  color: rgba(140,255,193,0.56) !important;
+}
+
+.suite-card-top strong {
+  font-size: 10.5px !important;
+  color: #00ff88 !important;
+  text-shadow: 0 0 18px rgba(0,255,136,0.18);
+}
+
+.zubr-suite-card h3 {
+  font-size: 18px !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.zubr-suite-card p {
+  font-size: 12.5px !important;
+  line-height: 1.5 !important;
+  color: rgba(244,255,249,0.66) !important;
+}
+
+.suite-mini {
+  padding: 13px !important;
+  border-radius: 17px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    rgba(0,0,0,0.28) !important;
+  border-color: rgba(140,255,193,0.16) !important;
+}
+
+.suite-mini b {
+  color: #8cffc1 !important;
+  text-shadow: 0 0 16px rgba(0,255,136,0.18);
+}
+
+@media (max-width: 1280px) {
+  .zubr-suite-card {
+    min-height: 250px !important;
+  }
+
+  .suite-icon {
+    width: 58px !important;
+    height: 58px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .zubr-suite-card {
+    min-height: auto !important;
+    padding: 18px !important;
+  }
+
+  .suite-icon {
+    width: 56px !important;
+    height: 56px !important;
   }
 }
 
@@ -3998,7 +4173,7 @@ h1 {
 
           <div class="zubr-suite-grid">
             <article class="zubr-suite-card featured">
-              <div class="suite-icon">💬</div>
+              <div class="suite-icon"><img src="images/icon-ai-chat.png" alt="AI Signal Chat icon" /></div>
               <div class="suite-card-top">
                 <span>01</span>
                 <strong>AI Signal Chat</strong>
@@ -4015,7 +4190,7 @@ h1 {
             </article>
 
             <article class="zubr-suite-card">
-              <div class="suite-icon">🎯</div>
+              <div class="suite-icon"><img src="images/icon-max-sniper.png" alt="MAX SNIPER MODE icon" /></div>
               <div class="suite-card-top">
                 <span>02</span>
                 <strong>MAX SNIPER MODE</strong>
@@ -4032,7 +4207,7 @@ h1 {
             </article>
 
             <article class="zubr-suite-card">
-              <div class="suite-icon">🛡️</div>
+              <div class="suite-icon"><img src="images/icon-zubr-protect.png" alt="ZUBR PROTECT icon" /></div>
               <div class="suite-card-top">
                 <span>03</span>
                 <strong>ZUBR PROTECT</strong>
@@ -4049,7 +4224,7 @@ h1 {
             </article>
 
             <article class="zubr-suite-card">
-              <div class="suite-icon">🛰️</div>
+              <div class="suite-icon"><img src="images/icon-news-radar.png" alt="NEWS RADAR 24/7 icon" /></div>
               <div class="suite-card-top">
                 <span>04</span>
                 <strong>NEWS RADAR 24/7</strong>
@@ -4066,7 +4241,7 @@ h1 {
             </article>
 
             <article class="zubr-suite-card">
-              <div class="suite-icon">📊</div>
+              <div class="suite-icon"><img src="images/icon-risk-management.png" alt="RISK MANAGEMENT icon" /></div>
               <div class="suite-card-top">
                 <span>05</span>
                 <strong>RISK MANAGEMENT</strong>
@@ -4083,7 +4258,7 @@ h1 {
             </article>
 
             <article class="zubr-suite-card">
-              <div class="suite-icon">📈</div>
+              <div class="suite-icon"><img src="images/icon-market-statistics.png" alt="MARKET STATISTICS icon" /></div>
               <div class="suite-card-top">
                 <span>06</span>
                 <strong>MARKET STATISTICS</strong>
