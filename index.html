@@ -1275,6 +1275,261 @@
       font-size: 14px;
     }
 
+
+    .app-launch-board {
+      border-radius: 36px;
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(0,255,140,0.18), transparent 34%),
+        radial-gradient(circle at 82% 12%, rgba(0,255,209,0.11), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      padding: 28px;
+      overflow: hidden;
+      box-shadow: 0 0 76px rgba(0, 255, 140, 0.10);
+    }
+
+    .app-launch-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .app-preview-card,
+    .store-card {
+      border-radius: 30px;
+      border: 1px solid rgba(140,255,193,0.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.066), rgba(255,255,255,0.024)),
+        rgba(0,0,0,0.23);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-preview-card::before,
+    .store-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -98px;
+      top: -98px;
+      border-radius: 999px;
+      background: rgba(0,255,140,0.10);
+      filter: blur(28px);
+      pointer-events: none;
+    }
+
+    .app-preview-top {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .app-preview-top h3,
+    .store-card h3 {
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .app-preview-top p,
+    .store-card p {
+      color: rgba(244,255,249,0.62);
+      line-height: 1.58;
+      font-size: 15px;
+      max-width: 560px;
+    }
+
+    .app-device {
+      position: relative;
+      z-index: 2;
+      border-radius: 34px;
+      border: 1px solid rgba(140,255,193,0.16);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0,255,140,0.18), transparent 38%),
+        rgba(0,0,0,0.28);
+      padding: 18px;
+    }
+
+    .app-device-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(140,255,193,0.12);
+      color: rgba(244,255,249,0.62);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .app-screen-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .app-screen-row {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.065);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .app-screen-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(140,255,193,0.18);
+      background: rgba(140,255,193,0.10);
+      font-size: 20px;
+    }
+
+    .app-screen-row strong {
+      display: block;
+      color: #ffffff;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .app-screen-row span {
+      color: rgba(244,255,249,0.54);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .app-screen-pill {
+      color: #04100a !important;
+      background: linear-gradient(135deg, #8cffc1, #00ff88);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .store-stack {
+      position: relative;
+      z-index: 2;
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .store-badge {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 18px;
+      border-radius: 24px;
+      background: #050505;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 0 30px rgba(0,255,140,0.08);
+      transition: 0.2s ease;
+    }
+
+    .store-badge:hover {
+      transform: translateY(-3px);
+      border-color: rgba(140,255,193,0.44);
+      box-shadow: 0 0 40px rgba(0,255,140,0.14);
+    }
+
+    .store-badge-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .store-logo {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: grid;
+      place-items: center;
+    }
+
+    .store-logo svg {
+      width: 42px;
+      height: 42px;
+      display: block;
+    }
+
+    .store-copy small {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    .store-copy strong {
+      display: block;
+      color: #ffffff;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .store-status {
+      color: #8cffc1;
+      border: 1px solid rgba(140,255,193,0.22);
+      background: rgba(140,255,193,0.10);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .app-feature-grid {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .app-feature-chip {
+      padding: 13px 14px;
+      border-radius: 18px;
+      background: rgba(140,255,193,0.07);
+      border: 1px solid rgba(140,255,193,0.14);
+      color: rgba(244,255,249,0.74);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .app-launch-note {
+      position: relative;
+      z-index: 2;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(140,255,193,0.14);
+      background: rgba(0,0,0,0.22);
+      color: rgba(244,255,249,0.62);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
     .news-layout {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -1892,7 +2147,8 @@
       .hero-grid,
       .waitlist,
       .preview-card,
-      .news-layout {
+      .news-layout,
+      .app-launch-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1904,7 +2160,8 @@
       .market-grid,
       .news-sources,
       .protect-grid,
-      .roadmap-grid {
+      .roadmap-grid,
+      .app-feature-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1964,8 +2221,23 @@
       .market-grid,
       .news-sources,
       .protect-grid,
-      .roadmap-grid {
+      .roadmap-grid,
+      .app-feature-grid {
         grid-template-columns: 1fr;
+      }
+
+      .store-badge {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .app-screen-row {
+        grid-template-columns: 42px 1fr;
+      }
+
+      .app-screen-pill {
+        grid-column: 1 / -1;
+        justify-self: start;
       }
 
       .section-head {
@@ -2792,6 +3064,158 @@
 
             <div class="roadmap-note">
               Roadmap не обещает доходность и не является финансовым советом. Это продуктовый план развития ZUBR: от сообщества и демо-функций к реальным данным, сопровождению сделок и подписочной модели.
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="app">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">ZUBR App — Coming Soon</h2>
+            <p class="section-text">
+              Первый запуск планируется через Android Beta. iOS и Web App идут следующим этапом после проверки AI-чата, сигналов, Top 500 Coins, News Radar и Protect Mode.
+            </p>
+          </div>
+
+          <div class="app-launch-board">
+            <div class="terminal-label">
+              <span class="badge-dot"></span>
+              Mobile App Launch / Android First
+            </div>
+
+            <div class="app-launch-grid">
+              <div class="app-preview-card">
+                <div class="app-preview-top">
+                  <div>
+                    <h3>Что будет внутри приложения</h3>
+                    <p>
+                      Приложение ZUBR будет открываться как AI-терминал для сигналов: пользователь получает сетап, подтверждает вход и дальше видит сопровождение сделки.
+                    </p>
+                  </div>
+                  <span class="roadmap-status">Beta build</span>
+                </div>
+
+                <div class="app-device">
+                  <div class="app-device-bar">
+                    <span>ZUBR AI Terminal</span>
+                    <span>LIVE SIGNAL FEED</span>
+                  </div>
+
+                  <div class="app-screen-list">
+                    <div class="app-screen-row">
+                      <div class="app-screen-icon">💬</div>
+                      <div>
+                        <strong>AI Signal Chat</strong>
+                        <span>Сигналы в формате чата: Entry, SL, TP, качество и объяснение входа.</span>
+                      </div>
+                      <span class="app-screen-pill">CORE</span>
+                    </div>
+
+                    <div class="app-screen-row">
+                      <div class="app-screen-icon">📈</div>
+                      <div>
+                        <strong>Active Trades</strong>
+                        <span>Пользователь подтверждает вход, а сделка появляется в активных позициях.</span>
+                      </div>
+                      <span class="app-screen-pill">TRACK</span>
+                    </div>
+
+                    <div class="app-screen-row">
+                      <div class="app-screen-icon">🛰️</div>
+                      <div>
+                        <strong>News Radar 24/7</strong>
+                        <span>Контроль новостей, которые могут повлиять на сценарий сделки.</span>
+                      </div>
+                      <span class="app-screen-pill">RADAR</span>
+                    </div>
+
+                    <div class="app-screen-row">
+                      <div class="app-screen-icon">🛡️</div>
+                      <div>
+                        <strong>ZUBR Protect</strong>
+                        <span>SL в Entry, частичное закрытие или выход, если сценарий меняется.</span>
+                      </div>
+                      <span class="app-screen-pill">PROTECT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="store-card">
+                <h3>Официальные магазины</h3>
+                <p>
+                  Кнопки подготовлены под будущую публикацию. Сейчас они ведут в waitlist, чтобы собирать ранний доступ до выхода приложения.
+                </p>
+
+                <div class="store-stack">
+                  <a class="store-badge" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gTV7jtSibpf8Hg/viewform?usp=header" target="_blank" rel="noopener" aria-label="Google Play Coming Soon">
+                    <span class="store-badge-left">
+                      <span class="store-logo" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" role="img">
+                          <defs>
+                            <linearGradient id="playA" x1="6" y1="8" x2="38" y2="32" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#00F5FF"/>
+                              <stop offset="1" stop-color="#00D46A"/>
+                            </linearGradient>
+                            <linearGradient id="playB" x1="34" y1="28" x2="58" y2="38" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#FFE45C"/>
+                              <stop offset="1" stop-color="#FF8C2B"/>
+                            </linearGradient>
+                            <linearGradient id="playC" x1="8" y1="56" x2="36" y2="34" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#1D7CFF"/>
+                              <stop offset="1" stop-color="#00F5FF"/>
+                            </linearGradient>
+                            <linearGradient id="playD" x1="10" y1="8" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#FF3D71"/>
+                              <stop offset="1" stop-color="#FFB000"/>
+                            </linearGradient>
+                          </defs>
+                          <path d="M10 7.5c-1.6.9-2.6 2.6-2.6 4.8v39.4c0 2.2 1 3.9 2.6 4.8L35.8 32 10 7.5Z" fill="url(#playA)"/>
+                          <path d="M35.8 32 10 56.5c1.2.7 2.7.7 4.4-.2l29.8-17.1L35.8 32Z" fill="url(#playC)"/>
+                          <path d="M44.2 24.8 14.4 7.7C12.7 6.8 11.2 6.8 10 7.5L35.8 32l8.4-7.2Z" fill="url(#playD)"/>
+                          <path d="M56.2 28.9 44.2 24.8 35.8 32l8.4 7.2 12-4.1c3.1-1.7 3.1-4.5 0-6.2Z" fill="url(#playB)"/>
+                        </svg>
+                      </span>
+                      <span class="store-copy">
+                        <small>GET IT ON</small>
+                        <strong>Google Play</strong>
+                      </span>
+                    </span>
+                    <span class="store-status">Coming soon</span>
+                  </a>
+
+                  <a class="store-badge" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gTV7jtSibpf8Hg/viewform?usp=header" target="_blank" rel="noopener" aria-label="App Store Coming Soon">
+                    <span class="store-badge-left">
+                      <span class="store-logo" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" role="img">
+                          <path d="M44.9 33.9c-.1-7.1 5.8-10.5 6.1-10.7-3.4-4.9-8.6-5.6-10.4-5.7-4.4-.4-8.7 2.6-10.9 2.6-2.3 0-5.7-2.5-9.4-2.4-4.8.1-9.3 2.8-11.8 7.1-5.1 8.8-1.3 21.8 3.6 28.9 2.4 3.5 5.3 7.4 9.1 7.3 3.6-.1 5-2.3 9.4-2.3 4.3 0 5.6 2.3 9.4 2.2 3.9-.1 6.4-3.5 8.8-7 2.8-4 3.9-8 4-8.2-.1-.1-7.8-3-7.9-11.8Z" fill="#fff"/>
+                          <path d="M37.8 12.8c2-2.4 3.4-5.8 3-9.1-2.9.1-6.5 1.9-8.6 4.3-1.9 2.2-3.5 5.7-3.1 9 3.3.3 6.6-1.7 8.7-4.2Z" fill="#fff"/>
+                        </svg>
+                      </span>
+                      <span class="store-copy">
+                        <small>Download on the</small>
+                        <strong>App Store</strong>
+                      </span>
+                    </span>
+                    <span class="store-status">Coming soon</span>
+                  </a>
+                </div>
+
+                <div class="app-feature-grid">
+                  <div class="app-feature-chip">AI Signal Chat</div>
+                  <div class="app-feature-chip">Top 500 Coins</div>
+                  <div class="app-feature-chip">News Radar 24/7</div>
+                  <div class="app-feature-chip">ZUBR Protect</div>
+                  <div class="app-feature-chip">Active Trades</div>
+                  <div class="app-feature-chip">Max Sniper Mode</div>
+                </div>
+
+                <div class="app-launch-note">
+                  Для финальной публикации позже можно будет заменить эти кнопки на официальные store badges от Apple и Google, когда появятся реальные ссылки на приложение.
+                </div>
+              </div>
             </div>
           </div>
         </div>
