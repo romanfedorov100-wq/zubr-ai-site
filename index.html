@@ -892,10 +892,274 @@
       flex-wrap: wrap;
     }
 
+
+
+    .market-terminal {
+      border-radius: 36px;
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(0, 255, 140, 0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      padding: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 70px rgba(0, 255, 140, 0.09);
+    }
+
+    .terminal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .terminal-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #8cffc1;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+    }
+
+    .terminal-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .coin-tab {
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background: rgba(255,255,255,0.045);
+      color: rgba(244,255,249,0.72);
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .coin-tab:hover,
+    .coin-tab.active {
+      background: linear-gradient(135deg, #8cffc1, #00ff88);
+      color: #04100a;
+      box-shadow: 0 0 22px rgba(0, 255, 140, 0.22);
+    }
+
+    .tv-frame {
+      height: 560px;
+      min-height: 420px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(140, 255, 193, 0.14);
+      background: #050807;
+    }
+
+    .tv-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .market-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .market-card {
+      padding: 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(140, 255, 193, 0.13);
+      background: rgba(0,0,0,0.20);
+    }
+
+    .market-card span {
+      display: block;
+      color: rgba(244,255,249,0.50);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: 8px;
+    }
+
+    .market-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: 19px;
+      letter-spacing: -0.03em;
+    }
+
+    .market-card small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(244,255,249,0.52);
+      line-height: 1.35;
+    }
+
+    .news-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .news-radar-main,
+    .news-source-card {
+      border-radius: 30px;
+      border: 1px solid rgba(140, 255, 193, 0.14);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0, 255, 140, 0.12), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.068), rgba(255,255,255,0.025));
+      overflow: hidden;
+    }
+
+    .news-radar-main {
+      padding: 28px;
+      min-height: 100%;
+    }
+
+    .radar-screen {
+      margin-top: 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(140,255,193,0.15);
+      background:
+        linear-gradient(rgba(140,255,193,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(140,255,193,0.045) 1px, transparent 1px),
+        rgba(0,0,0,0.28);
+      background-size: 32px 32px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .radar-screen::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(140,255,193,0.18);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 54px rgba(140,255,193,0.025),
+        0 0 0 108px rgba(140,255,193,0.018),
+        0 0 45px rgba(0,255,140,0.10);
+      pointer-events: none;
+    }
+
+    .news-alert {
+      position: relative;
+      z-index: 2;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(140,255,193,0.13);
+      background: rgba(0,0,0,0.45);
+      margin-bottom: 12px;
+    }
+
+    .news-alert strong {
+      display: block;
+      color: #8cffc1;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .news-alert p {
+      color: rgba(244,255,249,0.64);
+      line-height: 1.48;
+      font-size: 14px;
+    }
+
+    .news-sources {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .news-source-card {
+      padding: 20px;
+      min-height: 174px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.18s ease;
+    }
+
+    .news-source-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(140,255,193,0.42);
+      box-shadow: 0 0 38px rgba(0,255,140,0.12);
+    }
+
+    .news-source-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .news-source-card small {
+      display: block;
+      color: rgba(244,255,249,0.58);
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .source-pill {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(140,255,193,0.11);
+      color: #8cffc1;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .protect-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .protect-card {
+      padding: 20px;
+      border-radius: 26px;
+      border: 1px solid rgba(140,255,193,0.14);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .protect-card h3 {
+      color: #8cffc1;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .protect-card p {
+      color: rgba(244,255,249,0.62);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+
     @media (max-width: 980px) {
       .hero-grid,
       .waitlist,
-      .preview-card {
+      .preview-card,
+      .news-layout {
         grid-template-columns: 1fr;
       }
 
@@ -903,7 +1167,10 @@
       .steps,
       .pricing,
       .faq-grid,
-      .official-links {
+      .official-links,
+      .market-grid,
+      .news-sources,
+      .protect-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -943,7 +1210,10 @@
       .steps,
       .pricing,
       .faq-grid,
-      .official-links {
+      .official-links,
+      .market-grid,
+      .news-sources,
+      .protect-grid {
         grid-template-columns: 1fr;
       }
 
@@ -961,6 +1231,10 @@
 
       .trade-grid {
         grid-template-columns: 1fr;
+      }
+
+      .tv-frame {
+        height: 430px;
       }
 
       h1 {
@@ -987,6 +1261,8 @@
 
         <nav class="nav-links">
           <a href="#signals">Signals</a>
+          <a href="#charts">Charts</a>
+          <a href="#news">News</a>
           <a href="#how">How it works</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
@@ -1204,6 +1480,189 @@
           </div>
         </div>
       </section>
+
+
+      <section class="section" id="charts">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Live Market Charts</h2>
+            <p class="section-text">
+              Встроенный терминал TradingView для быстрого анализа BTC, ETH, SOL и BNB.
+              Позже сюда можно добавить реальные сигналы ZUBR поверх графика.
+            </p>
+          </div>
+
+          <div class="market-terminal">
+            <div class="terminal-top">
+              <div class="terminal-label">
+                <span class="badge-dot"></span>
+                TradingView / Binance Futures
+              </div>
+
+              <div class="terminal-buttons">
+                <button class="coin-tab active" type="button" data-symbol="BINANCE:BTCUSDT">BTC</button>
+                <button class="coin-tab" type="button" data-symbol="BINANCE:ETHUSDT">ETH</button>
+                <button class="coin-tab" type="button" data-symbol="BINANCE:SOLUSDT">SOL</button>
+                <button class="coin-tab" type="button" data-symbol="BINANCE:BNBUSDT">BNB</button>
+                <button class="coin-tab" type="button" data-symbol="BINANCE:XRPUSDT">XRP</button>
+                <button class="coin-tab" type="button" data-symbol="BINANCE:DOGEUSDT">DOGE</button>
+              </div>
+            </div>
+
+            <div class="tv-frame">
+              <iframe
+                id="zubrTradingView"
+                title="ZUBR TradingView Chart"
+                src="https://www.tradingview.com/widgetembed/?frameElementId=zubrTradingView&symbol=BINANCE%3ABTCUSDT&interval=60&hidesidetoolbar=0&symboledit=1&saveimage=0&toolbarbg=050807&studies=%5B%5D&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1"
+                loading="lazy"
+                allowtransparency="true"
+                scrolling="no">
+              </iframe>
+            </div>
+
+            <div class="market-grid">
+              <div class="market-card">
+                <span>Market Mode</span>
+                <strong>MAX SNIPER</strong>
+                <small>Фокус на сильных сетапах, а не на потоке случайных сигналов.</small>
+              </div>
+
+              <div class="market-card">
+                <span>Risk Engine</span>
+                <strong>SL / TP / RR</strong>
+                <small>Будущий расчёт риска, целей и сопровождения сделки.</small>
+              </div>
+
+              <div class="market-card">
+                <span>News Filter</span>
+                <strong>24/7 Radar</strong>
+                <small>Контроль событий, которые могут отменить вход или изменить сценарий.</small>
+              </div>
+
+              <div class="market-card">
+                <span>Protect Action</span>
+                <strong>SL → Entry</strong>
+                <small>Если сделка в плюсе, ZUBR Protect может предложить защитное действие.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">NEWS RADAR 24/7</h2>
+            <p class="section-text">
+              Блок новостей для мониторинга рынка. Сейчас это официальный новостной хаб со ссылками на источники,
+              следующий шаг — подключить API/RSS и выводить новости автоматически внутри сайта.
+            </p>
+          </div>
+
+          <div class="news-layout">
+            <div class="news-radar-main">
+              <div class="terminal-label">
+                <span class="badge-dot"></span>
+                ZUBR Market Radar
+              </div>
+
+              <h3 style="font-size: 32px; line-height: 1.05; letter-spacing: -0.04em; margin-top: 18px;">
+                Новости должны не просто читаться — они должны защищать сделку.
+              </h3>
+
+              <p style="color: rgba(244,255,249,0.64); line-height: 1.62; margin-top: 16px;">
+                Для ZUBR важны не все новости подряд, а те, которые могут повлиять на активный сигнал:
+                ETF, SEC, Binance, Coinbase, CPI/FOMC, взломы, листинги, делистинги, крупные переводы и резкие заявления.
+              </p>
+
+              <div class="radar-screen">
+                <div class="news-alert">
+                  <strong>🟢 Bullish Catalyst</strong>
+                  <p>Позитивная новость может усилить LONG-сценарий, но вход всё равно должен подтверждаться графиком.</p>
+                </div>
+
+                <div class="news-alert">
+                  <strong>🟡 Volatility Warning</strong>
+                  <p>Перед важными макро-событиями ZUBR может снизить качество сигнала или перевести сделку в режим ожидания.</p>
+                </div>
+
+                <div class="news-alert">
+                  <strong>🔴 Protect Trigger</strong>
+                  <p>Если новость ломает сценарий, приоритет — защита капитала: частичное закрытие, SL в entry или полный выход.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="news-sources">
+              <a class="news-source-card" href="https://www.coindesk.com/" target="_blank" rel="noopener">
+                <span>
+                  <strong>CoinDesk</strong>
+                  <small>Крупные новости рынка, ETF, regulation, institutions.</small>
+                </span>
+                <span class="source-pill">Open Source</span>
+              </a>
+
+              <a class="news-source-card" href="https://cointelegraph.com/" target="_blank" rel="noopener">
+                <span>
+                  <strong>Cointelegraph</strong>
+                  <small>Крипто-новости, альткоины, биржи, регулирование.</small>
+                </span>
+                <span class="source-pill">Open Source</span>
+              </a>
+
+              <a class="news-source-card" href="https://decrypt.co/" target="_blank" rel="noopener">
+                <span>
+                  <strong>Decrypt</strong>
+                  <small>Web3, AI, crypto culture, market events.</small>
+                </span>
+                <span class="source-pill">Open Source</span>
+              </a>
+
+              <a class="news-source-card" href="https://www.theblock.co/" target="_blank" rel="noopener">
+                <span>
+                  <strong>The Block</strong>
+                  <small>Профессиональные новости, данные и аналитика индустрии.</small>
+                </span>
+                <span class="source-pill">Open Source</span>
+              </a>
+
+              <a class="news-source-card" href="https://www.binance.com/en/news" target="_blank" rel="noopener">
+                <span>
+                  <strong>Binance News</strong>
+                  <small>Биржевые новости, листинги, события и market updates.</small>
+                </span>
+                <span class="source-pill">Open Source</span>
+              </a>
+
+              <a class="news-source-card" href="https://www.investing.com/crypto/news" target="_blank" rel="noopener">
+                <span>
+                  <strong>Investing Crypto</strong>
+                  <small>Крипто-новости, макро-фон и рынки.</small>
+                </span>
+                <span class="source-pill">Open Source</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="protect-grid">
+            <div class="protect-card">
+              <h3>1. News Impact</h3>
+              <p>AI оценивает, влияет ли новость на конкретную монету, сектор или весь рынок.</p>
+            </div>
+
+            <div class="protect-card">
+              <h3>2. Signal Decision</h3>
+              <p>Сигнал может остаться активным, перейти в WAIT или быть отменён до входа.</p>
+            </div>
+
+            <div class="protect-card">
+              <h3>3. ZUBR Protect</h3>
+              <p>Если пользователь уже вошёл, сервис предлагает действие: hold, частично закрыть, SL в entry или exit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section class="section" id="pricing">
         <div class="container">
@@ -1449,7 +1908,38 @@
     </footer>
   </div>
 
-  
+
+  <script>
+    const zubrTabs = document.querySelectorAll(".coin-tab");
+    const zubrFrame = document.getElementById("zubrTradingView");
+
+    function buildTradingViewUrl(symbol) {
+      const encodedSymbol = encodeURIComponent(symbol);
+      return "https://www.tradingview.com/widgetembed/?frameElementId=zubrTradingView"
+        + "&symbol=" + encodedSymbol
+        + "&interval=60"
+        + "&hidesidetoolbar=0"
+        + "&symboledit=1"
+        + "&saveimage=0"
+        + "&toolbarbg=050807"
+        + "&studies=%5B%5D"
+        + "&theme=dark"
+        + "&style=1"
+        + "&timezone=Etc%2FUTC"
+        + "&withdateranges=1"
+        + "&hideideas=1";
+    }
+
+    zubrTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const symbol = tab.dataset.symbol;
+        zubrTabs.forEach((item) => item.classList.remove("active"));
+        tab.classList.add("active");
+        zubrFrame.src = buildTradingViewUrl(symbol);
+      });
+    });
+  </script>
+
 
 </body>
 </html>
