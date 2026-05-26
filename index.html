@@ -1155,6 +1155,247 @@
     }
 
 
+    .coin-universe {
+      margin-top: 18px;
+      border-radius: 36px;
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      background:
+        radial-gradient(circle at 80% 0%, rgba(0, 255, 140, 0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      padding: 24px;
+      box-shadow: 0 0 70px rgba(0, 255, 140, 0.08);
+    }
+
+    .coin-search-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .coin-search-wrap {
+      position: relative;
+    }
+
+    .coin-search-wrap::before {
+      content: "⌕";
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8cffc1;
+      font-size: 24px;
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .coin-search-input {
+      width: 100%;
+      height: 56px;
+      border-radius: 999px;
+      border: 1px solid rgba(140, 255, 193, 0.22);
+      background: rgba(0,0,0,0.28);
+      color: #ffffff;
+      padding: 0 20px 0 52px;
+      outline: none;
+      font-size: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .coin-search-input::placeholder {
+      color: rgba(244, 255, 249, 0.42);
+    }
+
+    .coin-search-input:focus {
+      border-color: rgba(140, 255, 193, 0.55);
+      box-shadow: 0 0 30px rgba(0, 255, 140, 0.14);
+    }
+
+    .coin-count-pill {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(140, 255, 193, 0.10);
+      border: 1px solid rgba(140, 255, 193, 0.20);
+      color: #8cffc1;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .coin-table-shell {
+      margin-top: 16px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(140, 255, 193, 0.12);
+      background: rgba(0,0,0,0.22);
+    }
+
+    .coin-table-head,
+    .coin-row {
+      display: grid;
+      grid-template-columns: 74px 1.3fr 0.7fr 0.8fr 0.75fr 150px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .coin-table-head {
+      padding: 14px 18px;
+      background: rgba(140, 255, 193, 0.08);
+      color: rgba(244, 255, 249, 0.58);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .coin-list {
+      max-height: 620px;
+      overflow: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(140, 255, 193, 0.42) rgba(255,255,255,0.05);
+    }
+
+    .coin-row {
+      width: 100%;
+      min-height: 68px;
+      padding: 12px 18px;
+      border: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.055);
+      background: transparent;
+      color: #f4fff9;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.16s ease;
+      font-family: inherit;
+    }
+
+    .coin-row:hover,
+    .coin-row.active {
+      background: rgba(0, 255, 140, 0.08);
+    }
+
+    .coin-rank {
+      color: rgba(244, 255, 249, 0.48);
+      font-weight: 900;
+    }
+
+    .coin-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .coin-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(140,255,193,0.10);
+      border: 1px solid rgba(140,255,193,0.18);
+      object-fit: cover;
+      flex: 0 0 36px;
+    }
+
+    .coin-avatar-fallback {
+      display: grid;
+      place-items: center;
+      color: #8cffc1;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .coin-name {
+      min-width: 0;
+    }
+
+    .coin-name strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 15px;
+      color: #ffffff;
+    }
+
+    .coin-name small {
+      display: block;
+      margin-top: 3px;
+      color: rgba(244, 255, 249, 0.48);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      font-size: 11px;
+    }
+
+    .coin-price,
+    .coin-marketcap {
+      color: rgba(244, 255, 249, 0.76);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .coin-change {
+      display: inline-flex;
+      width: max-content;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .coin-change.up {
+      color: #04100a;
+      background: #8cffc1;
+    }
+
+    .coin-change.down {
+      color: #ffffff;
+      background: rgba(255, 65, 87, 0.82);
+    }
+
+    .coin-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(140, 255, 193, 0.22);
+      color: #8cffc1;
+      background: rgba(140, 255, 193, 0.075);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .coin-loader,
+    .coin-empty {
+      padding: 22px;
+      color: rgba(244, 255, 249, 0.62);
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .coin-note {
+      margin-top: 14px;
+      color: rgba(244, 255, 249, 0.46);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+
     @media (max-width: 980px) {
       .hero-grid,
       .waitlist,
@@ -1172,6 +1413,22 @@
       .news-sources,
       .protect-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .coin-search-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .coin-table-head,
+      .coin-row {
+        grid-template-columns: 56px 1.4fr 0.7fr 120px;
+      }
+
+      .coin-table-head span:nth-child(4),
+      .coin-table-head span:nth-child(5),
+      .coin-row span:nth-child(4),
+      .coin-row span:nth-child(5) {
+        display: none;
       }
 
       .nav-links {
@@ -1229,6 +1486,23 @@
         padding: 22px;
       }
 
+      .coin-table-head,
+      .coin-row {
+        grid-template-columns: 44px 1fr 96px;
+        gap: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .coin-table-head span:nth-child(3),
+      .coin-row span:nth-child(3) {
+        display: none;
+      }
+
+      .coin-list {
+        max-height: 540px;
+      }
+
       .trade-grid {
         grid-template-columns: 1fr;
       }
@@ -1262,6 +1536,7 @@
         <nav class="nav-links">
           <a href="#signals">Signals</a>
           <a href="#charts">Charts</a>
+          <a href="#top500">Top 500</a>
           <a href="#news">News</a>
           <a href="#how">How it works</a>
           <a href="#pricing">Pricing</a>
@@ -1548,6 +1823,59 @@
           </div>
         </div>
       </section>
+
+      <section class="section" id="top500">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Top 500 Coins</h2>
+            <p class="section-text">
+              Поисковая строка по топ‑монетам рынка. Нажми на монету — график TradingView выше сразу переключится на выбранную пару к USDT.
+            </p>
+          </div>
+
+          <div class="coin-universe">
+            <div class="terminal-top">
+              <div class="terminal-label">
+                <span class="badge-dot"></span>
+                ZUBR Coin Universe / Search
+              </div>
+              <div class="coin-count-pill" id="coinCountPill">Loading top 500...</div>
+            </div>
+
+            <div class="coin-search-panel">
+              <div class="coin-search-wrap">
+                <input
+                  class="coin-search-input"
+                  id="coinSearchInput"
+                  type="search"
+                  placeholder="Поиск монеты: BTC, Ethereum, Solana, BNB, AI, meme..."
+                  autocomplete="off"
+                />
+              </div>
+              <button class="btn btn-dark" type="button" id="resetCoinSearch">Reset</button>
+            </div>
+
+            <div class="coin-table-shell">
+              <div class="coin-table-head">
+                <span>Rank</span>
+                <span>Coin</span>
+                <span>Price</span>
+                <span>24h</span>
+                <span>Market Cap</span>
+                <span>Chart</span>
+              </div>
+              <div class="coin-list" id="coinList">
+                <div class="coin-loader">Загружаю топ 500 монет. Если CoinGecko временно не отвечает, сайт покажет встроенный резервный список.</div>
+              </div>
+            </div>
+
+            <div class="coin-note">
+              Сейчас список подтягивается с открытого CoinGecko API прямо в браузере. Для продакшена позже лучше сделать свой backend/RSS/API‑прокси, чтобы не зависеть от лимитов внешнего сервиса. График открывается через TradingView по паре SYMBOL/USDT, поэтому для редких монет без пары на Binance график может не загрузиться.
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section class="section" id="news">
         <div class="container">
@@ -1938,6 +2266,166 @@
         zubrFrame.src = buildTradingViewUrl(symbol);
       });
     });
+
+
+    const coinListEl = document.getElementById("coinList");
+    const coinSearchInput = document.getElementById("coinSearchInput");
+    const coinCountPill = document.getElementById("coinCountPill");
+    const resetCoinSearch = document.getElementById("resetCoinSearch");
+
+    const fallbackCoins = [
+      { market_cap_rank: 1, name: "Bitcoin", symbol: "btc", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 2, name: "Ethereum", symbol: "eth", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 3, name: "Tether", symbol: "usdt", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 4, name: "BNB", symbol: "bnb", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 5, name: "Solana", symbol: "sol", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 6, name: "XRP", symbol: "xrp", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 7, name: "Dogecoin", symbol: "doge", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 8, name: "Cardano", symbol: "ada", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 9, name: "TRON", symbol: "trx", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 10, name: "Avalanche", symbol: "avax", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 11, name: "Chainlink", symbol: "link", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 12, name: "Toncoin", symbol: "ton", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 13, name: "Stellar", symbol: "xlm", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 14, name: "Sui", symbol: "sui", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 15, name: "Hedera", symbol: "hbar", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 16, name: "Polkadot", symbol: "dot", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 17, name: "Litecoin", symbol: "ltc", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 18, name: "Shiba Inu", symbol: "shib", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 19, name: "Bitcoin Cash", symbol: "bch", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 20, name: "Uniswap", symbol: "uni", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 21, name: "Pepe", symbol: "pepe", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 22, name: "Aptos", symbol: "apt", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 23, name: "Internet Computer", symbol: "icp", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 24, name: "NEAR Protocol", symbol: "near", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 25, name: "Ethereum Classic", symbol: "etc", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 26, name: "Aave", symbol: "aave", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 27, name: "Render", symbol: "render", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 28, name: "Arbitrum", symbol: "arb", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 29, name: "Optimism", symbol: "op", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 30, name: "Injective", symbol: "inj", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 31, name: "Filecoin", symbol: "fil", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 32, name: "Cosmos", symbol: "atom", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 33, name: "Algorand", symbol: "algo", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 34, name: "VeChain", symbol: "vet", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 35, name: "Fantom", symbol: "ftm", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 36, name: "The Graph", symbol: "grt", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 37, name: "Immutable", symbol: "imx", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 38, name: "Celestia", symbol: "tia", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 39, name: "Sei", symbol: "sei", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 },
+      { market_cap_rank: 40, name: "Jupiter", symbol: "jup", current_price: 0, price_change_percentage_24h: 0, market_cap: 0 }
+    ];
+
+    let zubrCoins = [];
+
+    function formatMoney(value) {
+      if (!value) return "—";
+      return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: value < 1 ? 6 : 2 }).format(value);
+    }
+
+    function formatMarketCap(value) {
+      if (!value) return "—";
+      if (value >= 1_000_000_000) return "$" + (value / 1_000_000_000).toFixed(2) + "B";
+      if (value >= 1_000_000) return "$" + (value / 1_000_000).toFixed(2) + "M";
+      return "$" + value.toLocaleString("en-US");
+    }
+
+    function coinToTradingViewSymbol(coin) {
+      const raw = (coin.symbol || "btc").toUpperCase();
+      const symbol = raw === "USDT" ? "BTC" : raw.replace(/[^A-Z0-9]/g, "");
+      return "BINANCE:" + symbol + "USDT";
+    }
+
+    function setChartSymbol(symbol, label) {
+      if (!zubrFrame) return;
+      zubrFrame.src = buildTradingViewUrl(symbol);
+      zubrTabs.forEach((item) => item.classList.remove("active"));
+      document.querySelectorAll(".coin-row").forEach((row) => row.classList.toggle("active", row.dataset.symbol === symbol));
+      const chartSection = document.getElementById("charts");
+      if (chartSection && label) chartSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderCoins(list) {
+      if (!coinListEl) return;
+      const visible = list.slice(0, 500);
+      coinCountPill.textContent = visible.length + " coins shown";
+
+      if (!visible.length) {
+        coinListEl.innerHTML = '<div class="coin-empty">Ничего не найдено. Попробуй другой тикер или название монеты.</div>';
+        return;
+      }
+
+      coinListEl.innerHTML = visible.map((coin) => {
+        const symbol = coinToTradingViewSymbol(coin);
+        const change = Number(coin.price_change_percentage_24h || 0);
+        const up = change >= 0;
+        const img = coin.image
+          ? '<img class="coin-avatar" src="' + coin.image + '" alt="' + coin.name + '" loading="lazy" />'
+          : '<span class="coin-avatar coin-avatar-fallback">' + (coin.symbol || '?').slice(0, 3).toUpperCase() + '</span>';
+
+        return '<button class="coin-row" type="button" data-symbol="' + symbol + '">'
+          + '<span class="coin-rank">#' + (coin.market_cap_rank || '—') + '</span>'
+          + '<span class="coin-main">' + img + '<span class="coin-name"><strong>' + coin.name + '</strong><small>' + (coin.symbol || '').toUpperCase() + ' / USDT</small></span></span>'
+          + '<span class="coin-price">' + formatMoney(coin.current_price) + '</span>'
+          + '<span class="coin-change ' + (up ? 'up' : 'down') + '">' + (up ? '+' : '') + change.toFixed(2) + '%</span>'
+          + '<span class="coin-marketcap">' + formatMarketCap(coin.market_cap) + '</span>'
+          + '<span class="coin-action">Open chart</span>'
+          + '</button>';
+      }).join("");
+
+      document.querySelectorAll(".coin-row").forEach((row) => {
+        row.addEventListener("click", () => setChartSymbol(row.dataset.symbol, true));
+      });
+    }
+
+    function filterCoins() {
+      const query = (coinSearchInput.value || "").trim().toLowerCase();
+      if (!query) {
+        renderCoins(zubrCoins);
+        return;
+      }
+
+      const filtered = zubrCoins.filter((coin) => {
+        const name = (coin.name || "").toLowerCase();
+        const symbol = (coin.symbol || "").toLowerCase();
+        return name.includes(query) || symbol.includes(query);
+      });
+      renderCoins(filtered);
+    }
+
+    async function loadTopCoins() {
+      if (!coinListEl) return;
+      try {
+        const urls = [1, 2].map((page) =>
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page="
+          + page + "&sparkline=false&price_change_percentage=24h"
+        );
+        const responses = await Promise.all(urls.map((url) => fetch(url, { headers: { accept: "application/json" } })));
+        if (responses.some((response) => !response.ok)) throw new Error("CoinGecko response error");
+        const pages = await Promise.all(responses.map((response) => response.json()));
+        zubrCoins = pages.flat().slice(0, 500);
+        renderCoins(zubrCoins);
+      } catch (error) {
+        zubrCoins = fallbackCoins;
+        renderCoins(zubrCoins);
+        coinCountPill.textContent = "Fallback list";
+      }
+    }
+
+    if (coinSearchInput) {
+      coinSearchInput.addEventListener("input", filterCoins);
+    }
+
+    if (resetCoinSearch) {
+      resetCoinSearch.addEventListener("click", () => {
+        coinSearchInput.value = "";
+        renderCoins(zubrCoins);
+        coinSearchInput.focus();
+      });
+    }
+
+    loadTopCoins();
+
   </script>
 
 
