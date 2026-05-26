@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V10 hero overlay fix, based on uploaded full file. -->
+<!-- ZUBR V11 explicit hero img fix, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3733,6 +3733,89 @@ h1 {
   }
 }
 
+
+/* =========================================================
+   ZUBR V11 EXPLICIT HERO IMG FIX
+   Явно вставляем баннер как <img>, чтобы не зависеть от background-image.
+   ========================================================= */
+
+@media (min-width: 981px) {
+  .hero-grid {
+    position: relative !important;
+    display: block !important;
+    min-height: 720px !important;
+    padding: 34px !important;
+    overflow: hidden !important;
+    background: #020504 !important;
+  }
+
+  .hero-full-banner {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hero-grid::before,
+  .hero-grid::after {
+    display: none !important;
+  }
+
+  .hero-grid > div:first-child {
+    position: relative !important;
+    z-index: 6 !important;
+    width: min(720px, 100%) !important;
+  }
+
+  .hero-grid > div:first-child > .badge,
+  .hero-grid > div:first-child > h1,
+  .hero-grid > div:first-child > .hero-subtitle {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .hero-grid > .hero-visual,
+  .hero-banner-layer,
+  .phone-card {
+    display: none !important;
+  }
+
+  .hero-actions,
+  .hero-stats {
+    position: relative !important;
+    z-index: 7 !important;
+  }
+
+  .hero-actions {
+    margin-top: 28px !important;
+  }
+
+  .hero-stats {
+    margin-top: 34px !important;
+  }
+
+  .hero-stats .stat {
+    backdrop-filter: blur(10px);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+      rgba(0,0,0,0.28) !important;
+    border-color: rgba(140,255,193,0.18) !important;
+  }
+}
+
+/* On tablet/mobile we keep prior responsive behavior */
+@media (max-width: 980px) {
+  .hero-full-banner {
+    display: none !important;
+  }
+}
+
 </style>
 </head>
 
@@ -3774,6 +3857,7 @@ h1 {
     <main id="top">
       <section class="hero">
         <div class="container hero-grid">
+          <img class="hero-full-banner" src="images/zubr-bison-neon.png" alt="ZUBR hero banner" />
           <div>
             <div class="badge">
               <span class="badge-dot"></span>
