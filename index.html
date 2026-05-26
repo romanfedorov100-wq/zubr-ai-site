@@ -1144,6 +1144,137 @@
       font-size: 14px;
     }
 
+
+    .roadmap-board {
+      border-radius: 36px;
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(0, 255, 140, 0.16), transparent 34%),
+        radial-gradient(circle at 82% 20%, rgba(0, 255, 209, 0.10), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      padding: 28px;
+      overflow: hidden;
+      box-shadow: 0 0 70px rgba(0, 255, 140, 0.09);
+    }
+
+    .roadmap-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .roadmap-card {
+      min-height: 300px;
+      padding: 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(140,255,193,0.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.024)),
+        rgba(0,0,0,0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .roadmap-card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -64px;
+      top: -64px;
+      border-radius: 999px;
+      background: rgba(0,255,140,0.09);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .roadmap-top {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .roadmap-phase {
+      width: 54px;
+      height: 54px;
+      border-radius: 19px;
+      display: grid;
+      place-items: center;
+      color: #04100a;
+      background: linear-gradient(135deg, #8cffc1, #00ff88);
+      box-shadow: 0 0 28px rgba(0,255,140,0.22);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .roadmap-status {
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(140,255,193,0.10);
+      border: 1px solid rgba(140,255,193,0.18);
+      color: #8cffc1;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .roadmap-card h3 {
+      position: relative;
+      z-index: 2;
+      font-size: 22px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .roadmap-card p {
+      position: relative;
+      z-index: 2;
+      color: rgba(244,255,249,0.62);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .roadmap-list {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: rgba(244,255,249,0.72);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .roadmap-list li::before {
+      content: "✓ ";
+      color: #8cffc1;
+      font-weight: 900;
+    }
+
+    .roadmap-note {
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 26px;
+      border: 1px solid rgba(140,255,193,0.16);
+      background: rgba(0,0,0,0.22);
+      color: rgba(244,255,249,0.68);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
     .news-layout {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -1772,7 +1903,8 @@
       .official-links,
       .market-grid,
       .news-sources,
-      .protect-grid {
+      .protect-grid,
+      .roadmap-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1831,7 +1963,8 @@
       .official-links,
       .market-grid,
       .news-sources,
-      .protect-grid {
+      .protect-grid,
+      .roadmap-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2548,6 +2681,121 @@
         </div>
       </section>
 
+
+
+      <section class="section" id="roadmap">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">ZUBR Roadmap</h2>
+            <p class="section-text">
+              План запуска показывает, что ZUBR развивается по этапам: сначала аудитория и доверие, затем Android Beta, реальные рыночные данные, Protect Mode и подписочная модель.
+            </p>
+          </div>
+
+          <div class="roadmap-board">
+            <div class="terminal-label">
+              <span class="badge-dot"></span>
+              Product Launch Plan / 2026
+            </div>
+
+            <div class="roadmap-grid">
+              <div class="roadmap-card">
+                <div class="roadmap-top">
+                  <div class="roadmap-phase">1</div>
+                  <span class="roadmap-status">In progress</span>
+                </div>
+                <h3>Landing + Community</h3>
+                <p>База проекта: сайт, соцсети, waitlist и первые пользователи вокруг идеи ZUBR AI Signals.</p>
+                <ul class="roadmap-list">
+                  <li>Официальный сайт ZUBR</li>
+                  <li>Telegram Signals + Community</li>
+                  <li>Discord, Instagram, X, LinkedIn</li>
+                  <li>Waitlist для раннего доступа</li>
+                </ul>
+              </div>
+
+              <div class="roadmap-card">
+                <div class="roadmap-top">
+                  <div class="roadmap-phase">2</div>
+                  <span class="roadmap-status">Next</span>
+                </div>
+                <h3>Android Beta</h3>
+                <p>Первая рабочая версия приложения: AI-чат, карточка сигнала, подтверждение входа и активные сделки.</p>
+                <ul class="roadmap-list">
+                  <li>AI Signal Chat</li>
+                  <li>Демо-сигналы и карточка сделки</li>
+                  <li>Кнопка “Я вошёл в сделку”</li>
+                  <li>Активные позиции внутри ZUBR</li>
+                </ul>
+              </div>
+
+              <div class="roadmap-card">
+                <div class="roadmap-top">
+                  <div class="roadmap-phase">3</div>
+                  <span class="roadmap-status">Market data</span>
+                </div>
+                <h3>Real Market Data</h3>
+                <p>Подключение реальных данных рынка, графиков, цен и списка монет для будущей аналитики сигналов.</p>
+                <ul class="roadmap-list">
+                  <li>TradingView / exchange charts</li>
+                  <li>Top 500 Coins + search</li>
+                  <li>Live price data</li>
+                  <li>Market Radar dashboard</li>
+                </ul>
+              </div>
+
+              <div class="roadmap-card">
+                <div class="roadmap-top">
+                  <div class="roadmap-phase">4</div>
+                  <span class="roadmap-status">Protect</span>
+                </div>
+                <h3>ZUBR Protect Mode</h3>
+                <p>Главная ценность после входа: сопровождение сделки и защита сценария, если рынок меняется.</p>
+                <ul class="roadmap-list">
+                  <li>TP1 / TP2 / TP3 tracking</li>
+                  <li>Перенос SL в Entry</li>
+                  <li>Частичное закрытие</li>
+                  <li>Exit / Reduce при опасных новостях</li>
+                </ul>
+              </div>
+
+              <div class="roadmap-card">
+                <div class="roadmap-top">
+                  <div class="roadmap-phase">5</div>
+                  <span class="roadmap-status">Monetization</span>
+                </div>
+                <h3>Pro Subscription</h3>
+                <p>Переход от waitlist к платному доступу: закрытые сигналы, личный кабинет и подписки.</p>
+                <ul class="roadmap-list">
+                  <li>Free / Pro / Max Sniper</li>
+                  <li>Закрытые сигналы</li>
+                  <li>Личный кабинет</li>
+                  <li>Оплата подписки</li>
+                </ul>
+              </div>
+
+              <div class="roadmap-card">
+                <div class="roadmap-top">
+                  <div class="roadmap-phase">6</div>
+                  <span class="roadmap-status">Scale</span>
+                </div>
+                <h3>iOS / Web App</h3>
+                <p>Расширение продукта после Android: iPhone, веб-версия, расширенный AI-ассистент и аналитика.</p>
+                <ul class="roadmap-list">
+                  <li>iOS app</li>
+                  <li>Web dashboard</li>
+                  <li>Advanced AI Assistant</li>
+                  <li>Portfolio and trade statistics</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="roadmap-note">
+              Roadmap не обещает доходность и не является финансовым советом. Это продуктовый план развития ZUBR: от сообщества и демо-функций к реальным данным, сопровождению сделок и подписочной модели.
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="section" id="pricing">
         <div class="container">
