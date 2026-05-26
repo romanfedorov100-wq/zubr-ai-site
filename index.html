@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V16 hero up align, based on uploaded full file. -->
+<!-- ZUBR V17 features suite, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3651,6 +3651,189 @@ h1 {
   }
 }
 
+
+/* =========================================================
+   ZUBR V17 FEATURES SUITE
+   Обновляем только блок “Что внутри ZUBR” после hero.
+   ========================================================= */
+
+.zubr-suite-section {
+  padding-top: 56px !important;
+}
+
+.zubr-suite-head {
+  align-items: flex-end !important;
+}
+
+.suite-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 14px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(140,255,193,0.22);
+  background: rgba(0,255,136,0.07);
+  color: #00ff88;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.zubr-suite-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.zubr-suite-card {
+  position: relative;
+  min-height: 250px;
+  padding: 18px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(140,255,193,0.15);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,255,136,0.10), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.058), rgba(255,255,255,0.018)),
+    rgba(3,8,6,0.74);
+  box-shadow: 0 0 34px rgba(0,255,136,0.045);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.zubr-suite-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -72px;
+  top: -72px;
+  border-radius: 999px;
+  background: rgba(0,255,136,0.11);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.zubr-suite-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,255,136,0.36);
+  box-shadow: 0 0 42px rgba(0,255,136,0.10);
+}
+
+.zubr-suite-card.featured {
+  border-color: rgba(0,255,136,0.34);
+  box-shadow: 0 0 50px rgba(0,255,136,0.09);
+}
+
+.suite-icon {
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  color: #00ff88;
+  background: rgba(140,255,193,0.10);
+  border: 1px solid rgba(140,255,193,0.18);
+  font-size: 22px;
+  box-shadow: inset 0 0 18px rgba(0,255,136,0.06);
+}
+
+.suite-card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.suite-card-top span {
+  color: rgba(140,255,193,0.48);
+  font-weight: 950;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.suite-card-top strong {
+  color: #00ff88;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.zubr-suite-card h3 {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
+}
+
+.zubr-suite-card p {
+  position: relative;
+  z-index: 2;
+  color: rgba(244,255,249,0.62);
+  font-size: 12px;
+  line-height: 1.48;
+}
+
+.suite-mini {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(140,255,193,0.13);
+  background: rgba(0,0,0,0.26);
+}
+
+.suite-mini span {
+  color: rgba(244,255,249,0.46);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.suite-mini b {
+  color: #8cffc1;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 1280px) {
+  .zubr-suite-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .zubr-suite-card {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 760px) {
+  .zubr-suite-section {
+    padding-top: 42px !important;
+  }
+
+  .zubr-suite-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zubr-suite-card {
+    min-height: auto;
+  }
+}
+
 </style>
 </head>
 
@@ -3797,40 +3980,124 @@ h1 {
         </div>
       </section>
 
-      <section class="section">
+      <section class="section zubr-suite-section" id="features">
         <div class="container">
-          <div class="section-head">
-            <h2 class="section-title">Что внутри ZUBR</h2>
+          <div class="section-head zubr-suite-head">
+            <div>
+              <div class="suite-kicker">
+                <span class="badge-dot"></span>
+                ВОЗМОЖНОСТИ ПЛАТФОРМЫ
+              </div>
+              <h2 class="section-title">Что внутри <span class="gradient-text">ZUBR</span></h2>
+            </div>
             <p class="section-text">
-              Сайт собирает аудиторию вокруг будущего приложения: AI-сигналы, защита сделки,
-              новости, статистика и дисциплина входа.
+              Вся логика будущего приложения собрана вокруг одного сценария:
+              найти качественный сигнал, объяснить вход, защитить сделку и не дать рынку выбить пользователя шумом.
             </p>
           </div>
 
-          <div class="features">
-            <div class="feature-card">
-              <div class="icon">⚡</div>
-              <h3>AI Signal Chat</h3>
-              <p>Сигналы приходят прямо в формат чата: монета, направление, entry, SL, TP, риск и объяснение входа.</p>
-            </div>
+          <div class="zubr-suite-grid">
+            <article class="zubr-suite-card featured">
+              <div class="suite-icon">💬</div>
+              <div class="suite-card-top">
+                <span>01</span>
+                <strong>AI Signal Chat</strong>
+              </div>
+              <h3>Сигналы приходят как сообщение в AI-чате</h3>
+              <p>
+                Пользователь видит монету, направление, Entry/ТВХ, SL, TP1–TP3, риск,
+                качество сигнала и короткое объяснение, почему вход актуален сейчас.
+              </p>
+              <div class="suite-mini">
+                <span>BTC / USDT</span>
+                <b>LONG · 98/100</b>
+              </div>
+            </article>
 
-            <div class="feature-card">
-              <div class="icon">🎯</div>
-              <h3>MAX SNIPER</h3>
-              <p>Фильтрация рынка и фокус только на лучших сделках. Меньше шума, больше дисциплины и качества.</p>
-            </div>
+            <article class="zubr-suite-card">
+              <div class="suite-icon">🎯</div>
+              <div class="suite-card-top">
+                <span>02</span>
+                <strong>MAX SNIPER MODE</strong>
+              </div>
+              <h3>Фокус только на лучших сетапах</h3>
+              <p>
+                ZUBR не должен превращаться в шумный канал. Идея режима — фильтровать рынок
+                и показывать только самые качественные возможности.
+              </p>
+              <div class="suite-mini">
+                <span>Фильтр рынка</span>
+                <b>1000+ монет</b>
+              </div>
+            </article>
 
-            <div class="feature-card">
-              <div class="icon">🛡️</div>
-              <h3>ZUBR Protect</h3>
-              <p>Режим защиты сделки: перенос SL, частичное закрытие или выход, если рынок резко меняет сценарий.</p>
-            </div>
+            <article class="zubr-suite-card">
+              <div class="suite-icon">🛡️</div>
+              <div class="suite-card-top">
+                <span>03</span>
+                <strong>ZUBR PROTECT</strong>
+              </div>
+              <h3>Сопровождение сделки после входа</h3>
+              <p>
+                Если новость или рынок меняет сценарий, ZUBR Protect может предложить:
+                закрыть часть, перенести SL в точку входа или выйти из сделки.
+              </p>
+              <div class="suite-mini">
+                <span>Защита сделки</span>
+                <b>SL · TP · Exit</b>
+              </div>
+            </article>
 
-            <div class="feature-card">
-              <div class="icon">🛰️</div>
-              <h3>News Radar 24/7</h3>
-              <p>Контроль новостей и событий, которые могут повлиять на активную сделку или отменить будущий вход.</p>
-            </div>
+            <article class="zubr-suite-card">
+              <div class="suite-icon">🛰️</div>
+              <div class="suite-card-top">
+                <span>04</span>
+                <strong>NEWS RADAR 24/7</strong>
+              </div>
+              <h3>Новости и события рядом с сигналом</h3>
+              <p>
+                Новости важны не отдельно, а в контексте сделки. Radar должен помогать понять,
+                усиливает событие сценарий или ломает идею входа.
+              </p>
+              <div class="suite-mini">
+                <span>Контроль событий</span>
+                <b>24/7</b>
+              </div>
+            </article>
+
+            <article class="zubr-suite-card">
+              <div class="suite-icon">📊</div>
+              <div class="suite-card-top">
+                <span>05</span>
+                <strong>RISK MANAGEMENT</strong>
+              </div>
+              <h3>Дисциплина входа и контроль риска</h3>
+              <p>
+                Сигнал должен быть не просто “BUY/SELL”, а полным планом: где вход,
+                где отмена сценария, где цели и какой риск принимает пользователь.
+              </p>
+              <div class="suite-mini">
+                <span>План сделки</span>
+                <b>Entry · SL · RR</b>
+              </div>
+            </article>
+
+            <article class="zubr-suite-card">
+              <div class="suite-icon">📈</div>
+              <div class="suite-card-top">
+                <span>06</span>
+                <strong>MARKET STATISTICS</strong>
+              </div>
+              <h3>Данные рынка, топ монеты и метрики</h3>
+              <p>
+                Charts, Top 500 Coins и статистика помогают быстро смотреть рынок,
+                искать монеты и понимать, где сейчас есть движение.
+              </p>
+              <div class="suite-mini">
+                <span>Market layer</span>
+                <b>Charts · Top 500</b>
+              </div>
+            </article>
           </div>
         </div>
       </section>
