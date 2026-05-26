@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V14 hero fine tune, based on uploaded full file. -->
+<!-- ZUBR V15 hero balance, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3500,6 +3500,87 @@ h1 {
 
   .hero .hero-stats {
     margin-top: 24px !important;
+  }
+}
+
+
+/* =========================================================
+   ZUBR V15 HERO BALANCE
+   Только мягкая подгонка hero:
+   - убираем растяжение 100% 100%, чтобы баннер не выглядел сжатым
+   - делаем картинку чуть меньше и ровнее
+   - опускаем кнопки/статистику, чтобы они не залезали на текст баннера
+   ========================================================= */
+
+@media (min-width: 981px) {
+  .hero .hero-grid {
+    min-height: 720px !important;
+    padding: 34px 36px !important;
+
+    /* Не растягиваем картинку по высоте/ширине. Так баннер не будет "сужаться". */
+    background-size: 96% auto !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-color: #020504 !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 56px !important;
+    gap: 14px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 34px !important;
+    gap: 14px !important;
+    max-width: 690px !important;
+  }
+
+  .hero .hero-actions .btn {
+    min-height: 46px !important;
+    padding: 0 22px !important;
+    border-radius: 14px !important;
+    font-size: 14px !important;
+  }
+
+  .hero .hero-stats .stat {
+    min-height: 106px !important;
+    border-radius: 20px !important;
+    padding: 17px 18px !important;
+  }
+
+  .hero .hero-stats .stat strong {
+    font-size: 24px !important;
+  }
+
+  .hero .hero-stats .stat span {
+    font-size: 13px !important;
+    line-height: 1.42 !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .hero .hero-grid {
+    min-height: 735px !important;
+    background-size: 94% auto !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 62px !important;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1280px) {
+  .hero .hero-grid {
+    min-height: 660px !important;
+    background-size: 100% auto !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 34px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 26px !important;
   }
 }
 
