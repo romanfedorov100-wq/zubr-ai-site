@@ -2896,7 +2896,140 @@ h1 {
   }
 }
 
-  </style>
+  
+/* =========================================================
+   ZUBR V5 REAL BISON IMAGE OVERRIDE
+   Настоящее изображение зубра вместо CSS-рисунка
+   ========================================================= */
+
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+}
+
+.bison-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bison-glow,
+.bison-art,
+.bison-body,
+.bison-head,
+.horn,
+.eye,
+.leg {
+  display: none !important;
+}
+
+.hero-bison-image {
+  position: absolute;
+  left: 47%;
+  top: 28px;
+  transform: translateX(-50%);
+  width: 460px;
+  max-width: 82%;
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 18px rgba(0, 255, 136, 0.28))
+    drop-shadow(0 0 44px rgba(0, 255, 136, 0.18));
+  z-index: 2;
+}
+
+.bison-ring {
+  position: absolute;
+  width: 520px;
+  height: 170px;
+  left: 47%;
+  bottom: 36px;
+  transform: translateX(-50%) perspective(520px) rotateX(64deg);
+  border-radius: 50%;
+  border: 1px solid rgba(140, 255, 193, 0.34);
+  box-shadow:
+    0 0 26px rgba(0,255,136,0.22),
+    inset 0 0 26px rgba(0,255,136,0.10);
+  z-index: 1;
+}
+
+.bison-ring::before,
+.bison-ring::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(140,255,193,0.14);
+}
+
+.bison-ring::after {
+  inset: 42px;
+}
+
+.phone-card {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 325px !important;
+  max-width: 48%;
+  margin: 0 !important;
+  transform: rotate(8deg);
+  z-index: 4;
+}
+
+@media (max-width: 1180px) {
+  .hero-visual {
+    min-height: 470px;
+  }
+
+  .hero-bison-image {
+    width: 360px;
+    left: 50%;
+    top: 40px;
+  }
+
+  .bison-ring {
+    width: 420px;
+    height: 145px;
+    left: 50%;
+  }
+
+  .phone-card {
+    right: 50%;
+    transform: translateX(50%) rotate(5deg);
+    width: 320px !important;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .hero-bison-image {
+    width: 290px;
+    left: 50%;
+    top: 46px;
+  }
+
+  .bison-ring {
+    width: 320px;
+    height: 115px;
+    left: 50%;
+    bottom: 38px;
+  }
+
+  .phone-card {
+    width: 255px !important;
+    max-width: 255px;
+    top: 18px;
+    right: 50%;
+    transform: translateX(50%) rotate(4deg);
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -2977,19 +3110,12 @@ h1 {
 
           <div class="hero-visual">
             <div class="bison-stage" aria-hidden="true">
-              <div class="bison-glow"></div>
+              <img
+                src="images/zubr-bison-neon.png"
+                alt="ZUBR Bison"
+                class="hero-bison-image"
+              />
               <div class="bison-ring"></div>
-              <div class="bison-art">
-                <div class="horn left"></div>
-                <div class="horn right"></div>
-                <div class="bison-body"></div>
-                <div class="bison-head"></div>
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="leg l1"></div>
-                <div class="leg l2"></div>
-                <div class="leg l3"></div>
-              </div>
             </div>
 
             <div class="phone-card" id="signals">
