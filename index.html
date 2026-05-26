@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V15 hero balance, based on uploaded full file. -->
+<!-- ZUBR V16 hero up align, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3581,6 +3581,73 @@ h1 {
 
   .hero .hero-stats {
     margin-top: 26px !important;
+  }
+}
+
+
+/* =========================================================
+   ZUBR V16 HERO UP ALIGN
+   Только лёгкое поднятие hero/баннера вверх.
+   Ничего из данных и секций сайта не удаляем.
+   ========================================================= */
+
+@media (min-width: 981px) {
+  /* Убираем лишний воздух между меню и hero */
+  .hero {
+    padding-top: 10px !important;
+  }
+
+  /* Поднимаем сам баннер внутри hero */
+  .hero .hero-grid {
+    min-height: 700px !important;
+    background-position: center top !important;
+  }
+
+  /* Чуть поднимаем кликабельные кнопки и карточки вместе с композицией */
+  .hero .hero-actions {
+    margin-top: 46px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 28px !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .hero {
+    padding-top: 8px !important;
+  }
+
+  .hero .hero-grid {
+    min-height: 720px !important;
+    background-position: center top !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 50px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 30px !important;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1280px) {
+  .hero {
+    padding-top: 8px !important;
+  }
+
+  .hero .hero-grid {
+    min-height: 640px !important;
+    background-position: center top !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 28px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 22px !important;
   }
 }
 
