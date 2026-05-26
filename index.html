@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V13 safe inline hero banner, based on uploaded full file. -->
+<!-- ZUBR V14 hero fine tune, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3418,6 +3418,88 @@ h1 {
     background:
       linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.92)),
       #020504 !important;
+  }
+}
+
+
+/* =========================================================
+   ZUBR V14 HERO FINE TUNE
+   Только подравнивание hero. Данные и секции сайта не трогаем.
+   ========================================================= */
+
+@media (min-width: 981px) {
+  .hero .hero-grid {
+    min-height: 705px !important;
+    padding: 34px 36px !important;
+
+    /* ВАЖНО: показываем весь баннер без обрезки слева/справа */
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+  }
+
+  /* Скрытый HTML-текст оставляет место, но кнопки двигаем ниже,
+     чтобы они не наезжали на текст, который уже нарисован в баннере */
+  .hero .hero-actions {
+    margin-top: 34px !important;
+    gap: 14px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 34px !important;
+    gap: 14px !important;
+    max-width: 700px !important;
+  }
+
+  .hero .hero-actions .btn {
+    min-height: 48px !important;
+    border-radius: 14px !important;
+    padding: 0 24px !important;
+  }
+
+  .hero .hero-stats .stat {
+    min-height: 112px !important;
+    border-radius: 20px !important;
+    padding: 18px 20px !important;
+  }
+
+  .hero .hero-stats .stat strong {
+    font-size: 25px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero .hero-stats .stat span {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* На широких экранах баннеру даём чуть больше воздуха */
+@media (min-width: 1500px) {
+  .hero .hero-grid {
+    min-height: 735px !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 40px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 38px !important;
+  }
+}
+
+/* На ноутбуках чуть уменьшаем высоту, чтобы первый экран не был слишком большим */
+@media (min-width: 981px) and (max-width: 1280px) {
+  .hero .hero-grid {
+    min-height: 650px !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 24px !important;
+  }
+
+  .hero .hero-stats {
+    margin-top: 24px !important;
   }
 }
 
