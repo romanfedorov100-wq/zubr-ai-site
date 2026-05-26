@@ -1003,6 +1003,147 @@
       line-height: 1.35;
     }
 
+
+
+    .trade-flow-board {
+      border-radius: 36px;
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      background:
+        radial-gradient(circle at 14% 0%, rgba(0, 255, 140, 0.14), transparent 34%),
+        radial-gradient(circle at 86% 30%, rgba(0, 255, 209, 0.09), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      padding: 28px;
+      overflow: hidden;
+      box-shadow: 0 0 70px rgba(0, 255, 140, 0.09);
+    }
+
+    .trade-flow-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .trade-flow-track::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 54px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(140,255,193,0.08), rgba(140,255,193,0.50), rgba(0,255,136,0.08));
+      box-shadow: 0 0 24px rgba(0,255,140,0.22);
+      pointer-events: none;
+    }
+
+    .flow-step {
+      position: relative;
+      z-index: 2;
+      min-height: 330px;
+      padding: 20px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.024)),
+        rgba(0,0,0,0.22);
+      border: 1px solid rgba(140, 255, 193, 0.14);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .flow-number {
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      color: #04100a;
+      background: linear-gradient(135deg, #8cffc1, #00ff88);
+      box-shadow: 0 0 30px rgba(0,255,140,0.24);
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .flow-step h3 {
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .flow-step p {
+      color: rgba(244,255,249,0.64);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .flow-mini-card {
+      margin-top: auto;
+      padding: 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(140,255,193,0.12);
+      background: rgba(0,0,0,0.28);
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow-mini-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(244,255,249,0.62);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .flow-mini-row strong {
+      color: #ffffff;
+      text-align: right;
+    }
+
+    .flow-pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(140,255,193,0.10);
+      border: 1px solid rgba(140,255,193,0.18);
+      color: #8cffc1;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flow-warning {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .flow-warning-card {
+      padding: 20px;
+      border-radius: 26px;
+      border: 1px solid rgba(140,255,193,0.14);
+      background: rgba(0,0,0,0.22);
+    }
+
+    .flow-warning-card h3 {
+      color: #8cffc1;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .flow-warning-card p {
+      color: rgba(244,255,249,0.62);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
     .news-layout {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -1758,6 +1899,7 @@
           <a href="#charts">Charts</a>
           <a href="#ai-demo">AI Demo</a>
           <a href="#top500">Top 500</a>
+          <a href="#trade-flow">Trade Flow</a>
           <a href="#news">News</a>
           <a href="#how">How it works</a>
           <a href="#pricing">Pricing</a>
@@ -2140,6 +2282,99 @@
                 <span>Protect Action</span>
                 <strong>SL → Entry</strong>
                 <small>Если сделка в плюсе, ZUBR Protect может предложить защитное действие.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="trade-flow">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">От сигнала до защищённой сделки</h2>
+            <p class="section-text">
+              Этот блок объясняет пользователю главную механику ZUBR: сервис не является биржей и не открывает сделку за пользователя. ZUBR даёт AI-сигнал, помогает контролировать вход и сопровождает сделку через News Radar и Protect Mode.
+            </p>
+          </div>
+
+          <div class="trade-flow-board">
+            <div class="terminal-label">
+              <span class="badge-dot"></span>
+              From Signal to Protected Trade
+            </div>
+
+            <div class="trade-flow-track">
+              <div class="flow-step">
+                <div class="flow-number">1</div>
+                <span class="flow-pill">AI found setup</span>
+                <h3>AI нашёл сигнал</h3>
+                <p>
+                  Пользователь получает понятную карточку: монета, LONG/SHORT, Entry/ТВХ, Stop Loss, TP1–TP3, качество сигнала и краткое объяснение входа.
+                </p>
+                <div class="flow-mini-card">
+                  <div class="flow-mini-row"><span>Pair</span><strong>BTC / USDT</strong></div>
+                  <div class="flow-mini-row"><span>Direction</span><strong>LONG</strong></div>
+                  <div class="flow-mini-row"><span>Quality</span><strong>98 / 100</strong></div>
+                </div>
+              </div>
+
+              <div class="flow-step">
+                <div class="flow-number">2</div>
+                <span class="flow-pill">Exchange entry</span>
+                <h3>Пользователь открывает биржу</h3>
+                <p>
+                  Пользователь сам открывает BingX, Binance Futures или другую биржу, входит в сделку вручную и выставляет SL/TP по плану ZUBR.
+                </p>
+                <div class="flow-mini-card">
+                  <div class="flow-mini-row"><span>Open app</span><strong>BingX / Binance</strong></div>
+                  <div class="flow-mini-row"><span>Set</span><strong>Entry + SL + TP</strong></div>
+                  <div class="flow-mini-row"><span>Risk</span><strong>Fixed % only</strong></div>
+                </div>
+              </div>
+
+              <div class="flow-step">
+                <div class="flow-number">3</div>
+                <span class="flow-pill">Confirm trade</span>
+                <h3>Пользователь возвращается в ZUBR</h3>
+                <p>
+                  После входа пользователь нажимает “Я вошёл в сделку”, вводит свою реальную ТВХ и подтверждает, что Stop Loss и Take Profit выставлены.
+                </p>
+                <div class="flow-mini-card">
+                  <div class="flow-mini-row"><span>Button</span><strong>Я вошёл в сделку</strong></div>
+                  <div class="flow-mini-row"><span>Real entry</span><strong>User confirms</strong></div>
+                  <div class="flow-mini-row"><span>Status</span><strong>Active trade</strong></div>
+                </div>
+              </div>
+
+              <div class="flow-step">
+                <div class="flow-number">4</div>
+                <span class="flow-pill">Protect mode</span>
+                <h3>ZUBR сопровождает сделку</h3>
+                <p>
+                  Далее ZUBR следит за сценарием: TP1, перенос SL в Entry, частичное закрытие, выход из сделки или отмена сценария из-за новости.
+                </p>
+                <div class="flow-mini-card">
+                  <div class="flow-mini-row"><span>TP1 hit</span><strong>Close 25–40%</strong></div>
+                  <div class="flow-mini-row"><span>Protect</span><strong>SL → Entry</strong></div>
+                  <div class="flow-mini-row"><span>News danger</span><strong>Exit / Reduce</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-warning">
+              <div class="flow-warning-card">
+                <h3>ZUBR не открывает сделку автоматически</h3>
+                <p>
+                  Пользователь всегда сам принимает решение, сам открывает позицию на бирже и сам отвечает за риск, плечо, размер позиции и исполнение ордеров.
+                </p>
+              </div>
+
+              <div class="flow-warning-card">
+                <h3>Главная ценность — сопровождение</h3>
+                <p>
+                  ZUBR нужен не только для входа. Главная идея — помочь не потеряться после входа: когда фиксировать часть, когда защищать позицию и когда лучше выйти.
+                </p>
               </div>
             </div>
           </div>
