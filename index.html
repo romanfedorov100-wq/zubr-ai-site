@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V8 full hero banner, based on uploaded full file. -->
+<!-- ZUBR V10 hero overlay fix, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -3519,6 +3519,217 @@ h1 {
     width: 250px !important;
     max-width: 250px !important;
     top: 26px !important;
+  }
+}
+
+
+/* =========================================================
+   ZUBR V9 FULL IMAGE HERO
+   Используем загруженный баннер images/zubr-bison-neon.png
+   как цельный фон hero. Текст/телефон уже внутри баннера,
+   поэтому старый HTML-текст и HTML-телефон визуально скрыты.
+   Кнопки и статистика остаются живыми и кликабельными.
+   ========================================================= */
+
+.hero-grid {
+  position: relative !important;
+  min-height: 690px !important;
+  overflow: hidden !important;
+  grid-template-columns: 0.80fr 1.20fr !important;
+  gap: 24px !important;
+  padding: 34px 34px !important;
+  border-radius: 28px !important;
+  background-image:
+    linear-gradient(90deg, rgba(2,5,4,0.06), rgba(2,5,4,0.04)),
+    url("images/zubr-bison-neon.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #020504 !important;
+  box-shadow: 0 0 70px rgba(0,255,136,0.08) !important;
+}
+
+/* Отключаем старый слой баннера и телефон, потому что они уже есть внутри картинки */
+.hero-banner-layer,
+.phone-card,
+.bison-stage,
+.hero-bison-frame,
+.hero-bison-image,
+.bison-ring,
+.bison-glow,
+.bison-art,
+.bison-body,
+.bison-head,
+.horn,
+.eye,
+.leg {
+  display: none !important;
+}
+
+/* HTML-текст оставляем в DOM, но не показываем, чтобы не было дубля с текстом на баннере */
+.hero-content .badge,
+.hero-content h1,
+.hero-content .hero-subtitle {
+  visibility: hidden !important;
+}
+
+/* Кнопки и статистика остаются поверх баннера */
+.hero-content,
+.hero-grid > div:first-child {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.hero-actions {
+  position: relative !important;
+  z-index: 7 !important;
+  margin-top: 28px !important;
+}
+
+.hero-stats {
+  position: relative !important;
+  z-index: 7 !important;
+  margin-top: 34px !important;
+}
+
+.hero-visual {
+  min-height: 560px !important;
+  pointer-events: none !important;
+}
+
+/* Убираем лишние затемняющие псевдослои от прошлых версий */
+.hero-grid::after {
+  display: none !important;
+}
+
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(2,5,4,0.04) 0%,
+      rgba(2,5,4,0.02) 46%,
+      rgba(2,5,4,0.00) 72%,
+      rgba(2,5,4,0.12) 100%
+    );
+}
+
+/* Делаем кнопки чуть плотнее и премиальнее поверх картинки */
+.hero-actions .btn {
+  border-radius: 13px !important;
+  min-height: 46px !important;
+  padding: 0 20px !important;
+  font-weight: 950 !important;
+}
+
+.hero-actions .btn-primary {
+  box-shadow: 0 0 34px rgba(0,255,136,0.26) !important;
+}
+
+.stat {
+  backdrop-filter: blur(12px);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+    rgba(0,0,0,0.34) !important;
+  border-color: rgba(140,255,193,0.18) !important;
+}
+
+/* На планшете и телефоне лучше снова показать HTML-текст, потому что баннер может обрезаться */
+@media (max-width: 980px) {
+  .hero-grid {
+    min-height: auto !important;
+    grid-template-columns: 1fr !important;
+    background-image:
+      linear-gradient(90deg, rgba(2,5,4,0.82), rgba(2,5,4,0.42)),
+      url("images/zubr-bison-neon.png") !important;
+    background-position: center center !important;
+    padding: 28px !important;
+  }
+
+  .hero-content .badge,
+  .hero-content h1,
+  .hero-content .hero-subtitle {
+    visibility: visible !important;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-grid {
+    background-position: 58% center !important;
+    padding: 22px !important;
+  }
+}
+
+
+/* =========================================================
+   ZUBR V10 HERO OVERLAY FIX
+   Исправляет наслоение: на desktop используем баннер как
+   единый фон hero, скрываем дубли текста и убираем второй телефон.
+   ========================================================= */
+
+@media (min-width: 981px) {
+  .hero-grid {
+    display: block !important;
+    min-height: 720px !important;
+    padding: 34px !important;
+    background-image:
+      linear-gradient(90deg,
+        rgba(2,5,4,0.08) 0%,
+        rgba(2,5,4,0.04) 40%,
+        rgba(2,5,4,0.00) 70%,
+        rgba(2,5,4,0.08) 100%
+      ),
+      url("images/zubr-bison-neon.png") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-color: #020504 !important;
+  }
+
+  .hero-grid > div:first-child {
+    position: relative !important;
+    z-index: 5 !important;
+    width: min(720px, 100%) !important;
+  }
+
+  /* ВАЖНО: скрываем только дубли текста, но сохраняем их место в layout */
+  .hero-grid > div:first-child > .badge,
+  .hero-grid > div:first-child > h1,
+  .hero-grid > div:first-child > .hero-subtitle {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Второй HTML-телефон и правый visual слой больше не нужны */
+  .hero-grid > .hero-visual,
+  .hero-banner-layer,
+  .phone-card {
+    display: none !important;
+  }
+
+  .hero-actions,
+  .hero-stats {
+    position: relative !important;
+    z-index: 7 !important;
+  }
+
+  .hero-actions .btn {
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset !important;
+  }
+
+  .hero-stats .stat {
+    backdrop-filter: blur(10px);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+      rgba(0,0,0,0.28) !important;
   }
 }
 
