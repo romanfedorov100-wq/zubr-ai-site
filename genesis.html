@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ZUBR Genesis | Neon Afterworld</title>
+  <meta name="description" content="ZUBR Genesis — the first 20 signal guardians of the ZUBR AI ecosystem. Neon Afterworld NFT collection." />
+
+  <style>
+    :root {
+      --bg: #030607;
+      --panel: rgba(5, 12, 14, 0.82);
+      --panel2: rgba(2, 8, 10, 0.92);
+      --text: #edf9f6;
+      --muted: rgba(237, 249, 246, 0.72);
+      --soft: rgba(237, 249, 246, 0.52);
+      --cyan: #14ffe0;
+      --green: #37ff9a;
+      --gold: #e8b95a;
+      --purple: #bd4dff;
+      --line: rgba(20, 255, 224, 0.22);
+      --goldLine: rgba(232, 185, 90, 0.30);
+      --shadow: 0 0 40px rgba(20, 255, 224, 0.12);
+      --max: 1220px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(20, 255, 224, 0.12), transparent 30%),
+        radial-gradient(circle at 82% 8%, rgba(189, 77, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(232, 185, 90, 0.08), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(20, 255, 224, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 255, 224, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(2, 5, 7, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 28px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background: rgba(0, 0, 0, 0.30);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.26em;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(237, 249, 246, 0.72);
+    }
+
+    .menu a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-cta,
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-cta,
+    .btn-secondary {
+      border: 1px solid var(--goldLine);
+      color: #ffe6a8;
+      background: linear-gradient(180deg, rgba(232, 185, 90, 0.12), rgba(232, 185, 90, 0.03));
+    }
+
+    .btn {
+      color: #001311;
+      border: 1px solid rgba(20, 255, 224, 0.72);
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      box-shadow: 0 0 28px rgba(20, 255, 224, 0.20);
+    }
+
+    .btn:hover,
+    .btn-secondary:hover,
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+      padding: 24px 0 70px;
+    }
+
+    .banner {
+      position: relative;
+      overflow: hidden;
+      margin: 22px 0;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.42);
+      box-shadow:
+        0 0 46px rgba(0, 0, 0, 0.54),
+        0 0 42px rgba(20, 255, 224, 0.08);
+    }
+
+    .banner.gold {
+      border-color: var(--goldLine);
+      box-shadow:
+        0 0 46px rgba(0, 0, 0, 0.54),
+        0 0 42px rgba(232, 185, 90, 0.06);
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-actions {
+      position: absolute;
+      left: 5.4%;
+      bottom: 6.5%;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .banner-actions.right {
+      left: auto;
+      right: 5.4%;
+      justify-content: flex-end;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0 26px;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 22px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background:
+        radial-gradient(circle at 85% 10%, rgba(20, 255, 224, 0.13), transparent 42%),
+        rgba(2, 10, 12, 0.70);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .section-panel {
+      margin: 22px 0;
+      padding: clamp(22px, 4vw, 38px);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 25% 0%, rgba(20, 255, 224, 0.10), transparent 38%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        rgba(0, 0, 0, 0.42);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .section-panel h2 {
+      color: #f3f8f4;
+      font-size: clamp(30px, 5vw, 58px);
+      line-height: 0.98;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-panel p {
+      max-width: 880px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.72;
+      margin-bottom: 16px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .story-box {
+      padding: 22px;
+      border: 1px solid rgba(232, 185, 90, 0.22);
+      background: rgba(232, 185, 90, 0.045);
+    }
+
+    .story-box h3 {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .story-box p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .reveal-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      max-width: 620px;
+      margin-top: 18px;
+    }
+
+    .reveal-form input {
+      min-height: 52px;
+      border-radius: 2px;
+      border: 1px solid rgba(20, 255, 224, 0.28);
+      background: rgba(0, 0, 0, 0.55);
+      color: var(--text);
+      padding: 0 16px;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .result-card {
+      display: none;
+      margin-top: 20px;
+      padding: 22px;
+      border: 1px solid rgba(20, 255, 224, 0.28);
+      background: rgba(20, 255, 224, 0.055);
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-card h3 {
+      color: var(--cyan);
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .ancient {
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .nft-card {
+      border: 1px solid rgba(20, 255, 224, 0.20);
+      background:
+        linear-gradient(180deg, rgba(20, 255, 224, 0.06), rgba(232, 185, 90, 0.035)),
+        rgba(0, 0, 0, 0.50);
+      min-height: 132px;
+      padding: 14px;
+      text-align: left;
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .nft-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(20, 255, 224, 0.56);
+      box-shadow: 0 0 26px rgba(20, 255, 224, 0.13);
+    }
+
+    .nft-number {
+      display: inline-flex;
+      color: #001311;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      padding: 4px 7px;
+      font-size: 11px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .nft-card strong {
+      display: block;
+      color: #f4f7f5;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .nft-card span {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .utility-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .utility-item {
+      padding: 18px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background: rgba(0, 0, 0, 0.38);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .utility-item strong {
+      display: block;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    footer {
+      border-top: 1px solid rgba(20, 255, 224, 0.18);
+      padding: 34px 0 44px;
+      color: rgba(237, 249, 246, 0.46);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .menu {
+        display: none;
+      }
+
+      .stats,
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-col,
+      .utility-list {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-actions,
+      .banner-actions.right {
+        position: static;
+        padding: 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        min-height: 66px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+
+      .brand-subtitle {
+        font-size: 9px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      main {
+        width: min(100% - 18px, var(--max));
+      }
+
+      .stats,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .reveal-form {
+        grid-template-columns: 1fr;
+      }
+
+      .btn,
+      .btn-secondary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="images/zubr-logo-transparent.png" alt="ZUBR logo" />
+        <div>
+          <span class="brand-title">ZUBR</span>
+          <span class="brand-subtitle">Genesis</span>
+        </div>
+      </a>
+
+      <div class="menu">
+        <a href="#story">Story</a>
+        <a href="#language">Language</a>
+        <a href="#first20">First 20</a>
+        <a href="#gallery">NFTs</a>
+        <a href="#utility">Utility</a>
+      </div>
+
+      <a class="nav-cta" href="#" target="_blank" rel="noopener">View on OpenSea</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner" id="top">
+      <img src="images/genesis-hero.png" alt="ZUBR Genesis Neon Afterworld" />
+      <div class="banner-actions">
+        <a class="btn" href="#gallery">View Collection</a>
+        <a class="btn-secondary" href="#story">Explore Lore</a>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>20</strong>
+        <span>Genesis guardians. Each NFT has a unique role, signal and story.</span>
+      </div>
+      <div class="stat">
+        <strong>ZUBR</strong>
+        <span>One symbol. One herd. A living archive inside the ZUBR AI ecosystem.</span>
+      </div>
+      <div class="stat">
+        <strong>1/1</strong>
+        <span>Each Genesis character is planned as a unique first-generation guardian.</span>
+      </div>
+      <div class="stat">
+        <strong>AI</strong>
+        <span>Lore, signals, language and future utility connected to the ZUBR concept.</span>
+      </div>
+    </div>
+
+    <section class="banner gold" id="story">
+      <img src="images/genesis-collapse.png" alt="After the Collapse" />
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">World Story</span>
+      <h2>After the Collapse</h2>
+
+      <div class="two-col">
+        <div>
+          <p>
+            After the old financial system collapsed, the world did not end. It changed.
+            Banks lost trust. Signals became noise. Markets moved faster than people could understand.
+            In the ruins of the old order, a new archive appeared — ZUBR.
+          </p>
+          <p>
+            ZUBR Genesis is the first collection of signal guardians. Each guardian represents
+            a discipline of the new market: patience, protection, entry, momentum, risk control,
+            news awareness, victory and long-term conviction.
+          </p>
+        </div>
+
+        <div class="story-box">
+          <h3>Русский смысл</h3>
+          <p>
+            После краха старой финансовой системы мир не исчез — он изменился. Банки потеряли доверие,
+            сигналы превратились в шум, а рынок стал слишком быстрым.
+          </p>
+          <p>
+            ZUBR Genesis — это первые 20 хранителей сигнала. Каждый персонаж отвечает за отдельную силу:
+            вход, риск, защиту, терпение, импульс, новости, победу и веру в путь.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner" id="language">
+      <img src="images/genesis-language.png" alt="The Ancient Signal Language" />
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">Language Archive</span>
+      <h2>The Ancient Signal Language</h2>
+      <p>
+        Before the first guardians were revealed, they created a code: a symbolic language of signals,
+        discipline and conviction. Every Genesis NFT carries a fragment of this language.
+        Holders can reveal the name, phrase and story of their guardian through the archive.
+      </p>
+      <div class="story-box">
+        <h3>Русский смысл</h3>
+        <p>
+          У каждого NFT будет своя фраза на древнем языке ZUBR и перевод. Покупатель вводит номер NFT
+          на сайте и открывает историю своего персонажа.
+        </p>
+      </div>
+    </section>
+
+    <section class="banner gold" id="first20">
+      <img src="images/genesis-first20.png" alt="The First 20 Guardians" />
+    </section>
+
+    <section class="section-panel" id="gallery">
+      <span class="section-kicker">NFT Gallery</span>
+      <h2>The First 20 Guardians</h2>
+      <p>
+        This block is the future home of the actual 20 NFT cards. Each card will open a character profile:
+        name, role, signal, ancient phrase, Russian/English story and OpenSea link.
+      </p>
+
+      <div class="gallery" id="nftGallery"></div>
+    </section>
+
+    <section class="banner" id="utility">
+      <img src="images/genesis-access.png" alt="Holder Access" />
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">Holder Utility</span>
+      <h2>Holder Access</h2>
+      <p>
+        Genesis holders become early members of the ZUBR archive. The first utility is identity and lore.
+        Later this page can connect holders to community roles, future drops, early access and ZUBR ecosystem features.
+      </p>
+
+      <div class="utility-list">
+        <div class="utility-item">
+          <strong>Guardian Profile</strong>
+          Each NFT receives a full character page with story, role and ancient phrase.
+        </div>
+        <div class="utility-item">
+          <strong>Archive Status</strong>
+          Genesis holders become the first recognized members of the ZUBR archive.
+        </div>
+        <div class="utility-item">
+          <strong>Future Drops</strong>
+          The first 20 can be used as early status for future NFT and ecosystem releases.
+        </div>
+        <div class="utility-item">
+          <strong>Community Identity</strong>
+          Holder roles can later be connected to Telegram, Discord or website profiles.
+        </div>
+      </div>
+    </section>
+
+    <section class="banner gold">
+      <img src="images/genesis-join.png" alt="Join the Herd" />
+      <div class="banner-actions right">
+        <a class="btn" href="#">View on OpenSea</a>
+        <a class="btn-secondary" href="#gallery">Reveal Guardian</a>
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">Reveal System</span>
+      <h2>Reveal Your Guardian</h2>
+      <p>
+        Enter NFT number from 001 to 020. For now this opens the basic archive story.
+        Later we will connect each number to the exact NFT image and full character page.
+      </p>
+
+      <div class="reveal-form">
+        <input id="guardianInput" type="text" placeholder="Example: 001, 007, 020" />
+        <button class="btn" type="button" onclick="revealGuardian()">Reveal</button>
+      </div>
+
+      <div class="result-card" id="guardianResult">
+        <h3 id="guardianTitle"></h3>
+        <div class="ancient" id="guardianAncient"></div>
+        <p id="guardianStory"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © ZUBR AI — Genesis Neon Afterworld. 20 Guardians. One Herd. Infinite Signals.
+  </footer>
+
+  <script>
+    const guardians = {
+      "001": ["The Sentinel", "ᛋᛁᚷᚾᚨᛚ ◆ ᚨᚹᚨᚴᛖᚾᛋ", "Protector of the entry. The first guardian stands at the gate and allows only true signals to pass."],
+      "002": ["The Strategist", "ᛒᛖᚠᛟᚱᛖ ◆ ᚲᚱᛟᚹᛞ", "Reads the market before the crowd arrives. Strategy before emotion."],
+      "003": ["The Watcher", "ᛈᚱᛟᛏᛖᚲᛏ ◆ ᛏᚱᚨᛞᛖ", "Sees danger before it becomes loss. Protection is his first signal."],
+      "004": ["The Analyst", "ᛏᚱᚢᛖ ◆ ᛖᚾᛏᚱᚤ", "Waits for the clean entry and rejects weak setups."],
+      "005": ["The Executor", "ᛒᚢᛚᛚ ◆ ᚱᛁᛋᛖ", "Acts when the signal is confirmed. No hesitation. No noise."],
+      "006": ["The Architect", "ᛒᛖᚨᚱ ◆ ᚠᚨᛚᛚ", "Builds order from collapse and structure from volatility."],
+      "007": ["The Patient One", "ᛈᚨᛏᛁᛖᚾᚲᛖ ◆ ᚷᚨᛁᚾ", "Knows that waiting is also a position."],
+      "008": ["The Risk Warden", "ᚱᛁᛋᚴ ◆ ᚹᚨᚱᛞ", "Protects capital from greed and overleverage."],
+      "009": ["The Profit Keeper", "ᛏᛈᛟᚾᛖ ◆ ᚲᚨᛈᛏᚢᚱᛖᛞ", "Secures the first target and keeps the path alive."],
+      "010": ["The Capital Guard", "ᚲᚨᛈᛁᛏᚨᛚ ◆ ᚷᚢᚨᚱᛞ", "Preserves the treasury of the herd."],
+      "011": ["The Gate Reader", "ᚨᚾᚨᛚᚤᛋᛁᛋ ◆ ᚷᚨᛏᛖ", "Opens only when the structure is confirmed."],
+      "012": ["The Whisper", "ᛗᚨᚱᚴᛖᛏ ◆ ᚹᚺᛁᛋᛈᛖᚱ", "Hears liquidity before the candle moves."],
+      "013": ["The Hunter", "ᛗᛟᛗᛖᚾᛏᚢᛗ ◆ ᚺᚢᚾᛏᛖᚱ", "Tracks momentum and strikes with discipline."],
+      "014": ["The News Breaker", "ᚾᛖᚹᛋ ◆ ᛋᚺᛁᚠᛏ", "Detects the headline that changes the scenario."],
+      "015": ["The Seal", "ᛒᚱᛖᚨᚴ ◆ ᛖᚢᛖᚾ ◆ ᛋᛖᚨᛚ", "Turns danger into survival by protecting the entry."],
+      "016": ["The Elite Signal", "ᛖᛚᛁᛏᛖ ◆ ᛋᛁᚷᚾᚨᛚ", "Appears only when timing, structure and conviction align."],
+      "017": ["The Herd Caller", "ᚺᛖᚱᛞ ◆ ᚢᚾᛁᛏᛖ", "Unites the guardians under one signal."],
+      "018": ["The Ancient Algo", "ᚨᚾᚲᛁᛖᚾᛏ ◆ ᚨᛚᚷᛟ", "Carries the memory of the first market machine."],
+      "019": ["The Victory Seal", "ᚢᛁᚲᛏᛟᚱᚤ ◆ ᛋᛖᚨᛚ", "Marks the path completed: entry, protection, patience, result."],
+      "020": ["The Oracle", "ᛖᛏᛖᚱᚾᚨᛚ ◆ ᚹᚨᚱᛞᛖᚾ", "Watches beyond one cycle, one market and one era."]
+    };
+
+    function normalizeNumber(value) {
+      const digits = String(value || "").replace(/\D/g, "");
+      return digits.padStart(3, "0").slice(-3);
+    }
+
+    function revealGuardian(numberFromCard) {
+      const input = document.getElementById("guardianInput");
+      const number = normalizeNumber(numberFromCard || input.value);
+      const data = guardians[number];
+
+      const result = document.getElementById("guardianResult");
+      const title = document.getElementById("guardianTitle");
+      const ancient = document.getElementById("guardianAncient");
+      const story = document.getElementById("guardianStory");
+
+      if (!data) {
+        title.textContent = "Guardian Not Found";
+        ancient.textContent = "Enter a number from 001 to 020.";
+        story.textContent = "The Genesis archive contains only the first twenty signal guardians.";
+        result.classList.add("show");
+        return;
+      }
+
+      input.value = number;
+      title.textContent = `ZUBR Genesis #${number} — ${data[0]}`;
+      ancient.textContent = data[1];
+      story.textContent = data[2];
+      result.classList.add("show");
+      result.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function renderGallery() {
+      const gallery = document.getElementById("nftGallery");
+      Object.keys(guardians).forEach((number) => {
+        const [name, ancient, story] = guardians[number];
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "nft-card";
+        card.onclick = () => revealGuardian(number);
+        card.innerHTML = `
+          <span class="nft-number">#${number}</span>
+          <strong>${name}</strong>
+          <span>${story}</span>
+        `;
+        gallery.appendChild(card);
+      });
+    }
+
+    renderGallery();
+  </script>
+</body>
+</html>
