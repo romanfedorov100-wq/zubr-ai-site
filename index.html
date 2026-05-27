@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ZUBR V21 Deportivo logo integration, based on uploaded full file. -->
+<!-- ZUBR V20 football partnership, based on uploaded full file. -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -4295,106 +4295,133 @@ h1 {
 }
 
 
-/* =========================================================
-   ZUBR V21 DEPORTIVO LOGO INTEGRATION
-   Добавлен реальный логотип Deportivo Moscu в partnership block.
-   Перед загрузкой файла index.html добавь в папку images файл:
-   images/deportivo-moscu-logo.png
-   ========================================================= */
+    .genesis-preview-section {
+      padding-top: 28px;
+    }
 
-.football-brand-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  margin-bottom: 4px;
-}
+    .genesis-preview-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 28px;
+      align-items: center;
+      padding: 28px;
+      border-radius: 36px;
+      overflow: hidden;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(0, 255, 140, 0.16), transparent 34%),
+        radial-gradient(circle at 82% 18%, rgba(0, 255, 209, 0.10), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      box-shadow:
+        0 0 70px rgba(0, 255, 140, 0.10),
+        inset 0 0 0 1px rgba(255,255,255,0.035);
+    }
 
-.football-brand-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(140,255,193,0.18);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
-    rgba(0,0,0,0.24);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.05),
-    0 0 20px rgba(0,255,136,0.05);
-}
+    .genesis-preview-content {
+      position: relative;
+      z-index: 2;
+      padding: 8px;
+    }
 
-.football-brand-pill img {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.96);
-  padding: 4px;
-  box-shadow: 0 0 18px rgba(0,255,136,0.16);
-}
+    .genesis-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #8cffc1;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
 
-.club-brand-pill img {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: 0 0 22px rgba(0,255,136,0.16);
-}
+    .genesis-preview-content h2 {
+      font-size: clamp(36px, 5vw, 68px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin-bottom: 20px;
+    }
 
-.football-brand-pill span {
-  color: #f3fff7;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
+    .genesis-preview-content p {
+      max-width: 620px;
+      color: rgba(244, 255, 249, 0.70);
+      font-size: 17px;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
 
-.football-brand-link {
-  color: #00ff88;
-  font-size: 22px;
-  font-weight: 900;
-  line-height: 1;
-  text-shadow: 0 0 16px rgba(0,255,136,0.25);
-}
+    .genesis-preview-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
-.support-subbrand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(140,255,193,0.16);
-  background: rgba(0,0,0,0.22);
-}
+    .genesis-mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 620px;
+    }
 
-.support-subbrand img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: 0 0 14px rgba(0,255,136,0.16);
-}
+    .genesis-mini-stat {
+      padding: 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(140, 255, 193, 0.14);
+      background: rgba(0,0,0,0.22);
+    }
 
-.support-subbrand span {
-  color: rgba(244,255,249,0.72);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
+    .genesis-mini-stat strong {
+      display: block;
+      color: #8cffc1;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
 
-@media (max-width: 760px) {
-  .football-brand-pill {
-    width: 100%;
-    justify-content: flex-start;
-  }
+    .genesis-mini-stat span {
+      color: rgba(244, 255, 249, 0.56);
+      font-size: 12px;
+      line-height: 1.35;
+    }
 
-  .football-brand-link {
-    display: none;
-  }
-}
+    .genesis-preview-image {
+      position: relative;
+      z-index: 2;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background: rgba(0,0,0,0.28);
+      box-shadow: 0 0 44px rgba(0, 255, 140, 0.10);
+    }
+
+    .genesis-preview-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 310px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 980px) {
+      .genesis-preview-card {
+        grid-template-columns: 1fr;
+      }
+
+      .genesis-preview-image img {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .genesis-preview-card {
+        padding: 20px;
+        border-radius: 28px;
+      }
+
+      .genesis-mini-stats {
+        grid-template-columns: 1fr;
+      }
+    }
 
 </style>
 </head>
@@ -4416,6 +4443,7 @@ h1 {
 
         <nav class="nav-links">
           <a href="#signals">Signals</a>
+          <a href="genesis.html">Genesis</a>
           <a href="#charts">Charts</a>
           <a href="#ai-demo">AI Demo</a>
           <a href="#top500">Top 500</a>
@@ -4428,6 +4456,7 @@ h1 {
         </nav>
 
         <div class="nav-actions">
+          <a class="btn btn-dark" href="genesis.html">Genesis</a>
           <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Telegram</a>
           <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gTV7jtSibpf8Hg/viewform?usp=header" target="_blank" rel="noopener">Join Waitlist</a>
         </div>
@@ -4455,6 +4484,7 @@ h1 {
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdosbmsOwqbI6RNk4gYii-mSRJJH7rcd9F6gTV7jtSibpf8Hg/viewform?usp=header" target="_blank" rel="noopener">Встать в лист ожидания</a>
+              <a class="btn btn-dark" href="genesis.html">ZUBR Genesis</a>
               <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Открыть Telegram канал</a>
               <a class="btn btn-dark" href="https://t.me/zubr_community" target="_blank">Community Chat</a>
             </div>
@@ -4541,6 +4571,53 @@ h1 {
           </div>
         </div>
       </section>
+
+      <section class="section genesis-preview-section" id="genesis-preview">
+        <div class="container">
+          <div class="genesis-preview-card">
+            <div class="genesis-preview-content">
+              <div class="genesis-kicker">
+                <span class="badge-dot"></span>
+                NEW NFT ARCHIVE
+              </div>
+
+              <h2>
+                ZUBR <span class="gradient-text">Genesis</span><br />
+                Neon Afterworld
+              </h2>
+
+              <p>
+                First 20 signal guardians of the ZUBR AI ecosystem.
+                A bright post-apocalyptic NFT world with lore, ancient signal language,
+                holder status and character stories for every Genesis NFT.
+              </p>
+
+              <div class="genesis-preview-actions">
+                <a class="btn btn-primary" href="genesis.html">Открыть Genesis</a>
+                <a class="btn btn-dark" href="genesis.html#gallery">Смотреть NFT</a>
+              </div>
+
+              <div class="genesis-mini-stats">
+                <div class="genesis-mini-stat">
+                  <strong>20</strong>
+                  <span>первых хранителей сигнала</span>
+                </div>
+                <div class="genesis-mini-stat">
+                  <strong>ZUBR</strong>
+                  <span>единая вселенная и стиль</span>
+                </div>
+                <div class="genesis-mini-stat">
+                  <strong>LORE</strong>
+                  <span>истории персонажей и язык</span>
+                </div>
+              </div>
+            </div>
+
+            <a class="genesis-preview-image" href="genesis.html" aria-label="Open ZUBR Genesis page">
+              <img src="images/genesis-hero.png" alt="ZUBR Genesis Neon Afterworld banner" loading="lazy" />
+            </a>
+          </div>
+        </div>
 
       <section class="section zubr-suite-section" id="features">
         <div class="container">
@@ -5567,18 +5644,6 @@ h1 {
                 ZUBR x <span class="gradient-text">Deportivo Moscu</span>
               </h2>
 
-              <div class="football-brand-row">
-                <div class="football-brand-pill">
-                  <img src="images/zubr-logo.jpeg" alt="ZUBR logo" />
-                  <span>ZUBR AI Signals</span>
-                </div>
-                <div class="football-brand-link">×</div>
-                <div class="football-brand-pill club-brand-pill">
-                  <img src="images/deportivo-moscu-logo.png" alt="Deportivo Moscu logo" />
-                  <span>Deportivo Moscu</span>
-                </div>
-              </div>
-
               <p class="football-lead">
                 ZUBR AI Signals поддерживает Deportivo Moscu — профессиональный футбольный клуб из Аргентины.
                 Партнёрство объединяет спорт, технологии, AI, крипто-комьюнити и международное развитие бренда.
@@ -5615,10 +5680,6 @@ h1 {
                 <div>
                   <span class="support-kicker">CRYPTO SUPPORT</span>
                   <h3>Поддержать Deportivo Moscu</h3>
-                  <div class="support-subbrand">
-                    <img src="images/deportivo-moscu-logo.png" alt="Deportivo Moscu logo" />
-                    <span>Official club support block</span>
-                  </div>
                 </div>
                 <img class="support-logo" src="images/zubr-logo.jpeg" alt="ZUBR logo" />
               </div>
