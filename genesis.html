@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ZUBR Genesis | Neon Afterworld</title>
+  <meta name="description" content="ZUBR Genesis — the first 20 signal guardians of the ZUBR AI ecosystem. Neon Afterworld NFT collection." />
+
+  <style>
+    :root {
+      --bg: #030607;
+      --panel: rgba(5, 12, 14, 0.82);
+      --panel2: rgba(2, 8, 10, 0.92);
+      --text: #edf9f6;
+      --muted: rgba(237, 249, 246, 0.72);
+      --soft: rgba(237, 249, 246, 0.52);
+      --cyan: #14ffe0;
+      --green: #37ff9a;
+      --gold: #e8b95a;
+      --purple: #bd4dff;
+      --red: #ff4d6d;
+      --line: rgba(20, 255, 224, 0.22);
+      --goldLine: rgba(232, 185, 90, 0.30);
+      --shadow: 0 0 40px rgba(20, 255, 224, 0.12);
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(20, 255, 224, 0.12), transparent 30%),
+        radial-gradient(circle at 82% 8%, rgba(189, 77, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(232, 185, 90, 0.08), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(20, 255, 224, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 255, 224, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(2, 5, 7, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 28px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background: rgba(0, 0, 0, 0.30);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.26em;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(237, 249, 246, 0.72);
+    }
+
+    .menu a:hover { color: var(--cyan); }
+
+    .nav-cta, .btn, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 0;
+      font-family: inherit;
+    }
+
+    .nav-cta, .btn-secondary {
+      border: 1px solid var(--goldLine);
+      color: #ffe6a8;
+      background: linear-gradient(180deg, rgba(232, 185, 90, 0.12), rgba(232, 185, 90, 0.03));
+    }
+
+    .btn {
+      color: #001311;
+      border: 1px solid rgba(20, 255, 224, 0.72);
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      box-shadow: 0 0 28px rgba(20, 255, 224, 0.20);
+    }
+
+    .btn:hover, .btn-secondary:hover, .nav-cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+      padding: 24px 0 70px;
+    }
+
+    .banner {
+      position: relative;
+      overflow: hidden;
+      margin: 22px 0;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.42);
+      box-shadow:
+        0 0 46px rgba(0, 0, 0, 0.54),
+        0 0 42px rgba(20, 255, 224, 0.08);
+    }
+
+    .banner.gold {
+      border-color: var(--goldLine);
+      box-shadow:
+        0 0 46px rgba(0, 0, 0, 0.54),
+        0 0 42px rgba(232, 185, 90, 0.06);
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-actions {
+      position: absolute;
+      left: 5.4%;
+      bottom: 6.5%;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .banner-actions.right {
+      left: auto;
+      right: 5.4%;
+      justify-content: flex-end;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0 26px;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 22px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background:
+        radial-gradient(circle at 85% 10%, rgba(20, 255, 224, 0.13), transparent 42%),
+        rgba(2, 10, 12, 0.70);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .section-panel {
+      margin: 22px 0;
+      padding: clamp(22px, 4vw, 38px);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 25% 0%, rgba(20, 255, 224, 0.10), transparent 38%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        rgba(0, 0, 0, 0.42);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .section-panel h2 {
+      color: #f3f8f4;
+      font-size: clamp(30px, 5vw, 58px);
+      line-height: 0.98;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-panel p {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.72;
+      margin-bottom: 16px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .story-box {
+      padding: 22px;
+      border: 1px solid rgba(232, 185, 90, 0.22);
+      background: rgba(232, 185, 90, 0.045);
+    }
+
+    .story-box h3 {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .story-box p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .genesis-story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .genesis-story-card {
+      padding: clamp(20px, 3vw, 30px);
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(20, 255, 224, 0.10), transparent 34%),
+        rgba(0, 0, 0, 0.35);
+    }
+
+    .genesis-story-card.ru {
+      border-color: rgba(232, 185, 90, 0.28);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(232, 185, 90, 0.10), transparent 34%),
+        rgba(0, 0, 0, 0.35);
+    }
+
+    .genesis-story-card h3 {
+      color: var(--cyan);
+      font-size: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .genesis-story-card.ru h3 { color: var(--gold); }
+
+    .genesis-story-card p {
+      max-width: none;
+      font-size: 15.5px;
+      line-height: 1.72;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .genesis-story-card p:last-child { margin-bottom: 0; }
+
+    .gallery-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 18px 0 18px;
+    }
+
+    .gallery-note {
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .gallery-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 2px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      color: #001311;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      border-color: rgba(20, 255, 224, 0.62);
+    }
+
+    .nft-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .nft-card {
+      position: relative;
+      border: 1px solid rgba(20, 255, 224, 0.20);
+      background:
+        linear-gradient(180deg, rgba(20, 255, 224, 0.06), rgba(232, 185, 90, 0.035)),
+        rgba(0, 0, 0, 0.54);
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.18s ease;
+      overflow: hidden;
+      text-align: left;
+      min-height: 420px;
+      font-family: inherit;
+    }
+
+    .nft-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(20, 255, 224, 0.56);
+      box-shadow: 0 0 30px rgba(20, 255, 224, 0.14);
+    }
+
+    .nft-image-wrap {
+      aspect-ratio: 4 / 5;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(20, 255, 224, 0.14), transparent 36%),
+        #07100f;
+      border-bottom: 1px solid rgba(20, 255, 224, 0.16);
+      overflow: hidden;
+    }
+
+    .nft-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nft-info {
+      padding: 16px;
+    }
+
+    .nft-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .nft-number {
+      display: inline-flex;
+      color: #001311;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      padding: 5px 8px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .rarity {
+      display: inline-flex;
+      padding: 5px 8px;
+      border: 1px solid rgba(232, 185, 90, 0.26);
+      color: #ffe6a8;
+      background: rgba(232, 185, 90, 0.07);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .rarity.epic {
+      color: #ecc6ff;
+      border-color: rgba(189, 77, 255, 0.30);
+      background: rgba(189, 77, 255, 0.08);
+    }
+
+    .rarity.legendary {
+      color: #ffe6a8;
+      border-color: rgba(232, 185, 90, 0.58);
+      background: rgba(232, 185, 90, 0.12);
+    }
+
+    .nft-card h3 {
+      font-size: 18px;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .nft-card p {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .utility-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .utility-item {
+      padding: 18px;
+      border: 1px solid rgba(20, 255, 224, 0.18);
+      background: rgba(0, 0, 0, 0.38);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .utility-item strong {
+      display: block;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(12px);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(1080px, 100%);
+      max-height: min(86vh, 900px);
+      overflow: auto;
+      border: 1px solid rgba(20, 255, 224, 0.32);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(20, 255, 224, 0.12), transparent 35%),
+        radial-gradient(circle at 90% 20%, rgba(232, 185, 90, 0.10), transparent 34%),
+        #05090a;
+      box-shadow: 0 0 70px rgba(20, 255, 224, 0.16);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      position: relative;
+    }
+
+    .modal-image {
+      min-height: 100%;
+      background: #07100f;
+      border-right: 1px solid rgba(20, 255, 224, 0.18);
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      padding: clamp(22px, 4vw, 36px);
+    }
+
+    .close-btn {
+      position: sticky;
+      top: 0;
+      float: right;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(232, 185, 90, 0.35);
+      background: rgba(0, 0, 0, 0.55);
+      color: #ffe6a8;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .modal-kicker {
+      display: inline-flex;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      padding: 8px 10px;
+      border: 1px solid rgba(20, 255, 224, 0.20);
+      color: var(--muted);
+      background: rgba(20, 255, 224, 0.05);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .language-box {
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid rgba(232, 185, 90, 0.28);
+      background: rgba(232, 185, 90, 0.055);
+    }
+
+    .language-box strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .ancient-text {
+      color: #ffe6a8;
+      letter-spacing: 0.08em;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .modal-section-title {
+      color: var(--cyan);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 20px 0 8px;
+    }
+
+    .modal-content p {
+      color: var(--muted);
+      line-height: 1.68;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(20, 255, 224, 0.18);
+      padding: 34px 0 44px;
+      color: rgba(237, 249, 246, 0.46);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1050px) {
+      .nft-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .menu {
+        display: none;
+      }
+
+      .stats,
+      .nft-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-col,
+      .utility-list,
+      .modal-card {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-image {
+        border-right: 0;
+        border-bottom: 1px solid rgba(20, 255, 224, 0.18);
+      }
+
+      .modal-image img {
+        min-height: 0;
+        max-height: 620px;
+      }
+
+      .banner-actions,
+      .banner-actions.right {
+        position: static;
+        padding: 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        min-height: 66px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+
+      .brand-subtitle {
+        font-size: 9px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      main {
+        width: min(100% - 18px, var(--max));
+      }
+
+      .stats,
+      .nft-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .btn,
+      .btn-secondary {
+        width: 100%;
+      }
+
+      .modal {
+        padding: 10px;
+      }
+
+      .modal-card {
+        max-height: 92vh;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .genesis-story-grid { grid-template-columns: 1fr; }
+    }
+  
+/* =========================================================
+   ZUBR GENESIS EXPANSION — ADDED FULL REPLACEMENT UPDATE
+========================================================= */
+.alphabet-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+.alphabet-card,
+.alphabet-preview-card,
+.holder-gift-card,
+.unlock-card,
+.book-grid article {
+  border: 1px solid rgba(20, 255, 224, 0.18);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(20, 255, 224, 0.10), transparent 34%),
+    rgba(0, 0, 0, 0.38);
+  box-shadow: 0 0 44px rgba(20, 255, 224, 0.07);
+}
+
+.alphabet-card,
+.alphabet-preview-card,
+.holder-gift-card,
+.unlock-card {
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.card-kicker,
+.result-label {
+  display: block;
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.alphabet-card h3,
+.alphabet-preview-card h3,
+.holder-gift-card h3,
+.book-grid h3,
+.unlock-card h3 {
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.alphabet-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.alphabet-meta span {
+  padding: 9px 12px;
+  border: 1px solid rgba(20, 255, 224, 0.18);
+  color: rgba(237, 249, 246, 0.82);
+  background: rgba(20, 255, 224, 0.06);
+  font-size: 13px;
+}
+
+.alphabet-preview-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  color: rgba(237, 249, 246, 0.72);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.symbol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+  margin: 20px 0;
+}
+
+.symbol-grid div {
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(20, 255, 224, 0.16);
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.symbol-grid b {
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.symbol-grid span {
+  margin-top: 8px;
+  color: rgba(237, 249, 246, 0.62);
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.gift-steps,
+.book-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.gift-steps {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.book-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gift-steps div,
+.book-grid article {
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.gift-steps span {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: #001311;
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  font-weight: 900;
+}
+
+.unlock-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.unlock-form input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(20, 255, 224, 0.22);
+  outline: none;
+  background: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.unlock-form button {
+  min-height: 52px;
+  padding: 0 18px;
+  border: 1px solid rgba(20, 255, 224, 0.72);
+  cursor: pointer;
+  color: #001311;
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.unlock-result {
+  padding: 22px;
+  border: 1px solid rgba(20, 255, 224, 0.14);
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.ancient-phrase {
+  margin: 14px 0;
+  padding: 18px;
+  border: 1px solid rgba(20, 255, 224, 0.16);
+  background: rgba(20, 255, 224, 0.08);
+  color: #ffffff;
+  font-size: 34px;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .alphabet-layout,
+  .gift-steps,
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unlock-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .symbol-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ancient-phrase {
+    font-size: 26px;
+    letter-spacing: 0.10em;
+  }
+}
+
+
+    #story, #language, #ancient-alphabet, #holder-gift, #book-of-knowledge, #unlock, #first20, #gallery, #utility {
+      scroll-margin-top: 92px;
+    }
+
+  
+/* =========================================================
+   ZUBR PHRASE VIDEO UNLOCK — ADDED UPDATE
+========================================================= */
+.video-unlock-card {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid rgba(20, 255, 224, 0.16);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(20, 255, 224, 0.08), transparent 34%),
+    rgba(0, 0, 0, 0.28);
+}
+
+.video-unlock-card.locked {
+  opacity: 0.58;
+}
+
+.video-unlock-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.video-unlock-form input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(232, 185, 90, 0.26);
+  outline: none;
+  background: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.video-unlock-form button {
+  min-height: 52px;
+  padding: 0 18px;
+  border: 1px solid rgba(232, 185, 90, 0.62);
+  cursor: pointer;
+  color: #130d00;
+  background: linear-gradient(135deg, #ffe6a8, var(--gold));
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.video-box {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(232, 185, 90, 0.24);
+  background: rgba(232, 185, 90, 0.055);
+}
+
+.video-placeholder {
+  min-height: 240px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px dashed rgba(232, 185, 90, 0.30);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(232, 185, 90, 0.10), transparent 42%),
+    rgba(0, 0, 0, 0.25);
+  color: rgba(237, 249, 246, 0.72);
+  line-height: 1.55;
+  padding: 22px;
+}
+
+.video-placeholder strong {
+  display: block;
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.guardian-video {
+  width: 100%;
+  max-height: 520px;
+  border: 1px solid rgba(232, 185, 90, 0.24);
+  background: #000;
+}
+
+@media (max-width: 620px) {
+  .video-unlock-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+  
+/* =========================================================
+   ZUBR GENESIS PRE-OPENSEA SALES BLOCKS
+========================================================= */
+.launch-grid,
+.value-grid,
+.drop-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.launch-grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.value-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.drop-grid {
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch;
+}
+
+.launch-step,
+.value-card,
+.drop-card,
+.drop-status-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(20, 255, 224, 0.18);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(20, 255, 224, 0.09), transparent 34%),
+    rgba(0, 0, 0, 0.34);
+  padding: 18px;
+}
+
+.launch-step::before,
+.value-card::before,
+.drop-card::before,
+.drop-status-card::before {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  right: -70px;
+  top: -70px;
+  border-radius: 999px;
+  background: rgba(20, 255, 224, 0.08);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.launch-number {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: #001311;
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  font-weight: 900;
+}
+
+.launch-step h3,
+.value-card h3,
+.drop-card h3,
+.drop-status-card h3 {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.launch-step p,
+.value-card p,
+.drop-card p,
+.drop-status-card p {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.value-icon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border: 1px solid rgba(232, 185, 90, 0.28);
+  color: var(--gold);
+  background: rgba(232, 185, 90, 0.07);
+  font-size: 23px;
+}
+
+.drop-card {
+  padding: clamp(22px, 3vw, 32px);
+  border-color: rgba(232, 185, 90, 0.26);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(232, 185, 90, 0.10), transparent 34%),
+    rgba(0, 0, 0, 0.36);
+}
+
+.drop-status-card {
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.drop-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.drop-badge-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.drop-badge-list span {
+  display: inline-flex;
+  padding: 9px 12px;
+  border: 1px solid rgba(20, 255, 224, 0.18);
+  background: rgba(20, 255, 224, 0.055);
+  color: rgba(237, 249, 246, 0.82);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.status-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px;
+  border: 1px solid rgba(20, 255, 224, 0.14);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.status-row strong {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.status-row span {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.drop-note {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid rgba(232, 185, 90, 0.24);
+  background: rgba(232, 185, 90, 0.055);
+  color: rgba(237, 249, 246, 0.68);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1100px) {
+  .launch-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .drop-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .launch-grid,
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drop-actions .btn,
+  .drop-actions .btn-secondary {
+    width: 100%;
+  }
+}
+
+  
+    section[id] { scroll-margin-top: 92px; }
+  
+/* =========================================================
+   ZUBR PREMIUM WEBSITE ICONS
+========================================================= */
+.value-icon {
+  width: 74px;
+  height: 74px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  padding: 0;
+  border: 1px solid rgba(232, 185, 90, 0.26);
+  background:
+    radial-gradient(circle at 50% 28%, rgba(20, 255, 224, 0.18), transparent 42%),
+    rgba(0, 0, 0, 0.42);
+  box-shadow:
+    0 0 28px rgba(20, 255, 224, 0.08),
+    inset 0 0 18px rgba(232, 185, 90, 0.055);
+}
+
+.value-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.value-card:hover .value-icon {
+  border-color: rgba(20, 255, 224, 0.42);
+  box-shadow:
+    0 0 34px rgba(20, 255, 224, 0.16),
+    inset 0 0 22px rgba(232, 185, 90, 0.08);
+  transform: translateY(-2px);
+}
+
+.value-icon,
+.value-card {
+  transition: 220ms ease;
+}
+
+  
+/* =========================================================
+   ZUBR OPENSEA LAUNCH DETAILS — ENHANCED
+========================================================= */
+.launch-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.launch-detail-card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid rgba(20, 255, 224, 0.16);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(20, 255, 224, 0.08), transparent 34%),
+    rgba(0, 0, 0, 0.28);
+}
+
+.launch-detail-card strong {
+  display: block;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+
+.launch-detail-card span {
+  display: block;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.launch-detail-card small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.opensea-description-box {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(232, 185, 90, 0.24);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232, 185, 90, 0.08), transparent 34%),
+    rgba(232, 185, 90, 0.045);
+}
+
+.opensea-description-box h4 {
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.opensea-description-box p {
+  max-width: none;
+  margin-bottom: 12px;
+}
+
+.opensea-mini-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.opensea-mini-list div {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: rgba(237, 249, 246, 0.74);
+  line-height: 1.45;
+}
+
+.opensea-mini-list b {
+  color: var(--green);
+  min-width: 18px;
+}
+
+.launch-warning {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid rgba(20, 255, 224, 0.18);
+  background: rgba(20, 255, 224, 0.045);
+  color: rgba(237, 249, 246, 0.70);
+  line-height: 1.55;
+}
+
+.launch-warning strong {
+  color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .launch-detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .launch-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="images/zubr-logo-transparent.png" alt="ZUBR logo" />
+        <div>
+          <span class="brand-title">ZUBR</span>
+          <span class="brand-subtitle">Genesis</span>
+        </div>
+      </a>
+
+      <div class="menu">
+        <a href="#story">Story</a>
+        <a href="#how-it-works">How</a>
+        <a href="#what-you-get">Get</a>
+        <a href="#drop-status">Drop</a>
+        <a href="#language">Language</a>
+        <a href="#ancient-alphabet">Alphabet</a>
+        <a href="#unlock">Unlock</a>
+        <a href="#gallery">NFTs</a>
+      </div>
+
+      <a class="nav-cta" href="#" target="_blank" rel="noopener">OpenSea Coming Soon</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner" id="top">
+      <img src="images/genesis-hero.png" alt="ZUBR Genesis Neon Afterworld" loading="eager" />
+      <div class="banner-actions">
+        <a class="btn" href="#gallery">View Collection</a>
+        <a class="btn-secondary" href="#story">Explore Lore</a>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>20</strong>
+        <span>Genesis guardians. Each NFT has a unique role, signal and story.</span>
+      </div>
+      <div class="stat">
+        <strong>ZUBR</strong>
+        <span>One symbol. One herd. A living archive inside the ZUBR AI ecosystem.</span>
+      </div>
+      <div class="stat">
+        <strong>1/1</strong>
+        <span>Each Genesis character is planned as a unique first-generation guardian.</span>
+      </div>
+      <div class="stat">
+        <strong>AI</strong>
+        <span>Lore, signals, language and future utility connected to the ZUBR concept.</span>
+      </div>
+    </div>
+
+    
+    <section class="section-panel" id="how-it-works">
+      <span class="section-kicker">How It Works</span>
+      <h2>From Genesis NFT to Guardian Video</h2>
+      <p>
+        ZUBR Genesis is built as a ritual unlock system: the holder does not only receive an image,
+        but opens a character, a phrase, an archive and a future place inside the ZUBR universe.
+      </p>
+
+      <div class="launch-grid">
+        <article class="launch-step">
+          <span class="launch-number">01</span>
+          <h3>Buy Genesis Guardian</h3>
+          <p>Пользователь получает одного из первых 20 Guardian NFT.</p>
+        </article>
+
+        <article class="launch-step">
+          <span class="launch-number">02</span>
+          <h3>Receive Alphabet NFT</h3>
+          <p>В подарок открывается Ancient Alphabet NFT — ключ к языку ZUBR.</p>
+        </article>
+
+        <article class="launch-step">
+          <span class="launch-number">03</span>
+          <h3>Enter NFT Code</h3>
+          <p>Владелец вводит код вроде ZUBR-001-GENESIS на сайте.</p>
+        </article>
+
+        <article class="launch-step">
+          <span class="launch-number">04</span>
+          <h3>Unlock Phrase</h3>
+          <p>Открывается руническая фраза Guardian и её смысл.</p>
+        </article>
+
+        <article class="launch-step">
+          <span class="launch-number">05</span>
+          <h3>Enter Phrase</h3>
+          <p>Фраза становится вторым ключом для доступа к видео персонажа.</p>
+        </article>
+
+        <article class="launch-step">
+          <span class="launch-number">06</span>
+          <h3>Watch Guardian Video</h3>
+          <p>Открывается персональный cinematic reveal ролик Guardian.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-panel" id="what-you-get">
+      <span class="section-kicker">What Holders Get</span>
+      <h2>Not just a picture. A key to the archive.</h2>
+      <p>
+        The Genesis NFT is the first layer of the ZUBR archive. The Alphabet NFT, code, phrase
+        and future video access make every Guardian feel like a living digital character.
+      </p>
+
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="value-icon"><img src="images/icons/icon-genesis-guardian.png" alt="Genesis Guardian NFT icon" loading="lazy"></span>
+          <h3>Genesis Guardian NFT</h3>
+          <p>Один из первых 20 персонажей ZUBR Genesis с ролью, редкостью, фразой и историей.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-icon"><img src="images/icons/icon-ancient-alphabet.png" alt="Ancient Alphabet Gift icon" loading="lazy"></span>
+          <h3>Ancient Alphabet Gift</h3>
+          <p>Вторая NFT с алфавитом ZUBR: символы, значения и переводы на русский, английский и испанский.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-icon"><img src="images/icons/icon-secret-phrase-unlock.png" alt="Secret Phrase Unlock icon" loading="lazy"></span>
+          <h3>Secret Phrase Unlock</h3>
+          <p>NFT-код открывает фразу Guardian, а фраза открывает следующий уровень доступа.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-icon"><img src="images/icons/icon-guardian-video-access.png" alt="Guardian Video Access icon" loading="lazy"></span>
+          <h3>Guardian Video Access</h3>
+          <p>Для каждого персонажа планируется короткое cinematic video reveal по его характеру и инвентарю.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-icon"><img src="images/icons/icon-book-of-knowledge.png" alt="Book of Knowledge icon" loading="lazy"></span>
+          <h3>Book of Knowledge</h3>
+          <p>Закрытый архив смыслов: правила стаи, язык сигналов, дисциплина, риск и защита капитала.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-icon"><img src="images/icons/icon-future-ecosystem-access.png" alt="Future Ecosystem Access icon" loading="lazy"></span>
+          <h3>Future Ecosystem Access</h3>
+          <p>Genesis holders могут получить будущие роли, бонусы, ранний доступ и статус внутри ZUBR.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-panel" id="drop-status">
+      <span class="section-kicker">OpenSea Launch Details</span>
+      <h2>ZUBR Genesis Guardians — coming soon</h2>
+      <p>
+        We are preparing the OpenSea launch as a complete collector experience:
+        Genesis Guardian NFT, Ancient Alphabet gift, unlock code, secret phrase,
+        future Guardian video access and the ZUBR Archive.
+      </p>
+
+      <div class="launch-detail-grid">
+        <article class="launch-detail-card">
+          <strong>Collection</strong>
+          <span>ZUBR Genesis Guardians</span>
+          <small>The first character collection of the ZUBR universe.</small>
+        </article>
+
+        <article class="launch-detail-card">
+          <strong>Genesis Supply</strong>
+          <span>20 Guardians</span>
+          <small>The first 20 cyber-mythic characters of the archive.</small>
+        </article>
+
+        <article class="launch-detail-card">
+          <strong>Holder Gift</strong>
+          <span>Alphabet NFT</span>
+          <small>Every Genesis holder receives one Ancient Alphabet NFT.</small>
+        </article>
+
+        <article class="launch-detail-card">
+          <strong>Launch Status</strong>
+          <span>Coming Soon</span>
+          <small>OpenSea link will be added after final metadata preparation.</small>
+        </article>
+      </div>
+
+      <div class="drop-grid" style="margin-top: 22px;">
+        <article class="drop-card">
+          <h3>Why we are not rushing the drop</h3>
+          <p>
+            ZUBR Genesis should launch only when the collection looks complete:
+            the story, unlock mechanics, holder gift, alphabet, videos and metadata
+            must work together as one premium digital archive.
+          </p>
+
+          <div class="drop-badge-list">
+            <span>20 Genesis Guardians</span>
+            <span>999 Alphabet NFTs</span>
+            <span>Holder Gift</span>
+            <span>Code Unlock</span>
+            <span>Secret Phrase</span>
+            <span>Video Access</span>
+            <span>Book of Knowledge</span>
+            <span>ZUBR Archive</span>
+          </div>
+
+          <div class="opensea-description-box">
+            <h4>OpenSea collection description draft</h4>
+            <p>
+              <strong>ZUBR Genesis Guardians</strong> is the first NFT collection of the ZUBR AI universe.
+              It introduces the first 20 Guardians — digital characters from a post-apocalyptic
+              cyber-mythic world where signals, risk, protection, news and discipline become part
+              of an ancient visual language.
+            </p>
+            <p>
+              Each Genesis Guardian is more than an image. It is a key to the ZUBR Archive:
+              a character, a phrase, an unlock code, an Ancient Alphabet gift and future
+              access to Guardian video reveals.
+            </p>
+
+            <div class="opensea-mini-list">
+              <div><b>✦</b><span>Genesis Guardian NFT with role, story and ancient phrase.</span></div>
+              <div><b>✦</b><span>Ancient Alphabet NFT gift for every Genesis holder.</span></div>
+              <div><b>✦</b><span>Secret code and phrase unlock on the ZUBR Genesis page.</span></div>
+              <div><b>✦</b><span>Future Guardian video access and Book of Knowledge archive.</span></div>
+            </div>
+          </div>
+
+          <div class="drop-actions">
+            <a class="btn" href="#unlock">Test NFT Unlock</a>
+            <a class="btn-secondary" href="https://t.me/zubr_ai_signals" target="_blank" rel="noopener">Telegram Channel</a>
+            <a class="btn-secondary" href="https://t.me/zubr_community" target="_blank" rel="noopener">ZUBR Community</a>
+          </div>
+
+          <div class="launch-warning">
+            <strong>Launch rule:</strong> no “Buy now” button until the final OpenSea page,
+            metadata, collection banner, avatar, pricing and network are confirmed.
+            This protects the project from a raw launch and unnecessary gas spending.
+          </div>
+        </article>
+
+        <aside class="drop-status-card">
+          <h3>Pre-launch checklist</h3>
+          <p>Current status before OpenSea:</p>
+
+          <div class="status-list">
+            <div class="status-row"><strong>Genesis story page</strong><span>Ready</span></div>
+            <div class="status-row"><strong>How It Works / Holder Utility</strong><span>Ready</span></div>
+            <div class="status-row"><strong>Premium website icons</strong><span>Ready</span></div>
+            <div class="status-row"><strong>NFT code unlock system</strong><span>Ready</span></div>
+            <div class="status-row"><strong>Ancient Alphabet concept</strong><span>Ready</span></div>
+            <div class="status-row"><strong>20 Guardian images</strong><span>In progress</span></div>
+            <div class="status-row"><strong>Guardian video previews</strong><span>In progress</span></div>
+            <div class="status-row"><strong>OpenSea banner/avatar</strong><span>Next</span></div>
+            <div class="status-row"><strong>Metadata for 20 NFTs</strong><span>Next</span></div>
+            <div class="status-row"><strong>Network / price / royalties</strong><span>Next</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">World Story</span>
+      <h2>The Story of ZUBR Genesis</h2>
+      <p>
+        This is the origin of the Neon Afterworld: the first archive, the first herd,
+        and the first twenty guardians of the ZUBR signal universe.
+      </p>
+
+      <div class="genesis-story-grid">
+        <article class="genesis-story-card ru">
+          <h3>Русская версия</h3>
+          <p>Когда старый рынок рухнул, люди сначала думали, что это обычный обвал. Ещё один красный день. Ещё одна волна паники. Ещё один цикл, который нужно переждать.</p>
+          <p>Но в этот раз всё было иначе.</p>
+          <p>Города не исчезли. Они просто перестали быть прежними. Башни всё ещё светились неоном, биржи всё ещё мигали цифрами, новости всё ещё кричали заголовками, но доверие исчезло. Алгоритмы стали быстрее людей. Толпа стала шумнее правды. Каждый сигнал мог быть ловушкой. Каждая свеча — последним шансом или началом падения.</p>
+          <p>И где-то между рынком, пустошью и цифровым шумом появился ZUBR.</p>
+          <p>Не как компания. Не как монета. Не как очередной обещатель лёгкой победы.</p>
+          <p>ZUBR появился как знак.</p>
+          <p>Символ тех, кто не бежит за толпой. Тех, кто ждёт свой вход. Тех, кто защищает капитал раньше, чем думает о прибыли. Тех, кто понимает: настоящий сигнал приходит не тогда, когда все кричат, а когда рынок впервые начинает говорить тихо.</p>
+          <p>Первые двадцать Хранителей появились в разные моменты. Кто-то вышел из неонового города. Кто-то пришёл из ледяного сектора. Кто-то жил в архивах старых алгоритмов. Кто-то охотился за импульсом в пустошах. Кто-то охранял сделки, пока остальные гнались за быстрыми деньгами.</p>
+          <p>Их не собирали. Они сами нашли друг друга.</p>
+          <p>Каждый из них хранил одну часть большого знания: как входить до толпы, как ждать, как защищать сделку, как читать новости, как не поддаваться страху, как закрывать прибыль, как выйти вовремя, как не потерять себя в шуме рынка.</p>
+          <p>Так родился ZUBR Genesis.</p>
+          <p>First 20 Guardians — это не просто первая коллекция. Это первый круг. Первая стая. Первый архив.</p>
+          <p>В этой вселенной каждый Guardian — не случайный персонаж, а часть торгового пути. От первого пробуждения сигнала до вечной защиты капитала. От хаоса рынка до дисциплины. От одиночного трейдера до стаи.</p>
+          <p>ZUBR не обещает, что рынок станет лёгким. ZUBR напоминает: выживает не самый громкий, а самый терпеливый. Не тот, кто входит первым, а тот, кто входит правильно. Не тот, кто верит в удачу, а тот, кто держит риск под контролем.</p>
+          <p>И если ты нашёл этот архив, значит ты уже услышал сигнал.</p>
+          <p>Добро пожаловать в ZUBR Genesis. Стая просыпается.</p>
+        </article>
+
+        <article class="genesis-story-card">
+          <h3>English Version</h3>
+          <p>When the old market collapsed, people first thought it was just another crash. Another red day. Another wave of panic. Another cycle to survive.</p>
+          <p>But this time, something was different.</p>
+          <p>The cities did not disappear. They simply stopped being what they used to be. Towers still glowed with neon. Exchanges still flashed with numbers. News feeds still screamed for attention. But trust was gone. Algorithms became faster than humans. The crowd became louder than truth. Every signal could be a trap. Every candle could be a final chance or the beginning of a fall.</p>
+          <p>And somewhere between the market, the wasteland, and the digital noise, ZUBR appeared.</p>
+          <p>Not as a company. Not as a coin. Not as another promise of easy victory.</p>
+          <p>ZUBR appeared as a sign.</p>
+          <p>A symbol for those who do not chase the crowd. For those who wait for their entry. For those who protect capital before thinking about profit. For those who understand that a real signal does not arrive when everyone is shouting, but when the market first starts to whisper.</p>
+          <p>The first twenty Guardians appeared at different moments. Some came from the neon city. Some crossed the frozen sectors. Some lived inside the archives of ancient algorithms. Some hunted momentum across the wastelands. Some protected trades while others chased fast money.</p>
+          <p>They were not recruited. They found each other.</p>
+          <p>Each of them carried one piece of the greater knowledge: how to enter before the crowd, how to wait, how to protect a trade, how to read the news, how to resist fear, how to lock profit, how to exit in time, and how not to lose yourself inside the noise of the market.</p>
+          <p>That is how ZUBR Genesis was born.</p>
+          <p>The First 20 Guardians are not just the first collection. They are the first circle. The first herd. The first archive.</p>
+          <p>In this universe, every Guardian is not a random character, but a part of the trading journey. From the first awakening of a signal to the eternal protection of capital. From market chaos to discipline. From a lone trader to the herd.</p>
+          <p>ZUBR does not promise that the market will become easy. ZUBR reminds us that the loudest do not survive — the patient do. Not the one who enters first, but the one who enters right. Not the one who believes in luck, but the one who keeps risk under control.</p>
+          <p>And if you have found this archive, it means you have already heard the signal.</p>
+          <p>Welcome to ZUBR Genesis. The herd is awakening.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="banner" id="language">
+      <img src="images/genesis-language.png" alt="The Ancient Signal Language" loading="lazy" />
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">Language Archive</span>
+      <h2>The Ancient Signal Language</h2>
+      <p>
+        Before the first guardians were revealed, they created a code: a symbolic language of signals,
+        discipline and conviction. Every Genesis NFT carries a fragment of this language.
+        Holders can reveal the name, phrase and story of their guardian through the archive.
+      </p>
+      <div class="story-box">
+        <h3>Русский смысл</h3>
+        <p>
+          У каждого NFT будет своя фраза на древнем языке ZUBR и перевод. Покупатель вводит номер NFT
+          на сайте и открывает историю своего персонажа.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-panel" id="ancient-alphabet">
+      <span class="section-kicker">Second NFT Drop</span>
+      <h2>ZUBR Ancient Alphabet</h2>
+      <p>
+        После первых 20 Genesis Guardians открывается второй архив — ZUBR Ancient Alphabet.
+        Это коллекция из 999 NFT-карт, где собран язык ZUBR: символы, значения и переводы
+        на русский, английский и испанский.
+      </p>
+
+      <div class="alphabet-layout">
+        <div class="alphabet-card alphabet-main-card">
+          <span class="card-kicker">999 NFT / One Language</span>
+          <h3>The Language of Signals</h3>
+          <p>
+            Ancient Alphabet NFT — это не отдельный персонаж, а ключ к пониманию мира ZUBR.
+            На каждой NFT находится таблица символов, перевод и номер от 001 до 999.
+          </p>
+
+          <div class="alphabet-meta">
+            <span>ZUBR Ancient Alphabet #001–#999</span>
+            <span>Russian / English / Spanish</span>
+            <span>Gift for Genesis holders</span>
+          </div>
+        </div>
+
+        <div class="alphabet-preview-card">
+          <div class="alphabet-preview-top">
+            <span>ZUBR Ancient Alphabet</span>
+            <strong>#001 / 999</strong>
+          </div>
+
+          <div class="symbol-grid">
+            <div><b>𐌆</b><span>Signal / Сигнал / Señal</span></div>
+            <div><b>◇</b><span>Entry / Вход / Entrada</span></div>
+            <div><b>⟁</b><span>Risk / Риск / Riesgo</span></div>
+            <div><b>☉</b><span>Protect / Защита / Protección</span></div>
+            <div><b>⌁</b><span>News / Новость / Noticia</span></div>
+            <div><b>✦</b><span>Exit / Выход / Salida</span></div>
+          </div>
+
+          <p>
+            Символы будут оформлены как собственный визуальный язык ZUBR:
+            производный от рунической, цифровой и “серафимской” эстетики.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+<section class="section-panel" id="unlock">
+      <div class="unlock-card">
+        <span class="section-kicker">Unlock Your Guardian Phrase</span>
+        <h2>Enter your NFT code</h2>
+        <p>
+          Владелец NFT вводит уникальный код и открывает древнюю фразу своего Guardian:
+          символы, перевод, смысл и статус внутри ZUBR Archive.
+        </p>
+
+        <form class="unlock-form" id="guardianUnlockForm" action="javascript:void(0);">
+          <input id="guardianCodeInput" type="text" autocomplete="off" placeholder="Example: ZUBR-001-GENESIS" />
+          <button type="button" id="guardianUnlockButton">Unlock Ancient Phrase</button>
+        </form>
+
+        <div class="alphabet-meta" style="margin-top: -10px; margin-bottom: 18px;">
+          <span>Test code: ZUBR-001-GENESIS</span>
+          <span>Test code: ZUBR-002-GENESIS</span>
+          <span>Test code: ZUBR-003-GENESIS</span>
+        </div>
+
+        <div class="unlock-result" id="guardianUnlockResult">
+          <p class="result-label">Archive locked</p>
+          <h3>Введите код NFT, чтобы открыть фразу.</h3>
+          <p>
+            После подключения настоящей базы здесь будет отображаться персональная фраза,
+            перевод и история конкретного Guardian.
+          </p>
+        </div>
+
+        <div class="video-unlock-card locked" id="phraseUnlockCard">
+          <span class="section-kicker">Step 2 / Guardian Video Access</span>
+          <h2>Enter the revealed phrase</h2>
+          <p>
+            После ввода NFT-кода пользователь получает фразу Guardian. Затем он вводит эту фразу
+            во второе окно и открывает доступ к короткому видео своего персонажа.
+          </p>
+
+          <form class="video-unlock-form" id="phraseUnlockForm" action="javascript:void(0);">
+            <input id="guardianPhraseInput" type="text" autocomplete="off" placeholder="First unlock NFT code above" disabled />
+            <button type="button" id="phraseUnlockButton" disabled>Open Video</button>
+          </form>
+
+          <div class="video-box" id="guardianVideoResult">
+            <div class="video-placeholder">
+              <div>
+                <strong>Video locked</strong>
+                Сначала введи NFT-код. После этого появится фраза, которая откроет видео Guardian.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel" id="holder-gift">
+      <div class="holder-gift-card">
+        <span class="section-kicker">Genesis Holder Gift</span>
+        <h2>Every Genesis Guardian unlocks an Alphabet NFT</h2>
+        <p>
+          Каждый владелец Genesis Guardian получает одну Ancient Alphabet NFT в подарок.
+          Genesis NFT — это персонаж, статус и история. Alphabet NFT — это ключ к языку ZUBR
+          и будущей Book of Knowledge.
+        </p>
+
+        <div style="margin: 22px 0 6px;">
+          <a class="btn" href="#unlock">Enter NFT Code</a>
+        </div>
+
+        <div class="gift-steps">
+          <div>
+            <span>01</span>
+            <h3>Buy or hold Genesis</h3>
+            <p>Пользователь получает одного из первых 20 Хранителей ZUBR.</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <h3>Receive Alphabet NFT</h3>
+            <p>Вторая NFT открывает таблицу древнего языка и перевод символов.</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <h3>Unlock Knowledge</h3>
+            <p>Код NFT открывает фразу, смысл и статус внутри архива ZUBR.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel" id="book-of-knowledge">
+      <span class="section-kicker">ZUBR Book of Knowledge</span>
+      <h2>The archive behind the signal</h2>
+      <p>
+        Книга знаний — это закрытый цифровой раздел ZUBR. Она объясняет древний язык,
+        правила стаи, дисциплину трейдера и смысл каждого сигнала.
+      </p>
+
+      <div class="book-grid">
+        <article>
+          <h3>01 / Alphabet</h3>
+          <p>Все символы ZUBR, перевод и значение: Signal, Entry, SL, TP, Risk, Protect, Exit.</p>
+        </article>
+
+        <article>
+          <h3>02 / Guardian Phrases</h3>
+          <p>Фразы первых 20 Хранителей: древний текст, перевод и скрытый смысл.</p>
+        </article>
+
+        <article>
+          <h3>03 / Rules of the Herd</h3>
+          <p>Правила стаи: не входить в шум, ждать подтверждение, защищать капитал.</p>
+        </article>
+
+        <article>
+          <h3>04 / Signal Dictionary</h3>
+          <p>Словарь ZUBR: Entry, Stop Loss, Take Profit, RR, News Danger, Wait, Exit.</p>
+        </article>
+      </div>
+    </section>
+
+    
+    <section class="banner gold" id="first20">
+      <img src="images/genesis-first20.png" alt="The First 20 Guardians" loading="lazy" />
+    </section>
+
+    <section class="section-panel" id="gallery">
+      <span class="section-kicker">NFT Gallery</span>
+      <h2>The First 20 Guardians</h2>
+      <p>
+        This is the home of the first 20 Genesis NFTs. Click any guardian to open the full character profile:
+        NFT image, role, rarity, ancient phrase, English story and Russian translation.
+      </p>
+
+      <div class="gallery-toolbar">
+        <div class="gallery-note">Upload images as <strong>images/nft-001.png</strong> ... <strong>images/nft-020.png</strong></div>
+        <div class="gallery-filter">
+          <button class="filter-btn active" type="button" onclick="filterGallery('all', this)">All</button>
+          <button class="filter-btn" type="button" onclick="filterGallery('Common', this)">Common</button>
+          <button class="filter-btn" type="button" onclick="filterGallery('Rare', this)">Rare</button>
+          <button class="filter-btn" type="button" onclick="filterGallery('Epic', this)">Epic</button>
+          <button class="filter-btn" type="button" onclick="filterGallery('Legendary', this)">Legendary</button>
+        </div>
+      </div>
+
+      <div class="nft-gallery" id="nftGallery"></div>
+    </section>
+
+    <section class="banner" id="utility">
+      <img src="images/genesis-access.png" alt="Holder Access" loading="lazy" />
+    </section>
+
+    <section class="section-panel">
+      <span class="section-kicker">Holder Utility</span>
+      <h2>Holder Access</h2>
+      <p>
+        Genesis holders become early members of the ZUBR archive. The first utility is identity and lore.
+        Later this page can connect holders to community roles, future drops, early access and ZUBR ecosystem features.
+      </p>
+
+      <div class="utility-list">
+        <div class="utility-item">
+          <strong>Guardian Profile</strong>
+          Each NFT receives a full character page with story, role and ancient phrase.
+        </div>
+        <div class="utility-item">
+          <strong>Archive Status</strong>
+          Genesis holders become the first recognized members of the ZUBR archive.
+        </div>
+        <div class="utility-item">
+          <strong>Future Drops</strong>
+          The first 20 can be used as early status for future NFT and ecosystem releases.
+        </div>
+        <div class="utility-item">
+          <strong>Community Identity</strong>
+          Holder roles can later be connected to Telegram, Discord or website profiles.
+        </div>
+      </div>
+    </section>
+
+    <section class="banner gold">
+      <img src="images/genesis-join.png" alt="Join the Herd" loading="lazy" />
+      <div class="banner-actions right">
+        <a class="btn" href="#drop-status">OpenSea Coming Soon</a>
+        <a class="btn-secondary" href="#gallery">Open Gallery</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © ZUBR AI — Genesis Neon Afterworld. 20 Guardians. One Herd. Infinite Signals.
+  </footer>
+
+  <div class="modal" id="nftModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card">
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="" />
+      </div>
+
+      <div class="modal-content">
+        <button class="close-btn" type="button" onclick="closeModal()">×</button>
+
+        <span class="modal-kicker" id="modalKicker"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+
+        <div class="modal-meta">
+          <span class="meta-pill" id="modalRarity"></span>
+          <span class="meta-pill" id="modalRole"></span>
+          <span class="meta-pill">ZUBR Ancient Language</span>
+        </div>
+
+        <div class="language-box">
+          <strong>Ancient ZUBR Phrase</strong>
+          <div class="ancient-text" id="modalAncient"></div>
+        </div>
+
+        <h3 class="modal-section-title">English Story</h3>
+        <p id="modalStoryEn"></p>
+
+        <h3 class="modal-section-title">Русский перевод</h3>
+        <p id="modalStoryRu"></p>
+
+        <div class="modal-actions">
+          <a class="btn" href="#" target="_blank" rel="noopener">OpenSea Soon</a>
+          <a class="btn-secondary" href="#gallery" onclick="closeModal()">Back to Collection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const nftData = [
+      {
+            "number": "001",
+            "title": "The Signal Warden",
+            "rarity": "Legendary",
+            "role": "First Guardian",
+            "ancient": "ᛋᛁᚷᚾᚨᛚ ◆ ᚨᚹᚨᚴᛖᚾᛋ",
+            "preview": "The signal awakens.",
+            "storyEn": "The Signal Warden was the first to hear the whisper beneath the market noise. When panic became louder than truth, he stood still, waiting for the one clean signal. He does not chase movement. He guards the entry before the herd moves.",
+            "storyRu": "Хранитель Сигнала первым услышал шёпот под шумом рынка. Когда паника стала громче правды, он не побежал за толпой, а остался ждать чистый вход. Он не гонится за движением. Он охраняет момент входа до пробуждения стаи.",
+            "image": "images/nft-001.png",
+            "fallback": "images/nft-001.jpg"
+      },
+      {
+            "number": "002",
+            "title": "The Transit Sentinel",
+            "rarity": "Epic",
+            "role": "Route Guardian",
+            "ancient": "ᚱᛟᚢᛏᛖ ◆ ᚾᛟ ◆ ᚱᛖᚲᛟᚱᛞᛋ",
+            "preview": "Move unseen.",
+            "storyEn": "The Transit Sentinel walks through dead sectors where signals disappear and routes collapse. He protects movement between broken exchanges, ruined stations and silent networks. His gift is patience under delay.",
+            "storyRu": "Транзитный Страж проходит через мёртвые сектора, где сигналы исчезают, а маршруты рушатся. Он охраняет движение между разрушенными биржами, станциями и молчащими сетями. Его сила — терпение в задержке.",
+            "image": "images/nft-002.png",
+            "fallback": "images/nft-002.jpg"
+      },
+      {
+            "number": "003",
+            "title": "The Archive Keeper",
+            "rarity": "Epic",
+            "role": "Memory Guardian",
+            "ancient": "ᛗᛖᛗᛟᚱᚤ ◆ ᛁᛋ ◆ ᚲᛁᚡᛁᛚᛁᛉᚨᛏᛁᛟᚾ",
+            "preview": "Memory is civilization.",
+            "storyEn": "The Archive Keeper carries fragments of the old algorithms. Inside the neon archives, he preserves every failed signal, every saved trade and every lesson written in loss. He knows that memory is stronger than prediction.",
+            "storyRu": "Хранитель Архива несёт фрагменты старых алгоритмов. В неоновых архивах он сохраняет каждый ложный сигнал, каждую спасённую сделку и каждый урок, написанный убытком. Он знает: память сильнее прогноза.",
+            "image": "images/nft-003.png",
+            "fallback": "images/nft-003.jpg"
+      },
+      {
+            "number": "004",
+            "title": "The Iron Forger",
+            "rarity": "Rare",
+            "role": "Builder",
+            "ancient": "ᛒᚢᛁᛚᛞ ◆ ᚠᛟᚱᚷᛖ ◆ ᚱᛖᚲᛚᚨᛁᛗ",
+            "preview": "Build. Forge. Reclaim.",
+            "storyEn": "The Iron Forger rebuilds what the collapse left behind. He turns wreckage into armor, broken machines into tools, and fear into discipline. His world is not saved by hope, but by work.",
+            "storyRu": "Железный Кузнец восстанавливает то, что осталось после обвала. Он превращает обломки в броню, сломанные машины — в инструменты, страх — в дисциплину. Его мир спасается не надеждой, а работой.",
+            "image": "images/nft-004.png",
+            "fallback": "images/nft-004.jpg"
+      },
+      {
+            "number": "005",
+            "title": "The Frost Sentinel",
+            "rarity": "Epic",
+            "role": "Ice Outpost Guardian",
+            "ancient": "ᚠᚱᛟᛋᛏ ◆ ᛖᚾᛞᚢᚱᛖ ◆ ᛈᚱᛟᛏᛖᚲᛏ",
+            "preview": "Endure the frost.",
+            "storyEn": "The Frost Sentinel guards the frozen edge of the ZUBR world. In the ice sectors, emotion dies first, then greed, then panic. Only discipline survives the cold.",
+            "storyRu": "Ледяной Страж охраняет замёрзший край мира ZUBR. В ледяных секторах первой умирает эмоция, затем жадность, затем паника. Только дисциплина переживает холод.",
+            "image": "images/nft-005.png",
+            "fallback": "images/nft-005.jpg"
+      },
+      {
+            "number": "006",
+            "title": "The Wasteland King",
+            "rarity": "Legendary",
+            "role": "Commander",
+            "ancient": "ᚱᛖᛁᚷᚾ ◆ ᛋᚢᚱᚡᛁᚡᛖ ◆ ᚷᛚᛟᚱᚤ",
+            "preview": "Rule through survival.",
+            "storyEn": "The Wasteland King does not rule by crown alone. He rules because he survived every false breakout, every collapse and every betrayal of the crowd. His throne is built from discipline.",
+            "storyRu": "Король Пустоши правит не только короной. Он правит потому, что пережил каждый ложный пробой, каждый обвал и каждое предательство толпы. Его трон построен из дисциплины.",
+            "image": "images/nft-006.png",
+            "fallback": "images/nft-006.jpg"
+      },
+      {
+            "number": "007",
+            "title": "The Market Oracle",
+            "rarity": "Legendary",
+            "role": "Predictive Guardian",
+            "ancient": "ᛟᚱᚨᚲᛚᛖ ◆ ᚾᛟᛏ ◆ ᚷᚢᛖᛋᛋ",
+            "preview": "Prediction is not guessing.",
+            "storyEn": "The Market Oracle reads probability where others see chaos. He does not promise certainty. He studies liquidity, fear, momentum and silence. His power is not to know the future, but to prepare for it.",
+            "storyRu": "Рыночный Оракул видит вероятность там, где другие видят хаос. Он не обещает точность. Он читает ликвидность, страх, импульс и тишину. Его сила не в знании будущего, а в готовности к нему.",
+            "image": "images/nft-007.png",
+            "fallback": "images/nft-007.jpg"
+      },
+      {
+            "number": "008",
+            "title": "The Fuel Marshal",
+            "rarity": "Rare",
+            "role": "Convoy Guardian",
+            "ancient": "ᚠᚢᛖᛚ ◆ ᛈᛟᚹᛖᚱ ◆ ᚷᛚᛟᚱᚤ",
+            "preview": "Fuel the march.",
+            "storyEn": "The Fuel Marshal protects the routes that keep the herd alive. No signal matters if the convoy cannot move. He is the guardian of supply, endurance and long-distance survival.",
+            "storyRu": "Топливный Маршал охраняет маршруты, которые сохраняют стаю живой. Ни один сигнал не важен, если конвой не может двигаться. Он хранитель ресурса, выносливости и дальнего пути.",
+            "image": "images/nft-008.png",
+            "fallback": "images/nft-008.jpg"
+      },
+      {
+            "number": "009",
+            "title": "The Bio Alchemist",
+            "rarity": "Epic",
+            "role": "Toxic Lab Guardian",
+            "ancient": "ᛖᚡᛟᛚᚡᛖ ◆ ᛟᚱ ◆ ᛖᚱᚨᛞᛁᚲᚨᛏᛖ",
+            "preview": "Evolve or vanish.",
+            "storyEn": "The Bio Alchemist was born inside the toxic laboratories of the Neon Afterworld. He studies corrupted signals, mutated markets and dangerous experiments. He knows that power without control becomes poison.",
+            "storyRu": "Био-Алхимик родился в токсичных лабораториях Neon Afterworld. Он изучает искажённые сигналы, мутировавшие рынки и опасные эксперименты. Он знает: сила без контроля становится ядом.",
+            "image": "images/nft-009.png",
+            "fallback": "images/nft-009.jpg"
+      },
+      {
+            "number": "010",
+            "title": "The Void Guardian",
+            "rarity": "Legendary",
+            "role": "Eternal Signal Keeper",
+            "ancient": "ᚡᛟᛁᛞ ◆ ᛒᛖᚤᛟᚾᛞ ◆ ᛚᛟᚤᚨᛚᛏᚤ",
+            "preview": "Beyond the void, loyalty remains.",
+            "storyEn": "The Void Guardian stands where the signal almost disappears. In the black neon storms, he protects loyalty, silence and the final conviction of the herd. He is the guardian of the unknown.",
+            "storyRu": "Страж Пустоты стоит там, где сигнал почти исчезает. В чёрных неоновых штормах он охраняет верность, тишину и последнюю убеждённость стаи. Он хранитель неизвестного.",
+            "image": "images/nft-010.png",
+            "fallback": "images/nft-010.jpg"
+      },
+      {
+            "number": "011",
+            "title": "The Reclaimer",
+            "rarity": "Rare",
+            "role": "Salvage Guardian",
+            "ancient": "ᛋᚨᛚᚡᚨᚷᛖ ◆ ᚱᛖᛒᚢᛁᛚᛞ ◆ ᛋᚢᚱᚡᛁᚡᛖ",
+            "preview": "Salvage. Rebuild. Survive.",
+            "storyEn": "The Reclaimer searches the ruins for what others abandoned. He finds value in broken systems, forgotten routes and failed signals. His rule is simple: nothing is useless if you know how to rebuild it.",
+            "storyRu": "Восстановитель ищет в руинах то, что другие бросили. Он находит ценность в сломанных системах, забытых маршрутах и неудачных сигналах. Его правило простое: ничто не бесполезно, если ты умеешь восстановить.",
+            "image": "images/nft-011.png",
+            "fallback": "images/nft-011.jpg"
+      },
+      {
+            "number": "012",
+            "title": "The Shadow Transit",
+            "rarity": "Epic",
+            "role": "Silent Route Guardian",
+            "ancient": "ᛋᛏᚨᚤ ◆ ᛋᚺᚨᛞᛟᚹᛖᛞ",
+            "preview": "Stay hidden until the path opens.",
+            "storyEn": "The Shadow Transit moves when the network is blind. He trusts no public signal and leaves no trace in the feed. His strength is not speed, but invisibility before movement.",
+            "storyRu": "Теневой Транзит движется, когда сеть слепа. Он не доверяет публичным сигналам и не оставляет следов в потоке. Его сила не в скорости, а в невидимости до момента движения.",
+            "image": "images/nft-012.png",
+            "fallback": "images/nft-012.jpg"
+      },
+      {
+            "number": "013",
+            "title": "The Codex Archivist",
+            "rarity": "Epic",
+            "role": "Ancient Language Keeper",
+            "ancient": "ᚨᚱᚲᚺᛁᚡᛖ ◆ ᛈᚱᛖᛋᛖᚱᚡᛖ ◆ ᛈᚱᛟᛏᛖᚲᛏ",
+            "preview": "Preserve the code.",
+            "storyEn": "The Codex Archivist protects the ancient language of ZUBR. Every symbol, every phrase and every hidden message carries a lesson from the first collapse. He does not only record history — he locks meaning inside it.",
+            "storyRu": "Архивариус Кодекса охраняет древний язык ZUBR. Каждый символ, каждая фраза и каждое скрытое сообщение несут урок первого обвала. Он не просто записывает историю — он запечатывает в ней смысл.",
+            "image": "images/nft-013.png",
+            "fallback": "images/nft-013.jpg"
+      },
+      {
+            "number": "014",
+            "title": "The Steel Blacksmith",
+            "rarity": "Rare",
+            "role": "Forge Guardian",
+            "ancient": "ᛋᛏᛖᛖᛚ ◆ ᚠᛁᚱᛖ ◆ ᚷᛚᛟᚱᚤ",
+            "preview": "Steel remembers fire.",
+            "storyEn": "The Steel Blacksmith works inside the industrial fire. He forges armor for those who survived the collapse and tools for those ready to rebuild. His hammer turns pressure into strength.",
+            "storyRu": "Стальной Кузнец работает внутри промышленного огня. Он куёт броню для выживших и инструменты для тех, кто готов строить заново. Его молот превращает давление в силу.",
+            "image": "images/nft-014.png",
+            "fallback": "images/nft-014.jpg"
+      },
+      {
+            "number": "015",
+            "title": "The Glacier Warden",
+            "rarity": "Epic",
+            "role": "Frozen Sector Protector",
+            "ancient": "ᚷᛚᚨᚲᛁᛖᚱ ◆ ᛖᚾᛞᚢᚱᛖ",
+            "preview": "The glacier does not rush.",
+            "storyEn": "The Glacier Warden protects the coldest outposts of the Genesis world. He waits longer than fear, longer than greed, longer than noise. His signal comes slowly, but it does not break.",
+            "storyRu": "Ледниковый Смотритель охраняет самые холодные форпосты мира Genesis. Он ждёт дольше страха, дольше жадности, дольше шума. Его сигнал приходит медленно, но не ломается.",
+            "image": "images/nft-015.png",
+            "fallback": "images/nft-015.jpg"
+      },
+      {
+            "number": "016",
+            "title": "The Crowned Commander",
+            "rarity": "Legendary",
+            "role": "Herd Leader",
+            "ancient": "ᚺᛖᚱᛞ ◆ ᚱᛁᛋᛖᛋ",
+            "preview": "The herd rises.",
+            "storyEn": "The Crowned Commander appears when scattered guardians become a herd. He carries the weight of leadership, not as domination, but as responsibility. Under his banner, survival becomes order.",
+            "storyRu": "Коронованный Командир появляется тогда, когда разрозненные хранители становятся стаей. Он несёт лидерство не как власть, а как ответственность. Под его знаменем выживание превращается в порядок.",
+            "image": "images/nft-016.png",
+            "fallback": "images/nft-016.jpg"
+      },
+      {
+            "number": "017",
+            "title": "The Rune Analyst",
+            "rarity": "Epic",
+            "role": "Signal Interpreter",
+            "ancient": "ᚱᚢᚾᛖᛋ ◆ ᚱᛖᚡᛖᚨᛚ ◆ ᛖᚾᛏᚱᚤ",
+            "preview": "The runes reveal the entry.",
+            "storyEn": "The Rune Analyst reads charts as if they were ancient inscriptions. Candles, volume, liquidity and news become symbols in his hands. He does not predict blindly — he interprets the market’s hidden language.",
+            "storyRu": "Рунный Аналитик читает графики как древние надписи. Свечи, объём, ликвидность и новости становятся символами в его руках. Он не гадает — он расшифровывает скрытый язык рынка.",
+            "image": "images/nft-017.png",
+            "fallback": "images/nft-017.jpg"
+      },
+      {
+            "number": "018",
+            "title": "The Desert Marshal",
+            "rarity": "Rare",
+            "role": "Fuel Route Protector",
+            "ancient": "ᚱᛟᚢᛏᛖ ◆ ᛋᛖᚡᛖᚾ ◆ ᚨ",
+            "preview": "Protect Route 7A.",
+            "storyEn": "The Desert Marshal guards Route 7A, the fuel road through dust, heat and ambush. His mission is simple: keep the convoy moving. In his world, hesitation can kill the whole herd.",
+            "storyRu": "Пустынный Маршал охраняет Маршрут 7A — топливную дорогу сквозь пыль, жару и засады. Его задача проста: конвой должен двигаться. В его мире промедление может убить всю стаю.",
+            "image": "images/nft-018.png",
+            "fallback": "images/nft-018.jpg"
+      },
+      {
+            "number": "019",
+            "title": "The Toxic Redeemer",
+            "rarity": "Epic",
+            "role": "Bio Sector Guardian",
+            "ancient": "ᛏᛟᛪᛁᚲ ◆ ᚱᛖᛞᛖᛗᛈᛏᛁᛟᚾ",
+            "preview": "From poison comes redemption.",
+            "storyEn": "The Toxic Redeemer came from the failed bio sectors where experiments consumed their creators. He carries poison, but uses it with control. His story is a warning: every powerful tool must serve discipline.",
+            "storyRu": "Токсичный Искупитель пришёл из проваленных био-секторов, где эксперименты поглотили своих создателей. Он несёт яд, но использует его под контролем. Его история — предупреждение: любой сильный инструмент должен служить дисциплине.",
+            "image": "images/nft-019.png",
+            "fallback": "images/nft-019.jpg"
+      },
+      {
+            "number": "020",
+            "title": "The Storm Herald",
+            "rarity": "Legendary",
+            "role": "Final Genesis Guardian",
+            "ancient": "ᛋᛏᛟᚱᛗ ◆ ᚲᛚᛟᛋᛖᛋ ◆ ᚲᛁᚱᚲᛚᛖ",
+            "preview": "The storm closes the circle.",
+            "storyEn": "The Storm Herald is the twentieth guardian and the closing force of the first Genesis circle. He appears when the sky turns violet and the final signal cuts through the storm. He does not end the story — he opens the next archive.",
+            "storyRu": "Вестник Шторма — двадцатый хранитель и завершающая сила первого круга Genesis. Он появляется, когда небо становится фиолетовым, а последний сигнал прорезает бурю. Он не завершает историю — он открывает следующий архив.",
+            "image": "images/nft-020.png",
+            "fallback": "images/nft-020.jpg"
+      }
+];
+
+    let currentFilter = "all";
+    let unlockedGuardian = null;
+
+    const guardianAccessData = {
+      "ZUBR-001-GENESIS": {
+        number: "001",
+        title: "Guardian #001 — The First Signal",
+        phrase: "SIGNAL AWAKENS",
+        symbols: "𐌆 ◇ ⟁ ☉ ✦",
+        en: "The signal awakens only for those who protect the entry.",
+        ru: "Сигнал просыпается только для тех, кто защищает свой вход.",
+        es: "La señal despierta solo para quienes protegen la entrada.",
+        video: "videos/guardian-001.mp4"
+      },
+      "ZUBR-002-GENESIS": {
+        number: "002",
+        title: "Guardian #002 — The Risk Keeper",
+        phrase: "PROTECTION BEFORE VICTORY",
+        symbols: "⟁ ⟁ ☉ ◇ 𐌆",
+        en: "Risk comes before profit. Protection comes before victory.",
+        ru: "Риск идёт раньше прибыли. Защита идёт раньше победы.",
+        es: "El riesgo va antes que la ganancia. La protección va antes que la victoria.",
+        video: "videos/guardian-002.mp4"
+      },
+      "ZUBR-003-GENESIS": {
+        number: "003",
+        title: "Guardian #003 — The News Watcher",
+        phrase: "NEWS REVEALS DECISION",
+        symbols: "⌁ 𐌆 ☉ ✦",
+        en: "The news does not create fear. It reveals the next decision.",
+        ru: "Новость не создаёт страх. Она показывает следующее решение.",
+        es: "La noticia no crea miedo. Revela la siguiente decisión.",
+        video: "videos/guardian-003.mp4"
+      }
+    };
+
+    function rarityClass(rarity) {
+      return rarity === "Legendary" ? "legendary" : rarity === "Epic" ? "epic" : "";
+    }
+
+    function renderGallery() {
+      const gallery = document.getElementById("nftGallery");
+      if (!gallery) return;
+
+      gallery.innerHTML = "";
+
+      nftData
+        .filter((nft) => currentFilter === "all" || nft.rarity === currentFilter)
+        .forEach((nft) => {
+          const card = document.createElement("button");
+          card.type = "button";
+          card.className = "nft-card";
+          card.onclick = () => openModal(nft.number);
+
+          card.innerHTML = `
+            <div class="nft-image-wrap">
+              <img class="nft-image" src="${nft.image}" alt="${nft.title}" loading="lazy" onerror="this.onerror=null;this.src='${nft.fallback}'" />
+            </div>
+            <div class="nft-info">
+              <div class="nft-topline">
+                <span class="nft-number">#${nft.number}</span>
+                <span class="rarity ${rarityClass(nft.rarity)}">${nft.rarity}</span>
+              </div>
+              <h3>${nft.title}</h3>
+              <p>${nft.preview}</p>
+            </div>
+          `;
+
+          gallery.appendChild(card);
+        });
+    }
+
+    function filterGallery(filter, button) {
+      currentFilter = filter;
+
+      document.querySelectorAll(".filter-btn").forEach((btn) => btn.classList.remove("active"));
+      if (button) button.classList.add("active");
+
+      renderGallery();
+    }
+
+    function unlockGuardianPhrase(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      const input = document.getElementById("guardianCodeInput");
+      const result = document.getElementById("guardianUnlockResult");
+      const phraseCard = document.getElementById("phraseUnlockCard");
+      const phraseInput = document.getElementById("guardianPhraseInput");
+      const phraseButton = document.getElementById("phraseUnlockButton");
+      const videoResult = document.getElementById("guardianVideoResult");
+
+      if (!input || !result) return false;
+
+      const code = input.value.trim().toUpperCase();
+
+      if (!code) {
+        result.innerHTML = `
+          <p class="result-label">Code required</p>
+          <h3>Введите NFT-код.</h3>
+          <p>Для теста введи полный код: <strong>ZUBR-002-GENESIS</strong></p>
+        `;
+        return false;
+      }
+
+      if (code === "GENESIS" || code === "ГЕНЕЗИС" || code === "001" || code === "002" || code === "003" || code === "ZUBR") {
+        result.innerHTML = `
+          <p class="result-label">Full code required</p>
+          <h3>Нужен полный NFT-код.</h3>
+          <p>Не просто <strong>${code}</strong>, а полный формат: <strong>ZUBR-002-GENESIS</strong></p>
+        `;
+        return false;
+      }
+
+      const data = guardianAccessData[code];
+
+      if (!data) {
+        result.innerHTML = `
+          <p class="result-label">Demo archive</p>
+          <h3>Код пока не найден в демо-базе.</h3>
+          <p>
+            Для теста используй: <strong>ZUBR-001-GENESIS</strong>,
+            <strong>ZUBR-002-GENESIS</strong> или <strong>ZUBR-003-GENESIS</strong>.
+          </p>
+        `;
+        return false;
+      }
+
+      unlockedGuardian = data;
+
+      result.innerHTML = `
+        <p class="result-label">Archive unlocked</p>
+        <h3>${data.title}</h3>
+        <div class="ancient-phrase">${data.symbols}</div>
+        <p><strong>Secret phrase for video:</strong> <span style="color: var(--gold); font-weight: 900;">${data.phrase}</span></p>
+        <p><strong>English:</strong> ${data.en}</p>
+        <p><strong>Русский:</strong> ${data.ru}</p>
+        <p><strong>Español:</strong> ${data.es}</p>
+      `;
+
+      if (phraseCard && phraseInput && phraseButton && videoResult) {
+        phraseCard.classList.remove("locked");
+        phraseInput.disabled = false;
+        phraseButton.disabled = false;
+        phraseInput.placeholder = "Enter phrase: " + data.phrase;
+        phraseInput.value = "";
+        videoResult.innerHTML = `
+          <div class="video-placeholder">
+            <div>
+              <strong>${data.title}</strong>
+              Теперь введи фразу <strong>${data.phrase}</strong>, чтобы открыть видео Guardian.
+            </div>
+          </div>
+        `;
+      }
+
+      return false;
+    }
+
+    function unlockGuardianVideo(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      const phraseInput = document.getElementById("guardianPhraseInput");
+      const videoResult = document.getElementById("guardianVideoResult");
+
+      if (!phraseInput || !videoResult) return false;
+
+      if (!unlockedGuardian) {
+        videoResult.innerHTML = `
+          <div class="video-placeholder">
+            <div>
+              <strong>Video locked</strong>
+              Сначала введи NFT-код выше.
+            </div>
+          </div>
+        `;
+        return false;
+      }
+
+      const enteredPhrase = phraseInput.value.trim().toUpperCase();
+      const correctPhrase = unlockedGuardian.phrase.toUpperCase();
+
+      if (enteredPhrase !== correctPhrase) {
+        videoResult.innerHTML = `
+          <div class="video-placeholder">
+            <div>
+              <strong>Wrong phrase</strong>
+              Введи точную фразу, которая открылась после NFT-кода:
+              <br><strong>${unlockedGuardian.phrase}</strong>
+            </div>
+          </div>
+        `;
+        return false;
+      }
+
+      videoResult.innerHTML = `
+        <div class="video-placeholder">
+          <div>
+            <strong>${unlockedGuardian.title}</strong>
+            Доступ к видео открыт. Когда файл будет загружен на сайт, он появится здесь:
+            <br><br>
+            <code>${unlockedGuardian.video}</code>
+            <br><br>
+            <span style="color: rgba(237,249,246,0.72);">
+              Сейчас это демо-режим. Загрузи видео в папку <strong>videos</strong>
+              с названием <strong>guardian-${unlockedGuardian.number}.mp4</strong>.
+            </span>
+          </div>
+        </div>
+      `;
+
+      return false;
+    }
+
+    function openModal(number) {
+      const nft = nftData.find((item) => item.number === number);
+      if (!nft) return;
+
+      const modal = document.getElementById("nftModal");
+      const image = document.getElementById("modalImage");
+
+      image.src = nft.image;
+      image.onerror = function() {
+        this.onerror = null;
+        this.src = nft.fallback;
+      };
+
+      document.getElementById("modalKicker").textContent = `ZUBR Genesis #${nft.number}`;
+      document.getElementById("modalTitle").textContent = nft.title;
+      document.getElementById("modalRarity").textContent = nft.rarity;
+      document.getElementById("modalRole").textContent = nft.role;
+      document.getElementById("modalAncient").textContent = nft.ancient;
+      document.getElementById("modalStoryEn").textContent = nft.storyEn;
+      document.getElementById("modalStoryRu").textContent = nft.storyRu;
+
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("nftModal");
+      if (modal) {
+        modal.classList.remove("show");
+      }
+      document.body.style.overflow = "";
+    }
+
+    function closeModalOnBackdrop(event) {
+      if (event.target.id === "nftModal") {
+        closeModal();
+      }
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      renderGallery();
+
+      const codeForm = document.getElementById("guardianUnlockForm");
+      const codeButton = document.getElementById("guardianUnlockButton");
+      const phraseForm = document.getElementById("phraseUnlockForm");
+      const phraseButton = document.getElementById("phraseUnlockButton");
+
+      if (codeForm) codeForm.addEventListener("submit", unlockGuardianPhrase);
+      if (codeButton) codeButton.addEventListener("click", unlockGuardianPhrase);
+
+      if (phraseForm) phraseForm.addEventListener("submit", unlockGuardianVideo);
+      if (phraseButton) phraseButton.addEventListener("click", unlockGuardianVideo);
+    });
+  </script>
+</body>
+</html>
