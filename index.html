@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZUBR AI Signals</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0, 255, 156, 0.16), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 209, 0.10), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(0, 255, 120, 0.09), transparent 34%),
+        #050807;
+      color: #f4fff9;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 255, 140, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 140, 0.055) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+      z-index: 0;
+    }
+
+    .glow-orb {
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: rgba(0, 255, 140, 0.12);
+      filter: blur(80px);
+      top: -140px;
+      right: -160px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(22px);
+      background: rgba(5, 8, 7, 0.72);
+      border-bottom: 1px solid rgba(138, 255, 193, 0.12);
+    }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 190px;
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #ffffff;
+      object-fit: contain;
+      padding: 5px;
+      box-shadow: 0 0 28px rgba(0, 255, 140, 0.24);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      font-size: 22px;
+      letter-spacing: 0.16em;
+    }
+
+    .brand-text span {
+      color: #8cffc1;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(244, 255, 249, 0.72);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #8cffc1;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid rgba(140, 255, 193, 0.24);
+      cursor: pointer;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      color: #04100a;
+      background: linear-gradient(135deg, #8cffc1, #00ff88);
+      box-shadow: 0 0 34px rgba(0, 255, 140, 0.28);
+    }
+
+    .btn-primary:hover,
+    .btn-dark:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: rgba(255, 255, 255, 0.045);
+      color: #eafff4;
+    }
+
+    .btn-dark:hover {
+      background: rgba(140, 255, 193, 0.10);
+    }
+
+    .hero {
+      padding: 78px 0 62px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background: rgba(140, 255, 193, 0.055);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #8cffc1;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 20px #00ff88;
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      max-width: 760px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff, #8cffc1 42%, #00ff88);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 24px;
+      max-width: 650px;
+      color: rgba(244, 255, 249, 0.72);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 680px;
+    }
+
+    .stat {
+      border: 1px solid rgba(140, 255, 193, 0.14);
+      background: rgba(255, 255, 255, 0.045);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      color: #8cffc1;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color: rgba(244, 255, 249, 0.62);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .phone-card {
+      position: relative;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
+        rgba(5, 8, 7, 0.82);
+      border-radius: 36px;
+      padding: 20px;
+      box-shadow:
+        0 0 80px rgba(0, 255, 140, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .phone-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 8px 18px;
+      border-bottom: 1px solid rgba(140, 255, 193, 0.12);
+    }
+
+    .phone-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mini-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: #fff;
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    .phone-title strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .phone-title span {
+      display: block;
+      color: #8cffc1;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .live-pill {
+      color: #04100a;
+      background: #8cffc1;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .signal-card {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 70% 0%, rgba(0, 255, 140, 0.18), transparent 40%),
+        rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(140, 255, 193, 0.16);
+    }
+
+    .signal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .coin {
+      font-size: 31px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .direction {
+      color: #04100a;
+      background: #00ff88;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 0 22px rgba(0, 255, 140, 0.30);
+    }
+
+    .chart {
+      height: 150px;
+      border-radius: 24px;
+      margin: 18px 0;
+      border: 1px solid rgba(140, 255, 193, 0.12);
+      background:
+        linear-gradient(135deg, transparent 0 22%, rgba(0,255,140,0.16) 22% 24%, transparent 24% 48%, rgba(0,255,140,0.22) 48% 50%, transparent 50% 72%, rgba(0,255,140,0.30) 72% 75%, transparent 75%),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 24px 24px, 24px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 8%;
+      top: 62%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #8cffc1, #00ff88);
+      transform: rotate(-12deg);
+      box-shadow: 0 0 20px #00ff88;
+      border-radius: 999px;
+    }
+
+    .trade-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .trade-item {
+      padding: 13px;
+      border-radius: 17px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .trade-item span {
+      display: block;
+      color: rgba(244, 255, 249, 0.50);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 6px;
+    }
+
+    .trade-item strong {
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    .protect {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(0, 255, 140, 0.08);
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      color: rgba(244, 255, 249, 0.78);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .section-text {
+      max-width: 520px;
+      color: rgba(244, 255, 249, 0.62);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .features,
+    .pricing,
+    .steps,
+    .faq-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .features {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .steps {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pricing {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-card,
+    .step-card,
+    .price-card,
+    .faq-card,
+    .preview-card,
+    .disclaimer-card {
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      border: 1px solid rgba(140, 255, 193, 0.14);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      min-height: 230px;
+      padding: 24px;
+    }
+
+    .feature-card::before,
+    .price-card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(0, 255, 140, 0.09);
+      filter: blur(22px);
+      right: -50px;
+      top: -50px;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(140, 255, 193, 0.12);
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      color: #8cffc1;
+      font-size: 23px;
+      margin-bottom: 22px;
+    }
+
+    .feature-card h3,
+    .step-card h3,
+    .price-card h3,
+    .faq-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p,
+    .step-card p,
+    .price-card p,
+    .faq-card p,
+    .preview-card p,
+    .disclaimer-card p {
+      color: rgba(244, 255, 249, 0.62);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    .step-card,
+    .faq-card {
+      padding: 24px;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      background: #8cffc1;
+      color: #04100a;
+      font-weight: 900;
+    }
+
+    .preview-card {
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .preview-screen {
+      border-radius: 28px;
+      padding: 18px;
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(140,255,193,0.16);
+    }
+
+    .preview-row {
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .preview-row strong {
+      color: #fff;
+    }
+
+    .preview-row span {
+      color: #8cffc1;
+      font-weight: 800;
+    }
+
+    .price-card {
+      padding: 26px;
+      min-height: 410px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.featured {
+      border-color: rgba(140, 255, 193, 0.46);
+      box-shadow: 0 0 60px rgba(0,255,140,0.14);
+      transform: translateY(-10px);
+    }
+
+    .price {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      margin: 8px 0 18px;
+      color: #8cffc1;
+    }
+
+    .price span {
+      font-size: 14px;
+      letter-spacing: 0;
+      color: rgba(244,255,249,0.50);
+    }
+
+    .price-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 24px;
+      color: rgba(244,255,249,0.72);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .price-list li::before {
+      content: "✓ ";
+      color: #8cffc1;
+      font-weight: 900;
+    }
+
+    .price-card .btn {
+      margin-top: auto;
+    }
+
+    .waitlist {
+      border-radius: 36px;
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(0,255,140,0.17), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .waitlist h2 {
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+    }
+
+    .waitlist p {
+      color: rgba(244, 255, 249, 0.68);
+      line-height: 1.65;
+      max-width: 620px;
+    }
+
+    .form-box {
+      display: grid;
+      gap: 12px;
+      padding: 20px;
+      border-radius: 28px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .form-box input {
+      width: 100%;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background: rgba(255,255,255,0.055);
+      color: #ffffff;
+      padding: 0 18px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .form-box input::placeholder {
+      color: rgba(244, 255, 249, 0.42);
+    }
+
+
+    .waitlist-status {
+      min-height: 44px;
+      display: none;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      border: 1px solid rgba(140, 255, 193, 0.18);
+      background: rgba(140, 255, 193, 0.06);
+      color: rgba(244, 255, 249, 0.78);
+    }
+
+    .waitlist-status.show {
+      display: flex;
+    }
+
+    .waitlist-status.success {
+      border-color: rgba(140, 255, 193, 0.42);
+      background: rgba(0, 255, 140, 0.10);
+      color: #8cffc1;
+    }
+
+    .waitlist-status.error {
+      border-color: rgba(255, 95, 95, 0.42);
+      background: rgba(255, 95, 95, 0.10);
+      color: #ff9f9f;
+    }
+
+    .waitlist-counter {
+      color: rgba(244, 255, 249, 0.42);
+      font-size: 12px;
+      line-height: 1.45;
+      padding: 0 4px;
+    }
+
+    .small-note {
+      color: rgba(244, 255, 249, 0.42);
+      font-size: 12px;
+      line-height: 1.45;
+      padding: 0 4px;
+    }
+
+    .disclaimer-card {
+      padding: 26px;
+      border-color: rgba(255, 210, 120, 0.28);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 190, 70, 0.12), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025));
+    }
+
+    .disclaimer-card h2 {
+      margin-bottom: 14px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+
+    .official-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .official-link {
+      min-height: 168px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0, 255, 140, 0.12), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+      border: 1px solid rgba(140, 255, 193, 0.17);
+      transition: 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .official-link:hover {
+      transform: translateY(-4px);
+      border-color: rgba(140, 255, 193, 0.46);
+      box-shadow: 0 0 42px rgba(0, 255, 140, 0.13);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0, 255, 140, 0.18), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+    }
+
+    .social-icon {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 0 26px rgba(0, 255, 140, 0.12);
+    }
+
+    .social-icon svg {
+      width: 34px;
+      height: 34px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .x-icon { background: #050505; }
+    .instagram-icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+    .telegram-icon { background: linear-gradient(135deg, #37aee2, #1e96c8); }
+    .discord-icon { background: #5865f2; }
+    .linkedin-icon { background: #0a66c2; }
+    .website-icon { background: linear-gradient(135deg, #101a14, #00ff88); }
+
+    .official-link strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .official-link small {
+      display: block;
+      color: rgba(244, 255, 249, 0.58);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .trust-line {
+      margin-top: 18px;
+      padding: 18px 22px;
+      border-radius: 22px;
+      background: rgba(140, 255, 193, 0.06);
+      border: 1px solid rgba(140, 255, 193, 0.16);
+      color: rgba(244, 255, 249, 0.72);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .trust-line strong {
+      color: #8cffc1;
+    }
+
+    .security-box {
+      margin-top: 18px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0, 255, 140, 0.12), transparent 34%),
+        rgba(0, 255, 140, 0.055);
+      border: 1px solid rgba(140, 255, 193, 0.22);
+    }
+
+    .security-icon {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(140, 255, 193, 0.12);
+      border: 1px solid rgba(140, 255, 193, 0.20);
+      font-size: 28px;
+    }
+
+    .security-box h3 {
+      color: #8cffc1;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .security-box p {
+      color: rgba(244, 255, 249, 0.68);
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 38px 0;
+      color: rgba(244, 255, 249, 0.45);
+      border-top: 1px solid rgba(140, 255, 193, 0.10);
+      font-size: 13px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .waitlist,
+      .preview-card {
+        grid-template-columns: 1fr;
+      }
+
+      .features,
+      .steps,
+      .pricing,
+      .faq-grid,
+      .official-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .nav {
+        height: auto;
+        padding: 14px 0;
+      }
+
+      .brand-text strong {
+        font-size: 18px;
+      }
+
+      .nav-actions .btn-dark {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-stats,
+      .features,
+      .steps,
+      .pricing,
+      .faq-grid,
+      .official-links {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-text {
+        margin-top: 14px;
+      }
+
+      .waitlist {
+        padding: 22px;
+      }
+
+      .trade-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -0.05em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="grid-bg"></div>
+    <div class="glow-orb"></div>
+
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#top">
+          <img class="brand-logo" src="images/zubr-logo.jpeg" alt="ZUBR logo" />
+          <div class="brand-text">
+            <strong>ZUBR</strong>
+            <span>AI Signals</span>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#signals">Signals</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#community">Community</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Telegram</a>
+          <a class="btn btn-primary" href="#waitlist">Join Waitlist</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              MAX SNIPER MODE / NEWS RADAR 24/7
+            </div>
+
+            <h1>
+              <span class="gradient-text">ZUBR AI</span><br />
+              Crypto Signals
+            </h1>
+
+            <p class="hero-subtitle">
+              Футуристичный AI-сервис для крипто-сигналов: умный фильтр сделок,
+              чат с сигналами, контроль входа, TP/SL, новости и режим ZUBR Protect.
+              Цель — давать только самые качественные сетапы, а не шум рынка.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#waitlist">Встать в лист ожидания</a>
+              <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Открыть Telegram канал</a>
+              <a class="btn btn-dark" href="https://t.me/zubr_community" target="_blank">Community Chat</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>1000+</strong>
+                <span>монет под мониторингом AI-системы</span>
+              </div>
+              <div class="stat">
+                <strong>24/7</strong>
+                <span>News Radar и контроль рыночных событий</span>
+              </div>
+              <div class="stat">
+                <strong>98/100</strong>
+                <span>целевая оценка качества топ-сигналов</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-card" id="signals">
+            <div class="phone-top">
+              <div class="phone-title">
+                <img class="mini-logo" src="images/zubr-logo.jpeg" alt="ZUBR logo" />
+                <div>
+                  <strong>AI Signal Chat</strong>
+                  <span>New signal received</span>
+                </div>
+              </div>
+              <div class="live-pill">LIVE</div>
+            </div>
+
+            <div class="signal-card">
+              <div class="signal-head">
+                <div>
+                  <div class="coin">BTC / USDT</div>
+                  <div style="color: rgba(244,255,249,0.54); margin-top: 5px; font-size: 13px;">
+                    Signal ID: ZBR-0001
+                  </div>
+                </div>
+                <div class="direction">LONG</div>
+              </div>
+
+              <div class="chart"></div>
+
+              <div class="trade-grid">
+                <div class="trade-item">
+                  <span>Entry / ТВХ</span>
+                  <strong>68 450</strong>
+                </div>
+                <div class="trade-item">
+                  <span>Stop Loss</span>
+                  <strong>67 920</strong>
+                </div>
+                <div class="trade-item">
+                  <span>TP Targets</span>
+                  <strong>69 100 / 70 250</strong>
+                </div>
+                <div class="trade-item">
+                  <span>Quality</span>
+                  <strong>98 / 100</strong>
+                </div>
+              </div>
+
+              <div class="protect">
+                <strong style="color:#8cffc1;">ZUBR Protect:</strong>
+                если новость меняет сценарий и сделка уже в плюсе, AI может дать команду
+                закрыть часть, перенести SL в точку входа или выйти из сделки.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Что внутри ZUBR</h2>
+            <p class="section-text">
+              Сайт собирает аудиторию вокруг будущего приложения: AI-сигналы, защита сделки,
+              новости, статистика и дисциплина входа.
+            </p>
+          </div>
+
+          <div class="features">
+            <div class="feature-card">
+              <div class="icon">⚡</div>
+              <h3>AI Signal Chat</h3>
+              <p>Сигналы приходят прямо в формат чата: монета, направление, entry, SL, TP, риск и объяснение входа.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon">🎯</div>
+              <h3>MAX SNIPER</h3>
+              <p>Фильтрация рынка и фокус только на лучших сделках. Меньше шума, больше дисциплины и качества.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon">🛡️</div>
+              <h3>ZUBR Protect</h3>
+              <p>Режим защиты сделки: перенос SL, частичное закрытие или выход, если рынок резко меняет сценарий.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon">🛰️</div>
+              <h3>News Radar 24/7</h3>
+              <p>Контроль новостей и событий, которые могут повлиять на активную сделку или отменить будущий вход.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="how">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">How ZUBR Works</h2>
+            <p class="section-text">
+              Логика простая: AI находит сетап, пользователь принимает сигнал,
+              дальше ZUBR сопровождает сделку до выхода.
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3>AI сканирует рынок</h3>
+              <p>Система отслеживает монеты, тренды, импульсы, уровни, риск и новости.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3>Сигнал приходит в чат</h3>
+              <p>Пользователь видит Entry, SL, TP, качество сигнала и краткую причину входа.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3>ZUBR ведёт сделку</h3>
+              <p>После входа AI следит за сценарием и может предложить защитное действие.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="preview">
+        <div class="container">
+          <div class="preview-card">
+            <div>
+              <h2 class="section-title">App Preview</h2>
+              <p style="margin-top: 18px;">
+                В приложении ZUBR сигнал будет выглядеть как сообщение в AI-чате.
+                После нажатия “Принял сигнал / Я вошёл в сделку” сделка становится активной
+                и появляется в списке активных позиций.
+              </p>
+
+              <div class="socials">
+                <a class="btn btn-primary" href="#waitlist">Хочу ранний доступ</a>
+                <a class="btn btn-dark" href="https://t.me/zubr_ai_signals" target="_blank">Смотреть канал</a>
+              </div>
+            </div>
+
+            <div class="preview-screen">
+              <div class="preview-row">
+                <strong>ETH / USDT</strong>
+                <span>LONG 97/100</span>
+              </div>
+              <div class="preview-row">
+                <strong>SOL / USDT</strong>
+                <span>WAIT</span>
+              </div>
+              <div class="preview-row">
+                <strong>ARB / USDT</strong>
+                <span>SHORT 95/100</span>
+              </div>
+              <div class="preview-row">
+                <strong>ZUBR Protect</strong>
+                <span>SL → Entry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Pricing</h2>
+            <p class="section-text">
+              Тарифы пока как концепция. Позже подключим оплату, личный кабинет и закрытый доступ.
+            </p>
+          </div>
+
+          <div class="pricing">
+            <div class="price-card">
+              <h3>Free</h3>
+              <p>Для знакомства с проектом и комьюнити.</p>
+              <div class="price">$0 <span>/ start</span></div>
+              <ul class="price-list">
+                <li>Доступ к открытому Telegram</li>
+                <li>Новости разработки</li>
+                <li>Обучающие посты</li>
+                <li>Ограниченные демо-сигналы</li>
+              </ul>
+              <a class="btn btn-dark" href="https://t.me/zubr_community" target="_blank">Join Community</a>
+            </div>
+
+            <div class="price-card featured">
+              <h3>Pro</h3>
+              <p>Основной тариф для активных пользователей.</p>
+              <div class="price">$29 <span>/ month</span></div>
+              <ul class="price-list">
+                <li>AI Signal Chat</li>
+                <li>Entry / SL / TP</li>
+                <li>Качество сигнала</li>
+                <li>Активные сделки</li>
+                <li>News Radar</li>
+              </ul>
+              <a class="btn btn-primary" href="#waitlist">Join Waitlist</a>
+            </div>
+
+            <div class="price-card">
+              <h3>Max Sniper</h3>
+              <p>Фокус на самых сильных сетапах.</p>
+              <div class="price">$79 <span>/ month</span></div>
+              <ul class="price-list">
+                <li>Лучшие сигналы ZUBR</li>
+                <li>ZUBR Protect Mode</li>
+                <li>Расширенная аналитика</li>
+                <li>Приоритетные уведомления</li>
+                <li>Будущий AI-ассистент</li>
+              </ul>
+              <a class="btn btn-dark" href="#waitlist">Request Access</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="waitlist">
+        <div class="container">
+          <div class="waitlist">
+            <div>
+              <h2>Join the ZUBR Waitlist</h2>
+              <p>
+                Первая версия сайта собирает аудиторию, подписчиков и будущих тестеров.
+                Дальше подключим настоящую форму, базу пользователей, тарифы,
+                оплату и закрытый доступ к AI-сигналам.
+              </p>
+            </div>
+
+            <form class="form-box" id="waitlistForm">
+              <input id="waitlistName" type="text" placeholder="Ваше имя" autocomplete="name" />
+              <input id="waitlistContact" type="text" placeholder="Email или Telegram username" autocomplete="email" />
+              <button class="btn btn-primary" type="submit">Присоединиться к ZUBR</button>
+              <div id="waitlistStatus" class="waitlist-status"></div>
+              <div id="waitlistCounter" class="waitlist-counter">Локально сохранено заявок: 0</div>
+              <div class="small-note">
+                Сейчас заявка сохраняется локально в браузере на этом ПК. Позже подключим настоящую базу пользователей.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">FAQ</h2>
+            <p class="section-text">
+              Короткие ответы, чтобы новый пользователь сразу понял идею ZUBR.
+            </p>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-card">
+              <h3>ZUBR даёт гарантированную прибыль?</h3>
+              <p>Нет. ZUBR не обещает гарантированную прибыль. Это AI-инструмент для анализа, сигналов и дисциплины сделки.</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>Что значит 98/100?</h3>
+              <p>Это оценка качества сетапа внутри концепции ZUBR. Это не означает 98% winrate и не является гарантией результата.</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>Где будут приходить сигналы?</h3>
+              <p>В приложении сигналы будут приходить в AI-чат. Сейчас ранние обновления идут через Telegram-канал и комьюнити.</p>
+            </div>
+
+            <div class="faq-card">
+              <h3>Что такое ZUBR Protect?</h3>
+              <p>Это режим сопровождения сделки: если сценарий меняется, сервис может предложить частичное закрытие, перенос SL или выход.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="disclaimer-card">
+            <h2>Risk Disclaimer</h2>
+            <p>
+              ZUBR AI Signals не является финансовым советником. Криптовалюты и фьючерсы связаны с высоким риском.
+              Все сигналы, идеи и уведомления являются аналитической информацией. Пользователь самостоятельно принимает
+              решение о входе в сделку, размере позиции, плече, риске и выходе.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="community">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Official ZUBR AI Links</h2>
+            <p class="section-text">
+              Нажми на карточку — откроется официальная соцсеть ZUBR AI.
+              Не доверяй ссылкам из личных сообщений и фейковым аккаунтам.
+            </p>
+          </div>
+
+          <div class="official-links">
+            <a class="official-link" href="https://x.com/ZUBR_AI" target="_blank" rel="noopener">
+              <span class="social-icon x-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2H21.5l-7.11 8.122L22.75 22h-6.545l-5.126-6.7L5.214 22H1.956l7.604-8.69L1.55 2h6.71l4.633 6.126L18.244 2Zm-1.143 17.91h1.804L7.275 3.98H5.34L17.101 19.91Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>X / Twitter</strong>
+                <small>Official ZUBR AI account</small>
+              </span>
+            </a>
+
+            <a class="official-link" href="https://instagram.com/zubr.ai" target="_blank" rel="noopener">
+              <span class="social-icon instagram-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Instagram</strong>
+                <small>Visual updates and announcements</small>
+              </span>
+            </a>
+
+            <a class="official-link" href="https://t.me/zubr_ai_signals" target="_blank" rel="noopener">
+              <span class="social-icon telegram-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21.8 4.6 18.5 20c-.25 1.12-.9 1.39-1.82.86l-5.03-3.71-2.43 2.34c-.27.27-.5.5-1.03.5l.37-5.15 9.37-8.46c.41-.36-.09-.56-.63-.2L5.72 13.48.73 11.92c-1.08-.34-1.1-1.08.23-1.6L20.47 2.8c.9-.34 1.68.2 1.33 1.8Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Telegram Signals</strong>
+                <small>Official signal channel</small>
+              </span>
+            </a>
+
+            <a class="official-link" href="https://t.me/zubr_community" target="_blank" rel="noopener">
+              <span class="social-icon telegram-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21.8 4.6 18.5 20c-.25 1.12-.9 1.39-1.82.86l-5.03-3.71-2.43 2.34c-.27.27-.5.5-1.03.5l.37-5.15 9.37-8.46c.41-.36-.09-.56-.63-.2L5.72 13.48.73 11.92c-1.08-.34-1.1-1.08.23-1.6L20.47 2.8c.9-.34 1.68.2 1.33 1.8Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Telegram Community</strong>
+                <small>Official ZUBR AI chat</small>
+              </span>
+            </a>
+
+            <a class="official-link" href="https://discord.gg/z5dh96YVVM" target="_blank" rel="noopener">
+              <span class="social-icon discord-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.3 4.37A19.8 19.8 0 0 0 15.36 2.8a13.7 13.7 0 0 0-.63 1.3 18.3 18.3 0 0 0-5.46 0 13.7 13.7 0 0 0-.64-1.3A19.7 19.7 0 0 0 3.7 4.38C.58 9.03-.27 13.56.16 18.03a19.9 19.9 0 0 0 6.06 3.06c.49-.66.92-1.36 1.29-2.1-.71-.27-1.39-.6-2.03-.98.17-.13.34-.26.5-.4a14.2 14.2 0 0 0 12.04 0l.5.4c-.64.38-1.32.71-2.03.98.37.74.8 1.44 1.29 2.1a19.9 19.9 0 0 0 6.06-3.06c.5-5.18-.84-9.66-3.54-13.66ZM8.02 15.28c-1.18 0-2.15-1.08-2.15-2.42 0-1.33.95-2.42 2.15-2.42 1.2 0 2.17 1.1 2.15 2.42 0 1.34-.95 2.42-2.15 2.42Zm7.96 0c-1.18 0-2.15-1.08-2.15-2.42 0-1.33.95-2.42 2.15-2.42 1.2 0 2.17 1.1 2.15 2.42 0 1.34-.95 2.42-2.15 2.42Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Discord</strong>
+                <small>Official ZUBR AI server</small>
+              </span>
+            </a>
+
+            <a class="official-link" href="https://www.linkedin.com/company/122854175/" target="_blank" rel="noopener">
+              <span class="social-icon linkedin-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S.02 4.88.02 3.5 1.14 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4V23h-4V8Zm7.5 0h3.84v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-7.85c0-1.87-.03-4.28-2.6-4.28-2.6 0-3 2.03-3 4.14V23h-4V8Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>LinkedIn</strong>
+                <small>Official company page</small>
+              </span>
+            </a>
+
+            <a class="official-link" href="#top">
+              <span class="social-icon website-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.02a15.7 15.7 0 0 0-1.18-5.02A8.03 8.03 0 0 1 19.93 11ZM12 4.04c.83 1.2 1.56 3.6 1.78 6.96h-3.56C10.44 7.64 11.17 5.24 12 4.04ZM4.07 13h3.02c.14 1.9.55 3.63 1.18 5.02A8.03 8.03 0 0 1 4.07 13Zm3.02-2H4.07a8.03 8.03 0 0 1 4.2-5.02A15.7 15.7 0 0 0 7.09 11ZM12 19.96c-.83-1.2-1.56-3.6-1.78-6.96h3.56c-.22 3.36-.95 5.76-1.78 6.96Zm2.2-8.96h-4.4c.08-1.38.27-2.66.57-3.75.47-1.75 1.1-2.76 1.63-3.2.53.44 1.16 1.45 1.63 3.2.3 1.09.49 2.37.57 3.75Zm1.53 7.02c.63-1.39 1.04-3.12 1.18-5.02h3.02a8.03 8.03 0 0 1-4.2 5.02Z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Website</strong>
+                <small>Official website / coming soon</small>
+              </span>
+            </a>
+          </div>
+
+          <div class="trust-line">
+            <strong>Only trust links from this website.</strong>
+            ZUBR AI never asks for seed phrase, private keys, wallet password, private investment payment or guaranteed profit deal.
+          </div>
+
+          <div class="security-box">
+            <div class="security-icon">🛡️</div>
+            <div>
+              <h3>IMPORTANT</h3>
+              <p>
+                If someone sends you a suspicious link or claims to be ZUBR support,
+                check only the official links above and report suspicious accounts in the community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© 2026 ZUBR AI Signals. All rights reserved.</div>
+        <div>AI crypto signals / News Radar / ZUBR Protect / Max Sniper</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = "zubr_waitlist_requests";
+      const form = document.getElementById("waitlistForm");
+      const nameInput = document.getElementById("waitlistName");
+      const contactInput = document.getElementById("waitlistContact");
+      const status = document.getElementById("waitlistStatus");
+      const counter = document.getElementById("waitlistCounter");
+
+      function getRequests() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function saveRequests(requests) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(requests));
+      }
+
+      function updateCounter() {
+        const requests = getRequests();
+        if (counter) {
+          counter.textContent = "Локально сохранено заявок: " + requests.length;
+        }
+      }
+
+      function showStatus(type, message) {
+        if (!status) return;
+        status.className = "waitlist-status show " + type;
+        status.textContent = message;
+      }
+
+      if (form) {
+        updateCounter();
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = nameInput.value.trim();
+          const contact = contactInput.value.trim();
+
+          if (!name || !contact) {
+            showStatus("error", "Заполни имя и email или Telegram username.");
+            return;
+          }
+
+          const requests = getRequests();
+          requests.push({
+            name: name,
+            contact: contact,
+            source: "ZUBR website waitlist",
+            createdAt: new Date().toISOString()
+          });
+
+          saveRequests(requests);
+          updateCounter();
+
+          form.reset();
+          showStatus("success", "Заявка принята. Добро пожаловать в ZUBR waitlist.");
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
