@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZUBR Genesis NFT Universe</title>
+  <meta name="description" content="ZUBR Genesis — первая NFT-глава экосистемы ZUBR AI: 20 Guardians, 999 Genesis NFT, 999 Gift Alphabet NFT, SERAEL Codex and LOCE Archive." />
+  <link rel="canonical" href="https://zubr-ai.com/genesis.html" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100vh; font-family: Arial, Helvetica, sans-serif; color: #f4fff9; background: radial-gradient(circle at 20% 0%, rgba(0,255,156,.15), transparent 28%), radial-gradient(circle at 90% 18%, rgba(141,80,255,.10), transparent 26%), #040706; overflow-x:hidden; }
+    a { color: inherit; text-decoration:none; }
+    .grid-bg { position:fixed; inset:0; pointer-events:none; background-image: linear-gradient(rgba(0,255,140,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,140,.05) 1px, transparent 1px); background-size:54px 54px; mask-image:linear-gradient(to bottom, black, transparent 82%); z-index:0; }
+    .container { position:relative; z-index:2; width:min(1180px, calc(100% - 34px)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:20; backdrop-filter:blur(22px); background:rgba(4,7,6,.78); border-bottom:1px solid rgba(140,255,193,.12); }
+    .nav { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.16em; }
+    .brand-mark { width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:#fff; color:#04100a; font-weight:950; box-shadow:0 0 30px rgba(0,255,140,.22); }
+    .nav-links { display:flex; gap:18px; align-items:center; color:rgba(244,255,249,.68); font-size:14px; }
+    .nav-links a:hover { color:#8cffc1; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 20px; border-radius:999px; border:1px solid rgba(140,255,193,.22); font-size:14px; font-weight:900; white-space:nowrap; transition:.18s ease; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-primary { background:linear-gradient(135deg,#8cffc1,#00ff88); color:#04100a; box-shadow:0 0 34px rgba(0,255,140,.26); }
+    .btn-dark { background:rgba(255,255,255,.045); color:#eafff4; }
+    .hero { padding:34px 0 70px; }
+    .hero-img { width:100%; border-radius:34px; border:1px solid rgba(140,255,193,.18); box-shadow:0 0 90px rgba(0,255,140,.12); display:block; }
+    .section { padding:70px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:24px; }
+    .kicker { display:inline-flex; align-items:center; gap:10px; color:#8cffc1; text-transform:uppercase; letter-spacing:.12em; font-size:13px; font-weight:900; margin-bottom:12px; }
+    .dot { width:9px; height:9px; border-radius:50%; background:#00ff88; box-shadow:0 0 20px #00ff88; }
+    h1 { font-size:clamp(46px, 7vw, 96px); line-height:.92; letter-spacing:-.07em; max-width:900px; margin-top:18px; }
+    .section-title { font-size:clamp(32px,4.4vw,58px); line-height:1; letter-spacing:-.055em; }
+    .gradient-text { background:linear-gradient(135deg,#fff,#8cffc1 46%,#00ff88); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .lead { color:rgba(244,255,249,.72); font-size:18px; line-height:1.66; max-width:820px; margin-top:18px; }
+    .board { border-radius:36px; border:1px solid rgba(140,255,193,.16); background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.025)), rgba(0,0,0,.18); padding:28px; box-shadow:0 0 72px rgba(0,255,140,.08); overflow:hidden; }
+    .two-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch; }
+    .text-card, .feature-card { border-radius:28px; border:1px solid rgba(140,255,193,.14); background:rgba(0,0,0,.24); padding:24px; }
+    .text-card h3, .feature-card h3 { font-size:24px; margin-bottom:10px; letter-spacing:-.03em; }
+    .text-card p, .feature-card p { color:rgba(244,255,249,.66); line-height:1.62; font-size:15px; }
+    .banner-img { width:100%; border-radius:30px; border:1px solid rgba(140,255,193,.15); display:block; margin-top:18px; }
+    .stats { margin-top:22px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .stat { padding:17px; border-radius:22px; background:rgba(140,255,193,.07); border:1px solid rgba(140,255,193,.14); }
+    .stat strong { display:block; color:#8cffc1; font-size:30px; margin-bottom:6px; }
+    .stat span { color:rgba(244,255,249,.62); font-size:13px; line-height:1.35; }
+    .benefit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .feature-card img { width:58px; height:58px; border-radius:18px; object-fit:cover; margin-bottom:16px; border:1px solid rgba(140,255,193,.18); }
+    .nft-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .nft-card { border-radius:26px; overflow:hidden; border:1px solid rgba(140,255,193,.14); background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018)); transition:.18s ease; }
+    .nft-card:hover { transform:translateY(-4px); border-color:rgba(140,255,193,.38); box-shadow:0 0 36px rgba(0,255,140,.10); }
+    .nft-card img { width:100%; display:block; aspect-ratio:2/3; object-fit:cover; }
+    .nft-body { padding:16px; }
+    .nft-num { display:inline-flex; color:#04100a; background:#8cffc1; border-radius:999px; padding:6px 10px; font-size:12px; font-weight:900; margin-bottom:10px; }
+    .nft-body h3 { font-size:18px; margin-bottom:4px; }
+    .nft-body h4 { color:#8cffc1; font-size:13px; margin-bottom:10px; }
+    .nft-body p { color:rgba(244,255,249,.62); line-height:1.5; font-size:13px; }
+    .land-grid { display:grid; grid-template-columns:1fr; gap:18px; }
+    .land-card { display:grid; grid-template-columns:1.25fr .75fr; gap:0; border-radius:30px; overflow:hidden; border:1px solid rgba(140,255,193,.14); background:rgba(0,0,0,.24); }
+    .land-card img { width:100%; height:100%; min-height:300px; object-fit:cover; display:block; }
+    .land-text { padding:24px; align-self:center; }
+    .land-text span { color:#8cffc1; text-transform:uppercase; font-weight:900; letter-spacing:.12em; font-size:12px; }
+    .land-text h3 { font-size:30px; margin:10px 0 4px; }
+    .land-text h4 { color:#ffc86b; font-size:18px; margin-bottom:12px; }
+    .land-text p { color:rgba(244,255,249,.66); line-height:1.6; }
+    .unlock { display:grid; grid-template-columns:1fr .9fr; gap:18px; }
+    .unlock-box { border-radius:28px; border:1px solid rgba(140,255,193,.18); background:rgba(0,0,0,.28); padding:24px; }
+    .unlock-box input { width:100%; height:54px; border-radius:999px; border:1px solid rgba(140,255,193,.22); background:rgba(255,255,255,.055); color:#fff; padding:0 18px; outline:none; font-size:16px; margin:18px 0 12px; }
+    .unlock-result { display:none; margin-top:14px; padding:16px; border-radius:20px; border:1px solid rgba(140,255,193,.2); background:rgba(140,255,193,.08); color:rgba(244,255,249,.78); line-height:1.6; }
+    .unlock-result.show { display:block; }
+    footer { padding:38px 0; border-top:1px solid rgba(140,255,193,.10); color:rgba(244,255,249,.44); font-size:13px; }
+    @media (max-width:980px) { .two-grid,.benefit-grid,.land-card,.unlock { grid-template-columns:1fr; } .nft-grid { grid-template-columns:repeat(2,1fr); } .stats { grid-template-columns:1fr; } .nav-links { display:none; } }
+    @media (max-width:620px) { .nft-grid { grid-template-columns:1fr; } .board { padding:18px; } .section-head { display:block; } .section-head .btn { margin-top:16px; } }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">Z</span><span>ZUBR GENESIS</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#story">Legend</a>
+        <a href="#guardians">Guardians</a>
+        <a href="#land-cells">Land Cells</a>
+        <a href="#holder-access">Access</a>
+      </nav>
+      <a class="btn btn-primary" href="#unlock">Unlock Code</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <img class="hero-img" src="images/banners/genesis_hero.png" alt="ZUBR Genesis NFT Universe" />
+        <div class="kicker" style="margin-top:26px;"><span class="dot"></span> Genesis Collection / LOCE Archive</div>
+        <h1>ZUBR Genesis <span class="gradient-text">NFT Universe</span></h1>
+        <p class="lead">20 первых хранителей, 999 будущих Genesis NFT, 999 подарочных Alphabet NFT и скрытый LOCE Archive — первая NFT-глава экосистемы ZUBR AI.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:26px;">
+          <a class="btn btn-primary" href="#guardians">View 20 Guardians</a>
+          <a class="btn btn-dark" href="#land-cells">Explore Land Cells</a>
+          <a class="btn btn-dark" href="#holder-access">Holder Access</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker"><span class="dot"></span> The Legend</div>
+            <h2 class="section-title">After the Collapse</h2>
+          </div>
+        </div>
+        <div class="board">
+          <div class="two-grid">
+            <div class="text-card">
+              <h3>Старый рынок пал. Новый сигнал должен был родиться.</h3>
+              <p>После Великого Обвала шум стал сильнее анализа, новости начали ломать сценарии, а ложные сигналы заполнили рынок. Первые 20 Хранителей ZUBR ушли за Ледяной Предел и начали строить новый рынок сигналов — систему, где каждый вход имеет причину, каждая сделка получает защиту, а каждый символ хранит память.</p>
+              <div class="stats">
+                <div class="stat"><strong>20</strong><span>первых Genesis Guardians</span></div>
+                <div class="stat"><strong>999</strong><span>будущих Genesis NFT</span></div>
+                <div class="stat"><strong>999</strong><span>Gift Alphabet NFT</span></div>
+              </div>
+            </div>
+            <img class="banner-img" style="margin-top:0; height:100%; object-fit:cover;" src="images/banners/genesis_collapse.png" alt="After the Collapse — ZUBR Genesis" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="holder-access">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker"><span class="dot"></span> Holder Utility</div>
+            <h2 class="section-title">What the holder receives</h2>
+            <p class="lead">Покупатель основной NFT получает персонажа, историю, код доступа и подарочную SERAEL / LOCE Alphabet NFT.</p>
+          </div>
+        </div>
+        <div class="benefit-grid">
+          <div class="feature-card"><img src="images/glyphs/glyph-guardian-bull.png" alt="Guardian glyph" /><h3>Genesis Guardian NFT</h3><p>Уникальный хранитель из первой визуальной линии ZUBR Genesis.</p></div>
+          <div class="feature-card"><img src="images/glyphs/glyph-codex-book.png" alt="Codex glyph" /><h3>SERAEL Codex NFT</h3><p>Подарочный Alphabet Codex — символический язык ZUBR на русском, английском и испанском.</p></div>
+          <div class="feature-card"><img src="images/glyphs/glyph-holder-access-lock.png" alt="Access glyph" /><h3>Genesis Key</h3><p>Код для unlock-блока, который открывает руническое сообщение из LOCE Archive.</p></div>
+        </div>
+        <img class="banner-img" src="images/banners/genesis_receive_assets.png" alt="ZUBR Genesis holder receives assets" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section" id="guardians">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker"><span class="dot"></span> The First 20</div>
+            <h2 class="section-title">Genesis Guardians 001–020</h2>
+            <p class="lead">Первые 20 персонажей — визуальное ядро всей NFT-вселенной ZUBR.</p>
+          </div>
+        </div>
+        <img class="banner-img" src="images/banners/genesis_first20.png" alt="The First 20 ZUBR Genesis Guardians" loading="lazy" />
+        <div class="nft-grid" style="margin-top:22px;">
+
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_001_the_first_signal.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_001_the_first_signal.png" alt="ZUBR Genesis #001 — The First Signal" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#001</span>
+              <h3>The First Signal</h3>
+              <h4>Первый Сигнал</h4>
+              <p>Первый хранитель, который зажёг новый рынок после падения старой системы.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_002_the_risk_keeper.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_002_the_risk_keeper.png" alt="ZUBR Genesis #002 — The Risk Keeper" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#002</span>
+              <h3>The Risk Keeper</h3>
+              <h4>Хранитель Риска</h4>
+              <p>Следит за границами риска, стопами и дисциплиной входа.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_003_the_news_watcher.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_003_the_news_watcher.png" alt="ZUBR Genesis #003 — The News Watcher" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#003</span>
+              <h3>The News Watcher</h3>
+              <h4>Наблюдатель Новостей</h4>
+              <p>Сканирует шум новостей и отделяет угрозы от настоящих катализаторов.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_004_the_entry_smith.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_004_the_entry_smith.png" alt="ZUBR Genesis #004 — The Entry Smith" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#004</span>
+              <h3>The Entry Smith</h3>
+              <h4>Кузнец Входа</h4>
+              <p>Кует точку входа там, где хаос превращается в сетап.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_005_the_stop_guardian.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_005_the_stop_guardian.png" alt="ZUBR Genesis #005 — The Stop Guardian" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#005</span>
+              <h3>The Stop Guardian</h3>
+              <h4>Страж Стопа</h4>
+              <p>Охраняет сделку от лишнего риска и напоминает о защите капитала.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_006_the_profit_cartographer.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_006_the_profit_cartographer.png" alt="ZUBR Genesis #006 — The Profit Cartographer" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#006</span>
+              <h3>The Profit Cartographer</h3>
+              <h4>Картограф Профита</h4>
+              <p>Прокладывает маршрут к целям, частичным фиксациям и выходу.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_007_the_noise_hunter.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_007_the_noise_hunter.png" alt="ZUBR Genesis #007 — The Noise Hunter" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#007</span>
+              <h3>The Noise Hunter</h3>
+              <h4>Охотник за Шумом</h4>
+              <p>Выследил ложные сигналы и выжил в Пустыне Шума.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_008_the_candle_oracle.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_008_the_candle_oracle.png" alt="ZUBR Genesis #008 — The Candle Oracle" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#008</span>
+              <h3>The Candle Oracle</h3>
+              <h4>Оракул Свечей</h4>
+              <p>Читает структуру свечей, импульс и следы крупного игрока.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_009_the_liquidity_walker.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_009_the_liquidity_walker.png" alt="ZUBR Genesis #009 — The Liquidity Walker" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#009</span>
+              <h3>The Liquidity Walker</h3>
+              <h4>Идущий по Ликвидности</h4>
+              <p>Ищет уровни, где рынок забирает ликвидность перед движением.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_010_the_breakout_seer.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_010_the_breakout_seer.png" alt="ZUBR Genesis #010 — The Breakout Seer" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#010</span>
+              <h3>The Breakout Seer</h3>
+              <h4>Провидец Пробоя</h4>
+              <p>Видит пробой до того, как толпа признаёт движение.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_011_the_ice_gatekeeper.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_011_the_ice_gatekeeper.png" alt="ZUBR Genesis #011 — The Ice Gatekeeper" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#011</span>
+              <h3>The Ice Gatekeeper</h3>
+              <h4>Ледяной Привратник</h4>
+              <p>Охраняет проход через Ледяной Предел и первые земли-ячеики.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_012_the_aurora_builder.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_012_the_aurora_builder.png" alt="ZUBR Genesis #012 — The Aurora Builder" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#012</span>
+              <h3>The Aurora Builder</h3>
+              <h4>Строитель Авроры</h4>
+              <p>Создал маяки Aurora Cell для нового маршрута сигналов.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_013_the_cell_architect.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_013_the_cell_architect.png" alt="ZUBR Genesis #013 — The Cell Architect" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#013</span>
+              <h3>The Cell Architect</h3>
+              <h4>Архитектор Ячеек</h4>
+              <p>Проектирует Land Cells — карту скрытого мира ZUBR.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_014_the_market_monk.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_014_the_market_monk.png" alt="ZUBR Genesis #014 — The Market Monk" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#014</span>
+              <h3>The Market Monk</h3>
+              <h4>Рыночный Монах</h4>
+              <p>Хранит дисциплину, молчание и терпение до подтверждения.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_015_the_sentinel_trader.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_015_the_sentinel_trader.png" alt="ZUBR Genesis #015 — The Sentinel Trader" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#015</span>
+              <h3>The Sentinel Trader</h3>
+              <h4>Трейдер-Сентинел</h4>
+              <p>Стоит на границе сделки и проверяет каждый сигнал перед входом.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_016_the_black_ledger.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_016_the_black_ledger.png" alt="ZUBR Genesis #016 — The Black Ledger" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#016</span>
+              <h3>The Black Ledger</h3>
+              <h4>Чёрная Книга</h4>
+              <p>Записывает память старого рынка, ошибки, сделки и обвалы.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_017_the_compass_beast.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_017_the_compass_beast.png" alt="ZUBR Genesis #017 — The Compass Beast" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#017</span>
+              <h3>The Compass Beast</h3>
+              <h4>Зверь Компаса</h4>
+              <p>Навигатор по циклам, картам импульса и направлению рынка.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_018_the_signal_flame.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_018_the_signal_flame.png" alt="ZUBR Genesis #018 — The Signal Flame" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#018</span>
+              <h3>The Signal Flame</h3>
+              <h4>Пламя Сигнала</h4>
+              <p>Несёт огонь нового сигнала через пустыню и разрушенные рынки.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_019_the_silent_validator.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_019_the_silent_validator.png" alt="ZUBR Genesis #019 — The Silent Validator" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#019</span>
+              <h3>The Silent Validator</h3>
+              <h4>Тихий Валидатор</h4>
+              <p>Подтверждает сигнал без шума: только данные, риск и сценарий.</p>
+            </div>
+          </article>
+          <article class="nft-card">
+            <a href="images/nft/zubr_genesis_020_the_new_market_founder.png" target="_blank" rel="noopener">
+              <img src="images/nft/zubr_genesis_020_the_new_market_founder.png" alt="ZUBR Genesis #020 — The New Market Founder" loading="lazy" />
+            </a>
+            <div class="nft-body">
+              <span class="nft-num">#020</span>
+              <h3>The New Market Founder</h3>
+              <h4>Основатель Нового Рынка</h4>
+              <p>Финальный хранитель первой двадцатки. Символ нового рынка сигналов.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="land-cells">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker"><span class="dot"></span> Genesis Map</div>
+            <h2 class="section-title">Land Cells / Земли-ячейки</h2>
+            <p class="lead">Пять ключевых зон мира ZUBR: от ледяного маяка до нового рынка сигналов.</p>
+          </div>
+        </div>
+        <div class="land-grid">
+
+          <article class="land-card">
+            <img src="images/land-cells/zubr_land_cell_01_aurora_cell.png" alt="Land Cell 01 — Aurora Cell" loading="lazy" />
+            <div class="land-text">
+              <span>Land Cell 01</span>
+              <h3>Aurora Cell</h3>
+              <h4>Ячейка Авроры</h4>
+              <p>Ледяной предел, маяк и первая точка входа в новый мир ZUBR.</p>
+            </div>
+          </article>
+          <article class="land-card">
+            <img src="images/land-cells/zubr_land_cell_02_black_ledger_basin.png" alt="Land Cell 02 — Black Ledger Basin" loading="lazy" />
+            <div class="land-text">
+              <span>Land Cell 02</span>
+              <h3>Black Ledger Basin</h3>
+              <h4>Чаша Чёрной Книги</h4>
+              <p>Архив сделок, память старого рынка и база ошибок прошлого.</p>
+            </div>
+          </article>
+          <article class="land-card">
+            <img src="images/land-cells/zubr_land_cell_03_seraph_grid.png" alt="Land Cell 03 — Seraph Grid" loading="lazy" />
+            <div class="land-text">
+              <span>Land Cell 03</span>
+              <h3>Seraph Grid</h3>
+              <h4>Серафимская Сетка</h4>
+              <p>Сетка символов SERAEL, где язык превращается в структуру сигналов.</p>
+            </div>
+          </article>
+          <article class="land-card">
+            <img src="images/land-cells/zubr_land_cell_04_noise_desert.png" alt="Land Cell 04 — Noise Desert" loading="lazy" />
+            <div class="land-text">
+              <span>Land Cell 04</span>
+              <h3>Noise Desert</h3>
+              <h4>Пустыня Шума</h4>
+              <p>Зона ложных сигналов, инфошума и сценариев, которые ZUBR должен отфильтровать.</p>
+            </div>
+          </article>
+          <article class="land-card">
+            <img src="images/land-cells/zubr_land_cell_05_new_signal_market.png" alt="Land Cell 05 — New Signal Market" loading="lazy" />
+            <div class="land-text">
+              <span>Land Cell 05</span>
+              <h3>New Signal Market</h3>
+              <h4>Новый Рынок Сигналов</h4>
+              <p>Финальная цель: рынок, где сигнал проходит фильтр данных, новостей и защиты.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="language">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker"><span class="dot"></span> SERAEL / LOCE</div><h2 class="section-title">The Ancient Signal Language</h2></div></div>
+        <div class="two-grid">
+          <img class="banner-img" style="margin-top:0;" src="images/banners/genesis_language.png" alt="The Ancient Signal Language" loading="lazy" />
+          <img class="banner-img" style="margin-top:0;" src="images/banners/serael_codex_poster.png" alt="SERAEL Codex poster" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collection-structure">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker"><span class="dot"></span> Collection Structure</div><h2 class="section-title">999 + 999</h2><p class="lead">Финальная структура: основная Genesis-линия и подарочная Alphabet-линия.</p></div></div>
+        <div class="two-grid">
+          <img class="banner-img" style="margin-top:0;" src="images/banners/zubr_genesis_overview.png" alt="ZUBR Genesis overview" loading="lazy" />
+          <div class="text-card">
+            <h3>Final Drop Structure</h3>
+            <p><strong style="color:#8cffc1;">999 Genesis NFT</strong> — номерные цифровые хранители на базе первой визуальной вселенной ZUBR.</p>
+            <p style="margin-top:12px;"><strong style="color:#8cffc1;">999 Gift Alphabet NFT</strong> — подарочные NFT с SERAEL / LOCE Codex, отличающиеся номером.</p>
+            <p style="margin-top:12px;">NFT не является финансовым инструментом и не обещает прибыль. Это коллекционный артефакт, история и ранний символ участия в проекте.</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;"><a class="btn btn-primary" href="#unlock">Unlock Code</a><a class="btn btn-dark" href="index.html">Back to ZUBR AI</a></div>
+          </div>
+        </div>
+        <img class="banner-img" src="images/banners/full_zubr_experience.png" alt="The full ZUBR Experience" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section" id="unlock">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker"><span class="dot"></span> LOCE Archive</div><h2 class="section-title">Unlock your archive code</h2></div></div>
+        <div class="unlock">
+          <div class="unlock-box">
+            <h3>Введите Genesis-код</h3>
+            <p style="color:rgba(244,255,249,.66); line-height:1.62; margin-top:10px;">Демо-код для проверки: <strong style="color:#8cffc1;">ZUBR-001-GENESIS</strong></p>
+            <input id="unlockInput" placeholder="ZUBR-001-GENESIS" />
+            <button class="btn btn-primary" type="button" onclick="unlockArchive()">Unlock LOCE Archive</button>
+            <div class="unlock-result" id="unlockResult">
+              <strong style="color:#8cffc1;">Archive unlocked:</strong><br />
+              ᛋᛁᚷᚾᚨᛚ ◆ ᚨᚹᚨᚴᛖᚾᛋ<br />
+              The signal awakens. The holder enters the archive. Guard the risk. Follow the light beyond the noise.
+            </div>
+          </div>
+          <img class="banner-img" style="margin-top:0;" src="images/banners/nft_open.png" alt="NFT open and archive unlock" loading="lazy" />
+        </div>
+        <img class="banner-img" src="images/banners/genesis_access.png" alt="Holder access to ZUBR Archive" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 ZUBR AI. ZUBR Genesis NFT Universe / LOCE Archive. Not financial advice.</div>
+  </footer>
+
+  <script>
+    function unlockArchive() {
+      var input = document.getElementById('unlockInput').value.trim().toUpperCase();
+      var result = document.getElementById('unlockResult');
+      if (input === 'ZUBR-001-GENESIS' || input === 'ZUBR001GENESIS') { result.classList.add('show'); }
+      else { result.classList.add('show'); result.innerHTML = '<strong style="color:#ffb36b;">Code not recognized.</strong><br />Use demo code: ZUBR-001-GENESIS'; }
+    }
+  </script>
+</body>
+</html>
